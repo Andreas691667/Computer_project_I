@@ -1,0 +1,4 @@
+{
+    "board": "arduino:avr:micro",
+    "sketch": "Week 2\\Range_measurer_code.ino"
+}
