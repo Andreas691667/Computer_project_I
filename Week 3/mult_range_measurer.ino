@@ -30,25 +30,29 @@ void loop()
   left_input = analogRead(left_range_sensor);
 
 
-  // int front_input_cm = (front_input*5)/10;
-  // Serial.print(front_input_cm+margin); 
+  double front_input_cm = (front_input/6.4)*2.54;
+  double left_input_cm = (left_input/6.4)*2.54;
 
-  Serial.println(front_input);
-  Serial.println(left_input);  
+  //Serial.println(front_input_cm);
+  //Serial.println(left_input_cm);  
   Serial.println();
   
-  if (front_input+margin < 30 && front_input+margin > 0) {
+  if (front_input_cm+margin < 30 && front_input_cm+margin > 0) {
+    Serial.println("Robot is going backwards");
     TXLED0;
     delay(50);
     TXLED1;
     delay(50);
+    delay(2900);
   }
 
-  if (left_input+margin < 30 && left_input+margin > 0) {
+  if (left_input_cm+margin < 30 && left_input_cm+margin > 0) {
+    Serial.println("Robot is going right");
       digitalWrite(LED,HIGH);
     delay(50);
       digitalWrite(LED,LOW);
     delay(50);
+    delay(2900);
   }
 
   TXLED1; //green LED turned off by default  
