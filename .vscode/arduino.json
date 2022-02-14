@@ -1,5 +1,5 @@
 {
     "board": "arduino:avr:micro",
-    "sketch": "Week 2\\Range_measurer_code.ino",
+    "sketch": "Week 3\\mult_range_measurer.ino",
     "port": "COM6"
 }
