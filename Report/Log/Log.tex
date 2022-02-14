@@ -1,5 +1,6 @@
 \documentclass[12pt, letterpaper, twoside]{article}
 \usepackage[utf8]{inputenc}
+\usepackage{graphicx}
  
 \title{Log}
 \date{February 2022}
@@ -24,5 +25,27 @@ Today we added an ultra-sonic sensor to the circuits system to measure distance 
 
 \subsection{Errors}
 According to the datasheet\footnote{https://www.maxbotix.com/documents/LV-MaxSonar-EZ_Datasheet.pdf }  the sensor outputs an analog voltage of 9.8 mV/in from a 5V voltage supply.
+We succeeded at getting readings, but these were not the exact distance between the sensor and an obstacle. We made use of the data we received from the sensor which got printed as an output on the Arduino IDE screen.
+We assumed that our voltage input was the same as the distance to implement the see-think-act cycle. Even though this was not exactly the correct way to do this, it gave us an idea on how the Arduino worked with the sensors.
+
+\subsection{Remember for next week}
+We have not successfully come to a conclusion with the scaling factor.
+
+\section{Week 3}
+\subsection{Fault in Arduino}
+Our Arduino's yellow LED did not work, so we got another Arduino, but this Arduino would not connect to our computer, so we could not push our updated code to the new Arduino. So we went back to using the Arduino from before and implemented an external LED for sensor nr. 2.
+\subsection{Goal for today}
+The goal was to make multiple range sensors work so we could measure distance from more than one direction. We did so by connecting the external LED to sensor nr. 2 and connecting the built-in LED from the Arduino to sensor nr. 1.
+
+\subsection{Using multiple connections in a single system}
+To connect the two sensors we made a chain connection on the circuit system so the sensors would not intefere with eachother. We did this by looking at the datasheet which showed us the following:
+
+\begin{figure}[htbp]
+    \centerline{\includegraphics{Fig1.png}}
+    \caption{chain connection implemented on circuit system}
+    \label{fig}
+    \end{figure}
+
+
 
 \end{document}
