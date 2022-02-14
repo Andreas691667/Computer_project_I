@@ -20,24 +20,28 @@ void loop()
   Serial.print(range_input+2);
   Serial.println(" cm");
 
+  int margin = 2;
 
-  if (range_input+2 < 20 && range_input+2 > 0) {
+
+  if (range_input+margin < 20 && range_input+margin > 0) {
     TXLED0;
-    delay(100);
+    delay(50);
+    TXLED1;
+    delay(50);
   }
 
-  else if (range_input+2 < 30 && range_input+2 > 25) {
+  else if (range_input+margin < 30 && range_input+margin > 25) {
     TXLED0;
-    delay(100);
+    delay(333);
     TXLED1;
-    delay(100);
+    delay(333);
   } 
   
-  else if(range_input+2 < 25 && range_input+2 >20) {
+  else if(range_input+margin < 25 && range_input+margin >20) {
     TXLED0;
-    delay(333);
+    delay(1000);
     TXLED1;
-    delay(333);
+    delay(1000);
   }
 
   TXLED1; //LED turned off by default  
