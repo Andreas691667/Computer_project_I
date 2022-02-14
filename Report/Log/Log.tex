@@ -10,46 +10,46 @@
 \maketitle
  
 \section{Week 1}
-\subsection{Introduction}
-This week we were introduced to the course and the upcoming project we would be assigned to do.
+    \subsection{Introduction}
+        This week we were introduced to the course and the upcoming project we would be assigned to do.
 
-\subsection{Groups}
-We were told to make groups of three for next week. Since the other class was not here, we could not continue any further and class was dismissed...
+    \subsection{Groups}
+        We were told to make groups of three for next week. Since the other class was not here, we could not continue any further and class was dismissed...
  
 \section{Week 2}
-\subsection{Introduction to Arduino}
-This week we were introduced to programming on an Arduino. We used the Arduino IDE to write the code which would be deployed on an Arduino which was fixed to circuits system on a Breadboard.
+    \subsection{Introduction to Arduino}
+        This week we were introduced to programming on an Arduino. We used the Arduino IDE to write the code which would be deployed on an Arduino which was fixed to circuits system on a Breadboard.
 
-\subsection{Sensors}
-Today we added an ultra-sonic sensor to the circuits system to measure distance to an obstacle. The goal was to make the built-in LED blink for 1/10 of a second when an obstacle was less than 30 cm away but more than 25 cm away, 3/10 of a second when an obstacle was less then 25 cm away and more than 20 cm away and if the distance between the obstacle and the sensor was less than 20 cm away the LED should turn on constantly.
+    \subsection{Sensors}
+        Today we added an ultra-sonic sensor to the circuits system to measure distance to an obstacle. The goal was to make the built-in LED blink for 1/10 of a second when an obstacle was less than 30 cm away but more than 25 cm away, 3/10 of a second when an obstacle was less then 25 cm away and more than 20 cm away and if the distance between the obstacle and the sensor was less than 20 cm away the LED should turn on constantly.
 
-\subsection{Errors}
-According to the datasheet\footnote{https://www.maxbotix.com/documents/LV-MaxSonar-EZ_Datasheet.pdf }  the sensor outputs an analog voltage of 9.8 mV/in from a 5V voltage supply.
-We succeeded at getting readings, but these were not the exact distance between the sensor and an obstacle. We made use of the data we received from the sensor which got printed as an output on the Arduino IDE screen.
-We assumed that our voltage input was the same as the distance to implement the see-think-act cycle. Even though this was not exactly the correct way to do this, it gave us an idea on how the Arduino worked with the sensors.
+    \subsection{Errors}
+        According to the datasheet\footnote{https://www.maxbotix.com/documents/LV-MaxSonar-EZ_Datasheet.pdf }  the sensor outputs an analog voltage of 9.8 mV/in from a 5V voltage supply.
+        We succeeded at getting readings, but these were not the exact distance between the sensor and an obstacle. We made use of the data we received from the sensor which got printed as an output on the Arduino IDE screen.
+        We assumed that our voltage input was the same as the distance to implement the see-think-act cycle. Even though this was not exactly the correct way to do this, it gave us an idea on how the Arduino worked with the sensors.
 
-\subsection{Remember for next week}
-We have not successfully come to a conclusion with the scaling factor.
+    \subsection{Remember for next week}
+        We have not successfully come to a conclusion with the scaling factor.
 
 \section{Week 3}
-\subsection{Fault in Arduino}
-Our Arduino's yellow LED did not work, so we got another Arduino, but this Arduino would not connect to our computer, so we could not push our updated code to the new Arduino. So we went back to using the Arduino from before and implemented an external LED for sensor nr. 2.
-\subsection{Goal for today}
-The goal was to make multiple range sensors work so we could measure distance from more than one direction. We did so by connecting the external LED to sensor nr. 2 and connecting the built-in LED from the Arduino to sensor nr. 1.
+    \subsection{Fault in Arduino}
+        Our Arduino's yellow LED did not work, so we got another Arduino, but this Arduino would not connect to our computer, so we could not push our updated code to the new Arduino. So we went back to using the Arduino from before and implemented an external LED for sensor nr. 2.
+    \subsection{Goal for today}
+        The goal was to make multiple range sensors work so we could measure distance from more than one direction. We did so by connecting the external LED to sensor nr. 2 and connecting the built-in LED from the Arduino to sensor nr. 1.
 
-\subsection{Using multiple connections in a single system}
-To connect the two sensors we made a chain connection on the circuit system so the sensors would not intefere with eachother. We did this by looking at the datasheet which showed us the following:
+    \subsection{Using multiple connections in a single system}
+        To connect the two sensors we made a chain connection on the circuit system so the sensors would not intefere with eachother. We did this by looking at the datasheet which showed us the following:
 
-\begin{figure}[htbp]
-    \centerline{\includegraphics{Fig1.png}}
-    \caption{chain connection implemented on circuit system}
-    \label{fig}
-    \end{figure}
+        \begin{figure}[htbp]
+            \centerline{\includegraphics{Fig1.png}}
+            \caption{chain connection implemented on circuit system}
+            \label{fig}
+            \end{figure}
 
-We updated the code on the Arduino so that it said which direction it should go in. E.g. if sensor 1 = front sensor was getting close to an obstacle we would print "go backwards".
-This would lay the foundation for when we are getting wheels.
+        We updated the code on the Arduino so that it said which direction it should go in. E.g. if sensor 1 = front sensor was getting close to an obstacle we would print "go backwards".
+        This would lay the foundation for when we are getting wheels.
 
-\subsection{Remember for next week}
-We applied the scaling factor but the accuracy was not spot on.
+    \subsection{Remember for next week}
+        We applied the scaling factor but the accuracy was not spot on.
 
 \end{document}
