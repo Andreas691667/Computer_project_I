@@ -2,12 +2,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
  
-\title{Log}
-\date{February 2022}
 
 \begin{document}
- 
-\maketitle
+\input{Titlepage}
  
 \section{Week 1}
     \subsection{Introduction}
@@ -52,4 +49,20 @@
     \subsection{Remember for next week}
         We applied the scaling factor but the accuracy was not spot on.
 
+\section{Week 4}
+    \subsection{RGB Sensor}
+        The mission of this week was to integrate an RGB sensor in the setup built in the previous weeks (Arduino-Breadboard-RangeFinder). The purpose of RGB sensors is to read dark tags from the floor, simulating a victim, during navigation. If a reading is not conclusive, a movement simulation should be calculated to step back/forth for a new reading to confirm/deny the presence of the dark tag.
+    \subsection{Thoughts}
+        We set a boarder of random boarder of 30 lux which would represent a target.
+        If the sensor read between 30 - 40 lux the program was set to represent this as inconclusive and should simulate a step back/forth for a new reading to confirm/deny target.
+        This was just to get a base of the coding.
+        
+    \subsection{Setting boarders for when target is found}
+        The average value of illuminance in the room was calculated to 165 lx. These calculations were done while taking 36000 measurements and calculating the average of these.
+        
+        The average value of illuminance with a dark tag 3 cm over the sensor was calculated to 22 lx. The largest value was measured at 30 lx and lowest value was measured at 12 lx with a standard deviation of 2.64 lx.
+        These calculations were done while taking 49000 measurements and calculating the average of these.
+        
+        So we set the value of our average + standard deviation = 24.64 lx as our boarder of "this is definitely a target". And between this value and our max value + standard deviation = 32.64 lx would be our questionable measurement.
+        
 \end{document}
