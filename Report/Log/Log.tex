@@ -4,7 +4,7 @@
  
 
 \begin{document}
-\input{Titlepage}
+\input{Titlepage.tex}
  
 \section{Week 1}
     \subsection{Introduction}
@@ -21,7 +21,7 @@
         Today we added an ultra-sonic sensor to the circuits system to measure distance to an obstacle. The goal was to make the built-in LED blink for 1/10 of a second when an obstacle was less than 30 cm away but more than 25 cm away, 3/10 of a second when an obstacle was less then 25 cm away and more than 20 cm away and if the distance between the obstacle and the sensor was less than 20 cm away the LED should turn on constantly.
 
     \subsection{Errors}
-        According to the datasheet\footnote{https://www.maxbotix.com/documents/LV-MaxSonar-EZ_Datasheet.pdf }  the sensor outputs an analog voltage of 9.8 mV/in from a 5V voltage supply.
+        % According to the datasheet\footnote{https://www.maxbotix.com/documents/LV-MaxSonar-EZ_Datasheet.pdf}  the sensor outputs an analog voltage of 9.8 mV/in from a 5V voltage supply.
         We succeeded at getting readings, but these were not the exact distance between the sensor and an obstacle. We made use of the data we received from the sensor which got printed as an output on the Arduino IDE screen.
         We assumed that our voltage input was the same as the distance to implement the see-think-act cycle. Even though this was not exactly the correct way to do this, it gave us an idea on how the Arduino worked with the sensors.
 

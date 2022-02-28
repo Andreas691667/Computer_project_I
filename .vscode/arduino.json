@@ -1,5 +1,5 @@
 {
     "board": "arduino:avr:micro",
-    "sketch": "Week 4\\light_sensor.ino",
+    "sketch": "Week 4\\light_and_range_sensors.ino",
     "port": "COM3"
 }

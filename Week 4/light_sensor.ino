@@ -11,8 +11,10 @@ void loop () {
 
     float light_sensor_input = analogRead (light_sensor); //takes input from light sensor
 
-    /* If the luminance is less than 100 lx, the LED will turn on, and a screen message will be printed. */
-    if (light_sensor_input < 100) {
+    // Serial.println(light_sensor_input);
+
+    /* If the luminance is less than 30 lx, the LED will turn on, and a screen message will be printed. */
+    if (light_sensor_input < 30) {
         digitalWrite (LED_light_sensor, HIGH);
         Serial.println("Target has been found");     
         delay(1000); 
