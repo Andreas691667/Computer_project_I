@@ -6,7 +6,7 @@
 \usepackage{algorithmic}
 \usepackage{graphicx}
 \graphicspath{{img/}}
-
+\usepackage{float}
 \usepackage{textcomp}
 \usepackage{xcolor}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
@@ -66,11 +66,42 @@ For programming the Turtlebot we have been using Python and the command prompt w
 
 
     \subsection{Part 3}
-
+    As described, the Turtlebot is equipped with a LiDAR 360\textdegree laser sensor, which measures the distance.
+    It continuosly returns an array: 
+    \begin{displaymath}
+        dist = [d_0, d_1, \dots, d_{359}]
+    \end{displaymath}
+    where \(d_i\) is the distance to the nearest object at angle \(i\). 
+    We decided to look at a span of 120 degrees, which we divided into three distinct parts:
+    \begin{align*}
+        left &= [d_{15}, d_{16},\dots,d_{60}], \texttt{N=45} \\
+        front &= [d_{0},d_{1},\dots,d_{14}, d_{345}, d_{346},\dots, d_{359}], \texttt{N=30} \\
+        right &= [d_{300}, d_{301},\dots, d_{344}], \texttt{N=45}
+    \end{align*}
+    We decided to do this so the robot more often would \emph{turn} instead of just driving \emph{backwards}, 
+    since this supposedly would achieve an overall higher linear speed. \par
+    For the different cases of obstacles we have made several cases of \texttt{if-else} statements. 
+    The cases and the decisions in each case can be seen in the figure below. 
+    \begin{figure}[H]
+        \centering
+            \includegraphics*[scale = 0.5]{obstacle_cases.jpg}    
+    \end{figure}
 
     \subsection{Part 4}
 
 \section{Experiment setup and results}
+
+    \subsection{Part 1}
+
+
+    \subsection{Part 2}
+
+
+    \subsection{Part 3}
+    We decided to 
+
+
+    \subsection{Part 4}
 
 \section{Discussion}
 In this section of the report we will discuss some of the difficulties we encountered during the project.
@@ -83,6 +114,18 @@ Again, we have divided it into the four main parts of the project described earl
 
 
     \subsection{Part 3}
+    \begin{enumerate}
+        \item \textbf{Getting wrong sensor measurements} \\
+        We experienced quite a difficulty in getting the right measurements from the sensor.
+        We knew that it would return an array of size 360 with one distance for each angle. 
+        However, we couldn't figure out how they were indexed and our robot thus behaved incorrectly and sometimes
+        turned left when it should turn right. \\
+        \textbf{Solution}  \\
+        We solved the problem by manually printing out different test angles and then physically measure that angle also. 
+        For instance printing \texttt{scan\_ranges[45]} which gave some change in output distance for some specific angle, which we measured. 
+        In turned out that it our code should be reversed. 
+        \item \textbf{}
+    \end{enumerate}
 
 
     \subsection{Part 4}
