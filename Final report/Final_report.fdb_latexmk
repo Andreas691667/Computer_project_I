@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1651585214 "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final report/Final_report.tex" "Final_report.pdf" "Final_report" 1651585215
+["pdflatex"] 1651585647 "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final report/Final_report.tex" "Final_report.pdf" "Final_report" 1651585649
   "C:/Users/Andreas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1651057161 136886 13b03990c8332ac873f3265c1f537334 ""
   "C:/Users/Andreas/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1644768407 10244413 9950a3456d2583571166a5e6c15ad4e7 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -60,9 +60,11 @@
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/amsmath/amsopn.sty" 1636824343 4128 8eea906621b6639f7ba476a472036bbe ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/amsmath/amstext.sty" 1636824343 2444 926f379cc60fcf0c6e3fee2223b4370d ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/base/ifthen.sty" 1638775084 5157 f308c7c04889e16c588e78aa42599fae ""
+  "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/base/inputenc.sty" 1638775084 5049 969aec05d5f39c43f8005910498fcf90 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/base/textcomp.sty" 1638775084 2894 55431114fc0e491ecee275edafd6c881 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/cite/cite.sty" 1425353482 26218 19edeff8cdc2bcb704e8051dc55eb5a7 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1623003186 13886 d1306dcf79a944f6988e688c1785f9ce ""
+  "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/fancyhdr/fancyhdr.sty" 1612001844 17086 7ed8cbc4d361ec87392817e0dd4f65ec ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/float/float.sty" 1469023953 6916 16d2656a1984957e674b149555f1ea1d ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/graphics-cfg/color.cfg" 1465894292 1213 620bba36b25224fa9b7e1ccb4ecb76fd ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/graphics-cfg/graphics.cfg" 1465894292 1224 978390e9c2234eab29404bc21b268d1e ""
@@ -77,9 +79,9 @@
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ot1ptm.fd" 1585253778 1007 15056f4a61917ceed3a44e4ac11fcc52 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ts1ptm.fd" 1585253778 653 96f56dc5d1ef1fe1121f1cfeec70ee0c ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1636284872 56029 3f7889dab51d620aa43177c391b7b190 ""
-  "Final_report.aux" 1651585214 2084 9ff1f68f33b71a428f200b9681cd33a3 "pdflatex"
-  "Final_report.tex" 1651585211 5221 5a04a01e8ffbdec022e436b42b3418be ""
-  "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final report/Final_report.tex" 1651585211 5221 5a04a01e8ffbdec022e436b42b3418be ""
+  "Final_report.aux" 1651585648 2084 9ff1f68f33b71a428f200b9681cd33a3 "pdflatex"
+  "Final_report.tex" 1651585645 5434 857647540599f9d71ae223425b0226d1 ""
+  "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final report/Final_report.tex" 1651585645 5434 857647540599f9d71ae223425b0226d1 ""
   "img//obstacle_cases.jpg" 1651584694 56957 3e0887456fa6635a63f9525710a0e7c0 ""
   (generated)
   "Final_report.aux"
