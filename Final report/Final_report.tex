@@ -47,7 +47,7 @@ AU-id: au691667}
 \section{Introduction}
     Overall, the project can be divided into four parts with certain aim and objectives: 
     \begin{enumerate}
-        \item Understanding the basic concepts of robot programming by working with an Arduino - that is, the \emph{think-see-act cycle}. 
+        \item Understanding the basic concepts of robot programming by working with an Arduino - that is, the \emph{See-think-act cycle}. 
         Reading and analyzing data from Range sensor and RGB sensor.
         \item ROS Programming on Raspberry PI. Learning the structure that ROS provides and going through the beginner's tutorial. 
         \item Programming the robot to avoid obstacles. Then optimize the robot's performance both with respect to linear speed and collision avoidance.
@@ -70,7 +70,19 @@ For programming the Turtlebot we have been using Python and the command prompt w
     Design and implementation of the system.
 
     \subsection{Part 1}
-
+    We were to consider the \emph{See-think-act} cycle as can be seen in figure \ref{fig:See-think-act} below:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{think_see_act.png}
+        \caption{See-think-act cycle}
+        \label{fig:See-think-act}
+    \end{figure}
+    On our breadboard we connected the Arduino to which we connected the ultrasonic range finders and som LED's. 
+    The cycle was then implemented as follows: the range finder sensors \textbf{saw} any obstacle we put in front of it, and sent some data back to Arduino. 
+    This data was computed - that is the \textbf{think} step of the cycle. Then the \textbf{act} step was performed, which
+    in this case was the LED blinking. \\
+    Afterwards we extended the circuit to include three range finder sensors plus the RGB light sensor and four LED's. 
+    This thus acted as a simulation of the real Turtlebot, which we should work with in part 3. 
 
     \subsection{Part 2}
 
@@ -94,7 +106,9 @@ For programming the Turtlebot we have been using Python and the command prompt w
     The cases and the decisions in each case can be seen in the figure below. 
     \begin{figure}[H]
         \centering
-            \includegraphics*[scale = 0.5]{obstacle_cases.jpg}    
+            \includegraphics*[scale = 0.5]{obstacle_cases.jpg}   
+        \caption{Obstacle cases}
+        \label{fig:obstacle_cases}
     \end{figure}
 
     \subsection{Part 4}
@@ -143,6 +157,9 @@ Again, we have divided it into the four main parts of the project described earl
 \section{Personal contributions}
 
 \section{References}
+    \begin{itemize}
+        \item Course material from Brightspace.   
+    \end{itemize}
 
 
 

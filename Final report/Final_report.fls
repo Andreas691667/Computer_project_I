@@ -356,6 +356,14 @@ INPUT C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
 INPUT C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
 INPUT C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ts1ptm.fd
 INPUT C:\Users\Andreas\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8c.tfm
+INPUT .\img\\think_see_act.png
+INPUT .\img\\think_see_act.png
+INPUT img\\think_see_act.png
+INPUT .\img\\think_see_act.png
+OUTPUT Final_report.pdf
+INPUT .\img\\think_see_act.png
+INPUT .\img\\think_see_act.png
+INPUT .\img\\think_see_act.png
 INPUT C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ot1pcr.fd
 INPUT C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ot1pcr.fd
 INPUT C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex\latex\psnfss\ot1pcr.fd
@@ -367,7 +375,6 @@ INPUT .\img\\obstacle_cases.jpg
 INPUT .\img\\obstacle_cases.jpg
 INPUT img\\obstacle_cases.jpg
 INPUT .\img\\obstacle_cases.jpg
-OUTPUT Final_report.pdf
 INPUT .\img\\obstacle_cases.jpg
 INPUT .\img\\obstacle_cases.jpg
 INPUT .\img\\obstacle_cases.jpg
@@ -389,10 +396,11 @@ INPUT C:\Users\Andreas\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8
 INPUT C:\Users\Andreas\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmrc7t.vf
 INPUT C:\Users\Andreas\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmr8r.tfm
 INPUT C:\Users\Andreas\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr8c.vf
-INPUT C:\Users\Andreas\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\courier\pcrr7t.vf
-INPUT C:\Users\Andreas\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\courier\pcrr8r.tfm
+INPUT C:\Users\Andreas\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmr7t.vf
 INPUT C:\Users\Andreas\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\times\ptmb7t.vf
 INPUT C:\Users\Andreas\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\times\ptmb8r.tfm
+INPUT C:\Users\Andreas\AppData\Local\Programs\MiKTeX\fonts\vf\adobe\courier\pcrr7t.vf
+INPUT C:\Users\Andreas\AppData\Local\Programs\MiKTeX\fonts\tfm\adobe\courier\pcrr8r.tfm
 INPUT Final_report.aux
 INPUT C:\Users\Andreas\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\base\8r.enc
 INPUT C:\Users\Andreas\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi10.pfb
