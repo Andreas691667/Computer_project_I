@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2022.2.13)  8 MAY 2022 09:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2022.2.13)  8 MAY 2022 10:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -370,18 +370,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 198--199
 File: img//arduino_final.jpeg Graphic file (type jpg)
 <use img//arduino_final.jpeg>
 Package pdftex.def Info: img//arduino_final.jpeg  used on input line 205.
-(pdftex.def)             Requested size: 206.39685pt x 275.18365pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [2 <./img//obstacle_cases.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 252--253
-[]\OT1/ptm/m/n/10 Data sheet for Ul-tra-sonic Range Finder:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 252--253
-\OT1/ptm/m/it/10 https://www.maxbotix.com/documents/LV-MaxSonar-
+(pdftex.def)             Requested size: 154.80157pt x 206.39558pt.
+[2 <./img//obstacle_cases.jpg> <./img//arduino_final.jpeg>]
+Underfull \hbox (badness 1824) in paragraph at lines 263--264
+[]\OT1/ptm/m/n/10 Data sheet and spec-i-fi-ca-tions for Ul-tra-sonic Range
  []
 
 
@@ -395,17 +387,17 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[3 <./img//arduino_final.jpeg>] (Final_report.aux) ) 
+[3] (Final_report.aux) ) 
 Here is how much of TeX's memory you used:
- 6323 strings out of 478593
- 96952 string characters out of 2843660
- 712521 words of memory out of 3000000
- 24417 multiletter control sequences out of 15000+600000
- 509417 words of font info for 109 fonts, out of 8000000 for 9000
+ 6339 strings out of 478593
+ 97120 string characters out of 2843660
+ 713586 words of memory out of 3000000
+ 24428 multiletter control sequences out of 15000+600000
+ 514268 words of font info for 121 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,11n,62p,303b,1554s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,11n,62p,319b,1554s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Final_report.pdf (3 pages, 1296171 bytes).
+Output written on Final_report.pdf (3 pages, 1297838 bytes).
 PDF statistics:
  80 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

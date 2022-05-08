@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1645437177 "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Report/Log/Log.tex" "Log.pdf" "Log" 1645437178
-  "C:/Users/Andreas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1645106120 106678 8b910933a7c3e69a5972d4b9b73d29b5 ""
+["pdflatex"] 1651996362 "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Report/Log/Log.tex" "Log.pdf" "Log" 1651996363
+  "C:/Users/Andreas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1651057161 136886 13b03990c8332ac873f3265c1f537334 ""
   "C:/Users/Andreas/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1644768407 10244413 9950a3456d2583571166a5e6c15ad4e7 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx12.tfm" 1136765053 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmr12.tfm" 1136765053 1288 655e228510b4c2a1abe905c368440826 ""
@@ -22,10 +22,10 @@
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/graphics/trig.sty" 1639593011 4009 187ea2dc3194cd5a76cd99a8d7a6c4d0 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/l3backend/l3backend-pdftex.def" 1641982930 29921 f0f4f870357ebfb8fe58ed9ed4ee9b92 ""
   "Fig1.png" 1644834498 609641 bb96dbc8141d29c80826d969b75ec626 ""
-  "Log.aux" 1645437178 2021 34662f8e46fe2e2e11937ec70915cce7 "pdflatex"
-  "Log.tex" 1645437092 5149 9c17a93370bf8a15941bbd2c297057f6 ""
+  "Log.aux" 1651996363 3533 434ff918327c023ba3393c20ca566e98 "pdflatex"
+  "Log.tex" 1651485801 8063 fff540272cbe32d7359d03574c169ced ""
   "Titlepage.tex" 1645437167 815 3e42e117d456a6af972e0370164300eb ""
-  "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Report/Log/Log.tex" 1645437092 5149 9c17a93370bf8a15941bbd2c297057f6 ""
+  "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Report/Log/Log.tex" 1651485801 8063 fff540272cbe32d7359d03574c169ced ""
   (generated)
   "Log.aux"
   "Log.log"

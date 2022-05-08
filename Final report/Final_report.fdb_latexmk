@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1651995457 "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final report/Final_report.tex" "Final_report.pdf" "Final_report" 1651995458
+["pdflatex"] 1651997938 "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final report/Final_report.tex" "Final_report.pdf" "Final_report" 1651997940
   "C:/Users/Andreas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1651057161 136886 13b03990c8332ac873f3265c1f537334 ""
   "C:/Users/Andreas/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1644768407 10244413 9950a3456d2583571166a5e6c15ad4e7 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -25,10 +25,13 @@
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1233951854 940 228d6584342e91276bf566bcf9716b83 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmex10.tfm" 1136765053 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi10.tfm" 1136765053 1528 abec98dbc43e172678c11b3b9031252a ""
+  "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi6.tfm" 1136765053 1512 f21f83efb36853c0b70002322c1ab3ad ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi8.tfm" 1136765053 1520 eccf95517727cb11801f4f1aee3a21b4 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmr10.tfm" 1136765053 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
+  "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmr6.tfm" 1136765053 1300 b62933e007d01cfd073f79b963c01526 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmr8.tfm" 1136765053 1292 21c1c5bfeaebccffdb478fd231a0997d ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy10.tfm" 1136765053 1124 6c73e740cf17375f03eec0ee63599741 ""
+  "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy6.tfm" 1136765053 1116 933a60c408fc0a863a92debe84b2d294 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy8.tfm" 1136765053 1120 8b7d695260f3cff42e636090a8002094 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1247596667 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1247596667 36281 c355509802a035cadc5f15869451dcee ""
@@ -87,9 +90,9 @@
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ot1ptm.fd" 1585253778 1007 15056f4a61917ceed3a44e4ac11fcc52 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ts1ptm.fd" 1585253778 653 96f56dc5d1ef1fe1121f1cfeec70ee0c ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1636284872 56029 3f7889dab51d620aa43177c391b7b190 ""
-  "Final_report.aux" 1651995458 2551 884d28c32e3bd4debad135ed013630be "pdflatex"
-  "Final_report.tex" 1651995452 10444 27baa982008242ce431dffe86aeeba4c ""
-  "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final report/Final_report.tex" 1651995452 10444 27baa982008242ce431dffe86aeeba4c ""
+  "Final_report.aux" 1651997940 2595 adc479db7c1293578d07364be19ccd46 "pdflatex"
+  "Final_report.tex" 1651997935 11936 651211d6c9377f293dcb1839ada133a7 ""
+  "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final report/Final_report.tex" 1651997935 11936 651211d6c9377f293dcb1839ada133a7 ""
   "img//arduino_final.jpeg" 1651995424 1024348 960ac7c53f8d76b6a9c741c6853a66a9 ""
   "img//obstacle_cases.jpg" 1651584694 56957 3e0887456fa6635a63f9525710a0e7c0 ""
   "img//see_think_act.png" 1651990769 80177 75dd28577e6d640876542c2be946fd50 ""

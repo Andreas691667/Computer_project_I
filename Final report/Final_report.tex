@@ -56,14 +56,14 @@
 
 \title{Computer Project I -- Final Report} 
 
-\author{\IEEEauthorblockN{1\textsuperscript{st} Asger Song}
-\IEEEauthorblockA{\textit{Aarhus University} \\
+\author{\IEEEauthorblockN{1\textsuperscript{st} Asger Høøck Song Poulsen }
+\IEEEauthorblockA{\textit{Undergraduates at Aarhus University,} \\
 \textit{Dept. of electrical and computer engineering}\\
 Study number: \\
 AU-id: }
 \and
 \IEEEauthorblockN{2\textsuperscript{nd} Andreas Kaag Thomsen}
-\IEEEauthorblockA{\textit{Aarhus University} \\
+\IEEEauthorblockA{\textit{Undergraduates at Aarhus University,} \\
 \textit{Dept. of electrical and computer engineering}\\
 Study number: 202105844 \\
 AU-id: au691667}
@@ -202,14 +202,25 @@ The RGB sensor returned one value measured in lux for the luminance. If the lumi
 one LED was turned on. With everything connected as described above, our final circuit is depicted in figure \ref{fig:arduino_final} below.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.4\textwidth]{arduino_final.jpeg}
-    \caption{Final circuit}
+    \includegraphics[width=0.3\textwidth, angle = 90]{arduino_final.jpeg}
+    \caption{Final Arduino circuit}
     \label{fig:arduino_final}
 \end{figure}
 
     \subsection{Part 2}
+    As mentioned we followed the ROS beginner's tutorial in which we installed ROS using several commands. 
+    We got stuck in part 2 of the tutorial, so we decided to go back to the beginning and reinstall everything.
+    After doing this, we were able to complete all the steps from 1 through 17. 
+    We got a deeper understanding of how the ROS system is structured and learned several ROS-related commands. 
+    We will explain the most essential for our further work with the Turtlebot below\footnote{These definitions are taken from the ROS beginner's tutorial, which is linked in section \ref{sec:References}}:
+    \begin{enumerate}
+        \item \textbf{roscore}: roscore is a collection of nodes and programs that are pre-requisites of a ROS-based system. You must have a roscore running in order for ROS nodes to communicate.
+        \item \textbf{rosrun}: rosrun allows you to run an executable in an arbitrary package from anywhere without having to give its full path. 
+        \item \textbf{source}: When opening a new terminal your environment is reset and you are obliged to use the \texttt{source} command to re-source the .bashrc file. 
+        \item \textbf{nano}: nano is a text editor that is used to edit files. We used it to edit our code files directly in the terminal.
+    \end{enumerate}
 
-
+ 
     \subsection{Part 3}
     We decided to 
 
@@ -245,11 +256,12 @@ Again, we have divided it into the four main parts of the project described earl
 
 \section{Personal contributions}
 
-\section{References}
+\section{References}\label{sec:References}
     \begin{itemize}
         \item Course material from Brightspace.   
         \item ROS beginner's tutorial: \emph{http://wiki.ros.org/ROS/Tutorials}
-        \item Data sheet for Ultrasonic Range Finder: \emph{https://www.maxbotix.com/documents/LV-MaxSonar-EZ\_Datasheet.pdf}
+        \item Data sheet and specifications for Ultrasonic Range Finder: \emph{shorturl.at/cBHN1}
+        \item Data sheet and specifications for RGB light sensor: \\ \emph{shorturl.at/htEP8}
     \end{itemize}
 
 
