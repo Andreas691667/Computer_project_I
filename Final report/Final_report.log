@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2022.2.13)  8 MAY 2022 10:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2022.2.13)  9 MAY 2022 12:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -356,23 +356,18 @@ File: omlptm.fd
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <8> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 166.
-
-Underfull \hbox (badness 1454) in paragraph at lines 198--199
-\OT1/ptm/m/n/10 Now we had the cor-rect mea-sure-ments which we also
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 198--199
-
- []
-
 <img//arduino_final.jpeg, id=19, 1541.76pt x 2055.68pt>
 File: img//arduino_final.jpeg Graphic file (type jpg)
 <use img//arduino_final.jpeg>
-Package pdftex.def Info: img//arduino_final.jpeg  used on input line 205.
+Package pdftex.def Info: img//arduino_final.jpeg  used on input line 204.
 (pdftex.def)             Requested size: 154.80157pt x 206.39558pt.
-[2 <./img//obstacle_cases.jpg> <./img//arduino_final.jpeg>]
-Underfull \hbox (badness 1824) in paragraph at lines 263--264
+ [2 <./img//obstacle_cases.jpg> <./img//arduino_final.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
+
+ []
+
+
+Underfull \hbox (badness 1824) in paragraph at lines 265--266
 []\OT1/ptm/m/n/10 Data sheet and spec-i-fi-ca-tions for Ul-tra-sonic Range
  []
 
@@ -389,17 +384,17 @@ Before submitting the final camera ready copy, remember to:
 
 [3] (Final_report.aux) ) 
 Here is how much of TeX's memory you used:
- 6339 strings out of 478593
- 97120 string characters out of 2843660
- 713586 words of memory out of 3000000
- 24428 multiletter control sequences out of 15000+600000
- 514268 words of font info for 121 fonts, out of 8000000 for 9000
+ 6344 strings out of 478593
+ 97165 string characters out of 2843660
+ 712586 words of memory out of 3000000
+ 24430 multiletter control sequences out of 15000+600000
+ 515298 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,11n,62p,319b,1554s stack positions out of 5000i,500n,10000p,200000b,80000s
-{C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Final_report.pdf (3 pages, 1297838 bytes).
+ 55i,11n,62p,319b,1562s stack positions out of 5000i,500n,10000p,200000b,80000s
+{C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Final_report.pdf (3 pages, 1305556 bytes).
 PDF statistics:
- 80 PDF objects out of 1000 (max. 8388607)
+ 85 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  22 words of extra memory for PDF output out of 10000 (max. 10000000)
 

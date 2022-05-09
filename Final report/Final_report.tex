@@ -162,7 +162,7 @@ void setup()
 } \end{lstlisting}
 In the control loop we updated \texttt{range\_input} with the value read from the sensor with using the \texttt{analogRead} function.
 Through a series of \texttt{if-else} statements we made the LED blink with different intervals for different distances:
-\begin{lstlisting}[style = CStyle]
+\begin{lstlisting}[style = CStyle, caption = \texttt{else-if} statements for Arduino]
 if (range_input+margin < 20 && range_input+margin > 0) {
     TXLED0;
     delay(50);
@@ -183,20 +183,19 @@ else if(range_input+margin < 25 && range_input+margin >20) {
     TXLED1;
     delay(1000);
 }
-
-TXLED1; //LED turned off by default  \end{lstlisting}
+TXLED1; //LED turned off by default  
+\end{lstlisting}
 
 Afterwards we extended the circuit to include three range sensors in the same way as above. 
 We discovered that our measurements at first were wrong since we did not convert the input values to distances. 
 Looking at the equipment specifications we found out that the sensor uses a scaling factor of \(6.4 \frac{mV}{inch}\). 
 By dividing the analog input with this scaling factor, a measurement in inches is calculated. Afterwards, this is multiplied by \(2.54 \frac{cm}{inch}\).
-\begin{lstlisting}[style = CStyle]
+\begin{lstlisting}[style = CStyle, caption = Calculations of ranges]
 front_input_cm = (front_input/6.4)*2.54;
 left_input_cm = (left_input/6.4)*2.54;
 right_input_cm = (right_input/6.4)*2.54;
 \end{lstlisting}
 Now we had the correct measurements which we also manually confirmed with a ruler. \\
-
 Lastly we also implemented the RGB light sensor on the breadboard, which was intialized in the same way as the range sensors. 
 The RGB sensor returned one value measured in lux for the luminance. If the luminance was less than 30,
 one LED was turned on. With everything connected as described above, our final circuit is depicted in figure \ref{fig:arduino_final} below.
@@ -248,11 +247,14 @@ Again, we have divided it into the four main parts of the project described earl
         We solved the problem by manually printing out different test angles and then physically measure that angle also. 
         For instance printing \texttt{scan\_ranges[45]} which gave some change in output distance for some specific angle, which we measured. 
         In turned out that it our code should be reversed. 
-        \item \textbf{}
+        
     \end{enumerate}
 
 
     \subsection{Part 4}
+    \begin{enumerate}
+        \item \textbf{Structuring the \texttt{else-if} statements} \\
+    \end{enumerate}
 
 \section{Personal contributions}
 
