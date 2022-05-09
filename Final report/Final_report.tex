@@ -153,13 +153,14 @@ For programming the Turtlebot we have been using Python and the command prompt w
 
     \subsection{Part 1}
     We connected the Range sensor the Arduino and intialized it as follows:
-    \begin{lstlisting}[style = CStyle]        
+    \begin{lstlisting}[style = CStyle, caption = Initialization of variables]        
 int SENSOR = A0; //range sensor connected to port A0
 double range_input = 0; //variable for storing input values
 void setup()
 {
   pinMode(SENSOR,INPUT); //sensor declarared as an input
-} \end{lstlisting}
+} 
+\end{lstlisting}
 In the control loop we updated \texttt{range\_input} with the value read from the sensor with using the \texttt{analogRead} function.
 Through a series of \texttt{if-else} statements we made the LED blink with different intervals for different distances:
 \begin{lstlisting}[style = CStyle, caption = \texttt{else-if} statements for Arduino]
@@ -221,19 +222,34 @@ one LED was turned on. With everything connected as described above, our final c
 
  
     \subsection{Part 3}
-    We decided to 
+    In this part we are going to describe our initial implementation. The optimization we did, will be described in part 4. \\
+
+\begin{lstlisting}[style = Cstyle, caption = My example]
+import rospy as rp
+else:
+    left_lidar_samples_ranges = 60
+    right_lidar_samples_ranges = 345
+    front_lidar_samples_ranges = 15
+\end{lstlisting}
 
 
     \subsection{Part 4}
 
 \section{Discussion}
 In this section of the report we will discuss some of the difficulties we encountered during the project.
+We are also going to discuss whether or not we reached our goal.
 Again, we have divided it into the four main parts of the project described earlier. 
 
     \subsection{Part 1}
+    \begin{enumerate}
+        \item \textbf{Preparation to main project} \\
+    \end{enumerate}
 
 
     \subsection{Part 2}
+    \begin{enumerate}
+        \item \textbf{Understanding the ROS structure} \\
+    \end{enumerate}
 
 
     \subsection{Part 3}
@@ -256,7 +272,7 @@ Again, we have divided it into the four main parts of the project described earl
         \item \textbf{Structuring the \texttt{else-if} statements} \\
     \end{enumerate}
 
-\section{Personal contributions}
+% \section{Personal contributions}
 
 \section{References}\label{sec:References}
     \begin{itemize}
