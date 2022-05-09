@@ -123,14 +123,14 @@ For programming the Turtlebot we have been using Python and the command prompt w
     As described, the Turtlebot is equipped with a LiDAR 360\textdegree laser sensor, which measures the distance.
     It continuosly returns an array: 
     \begin{displaymath}
-        dist = [d_0, d_1, \dots, d_{359}]
+        \texttt{dist} = [d_0, d_1, \dots, d_{359}]
     \end{displaymath}
     where \(d_i\) is the distance to the nearest object at angle \(i\). 
     We decided to look at a span of 120 degrees, which we divided into three distinct parts:
     \begin{align*}
-        left &= [d_{15}, d_{16},\dots,d_{60}], \texttt{N=45} \\
-        front &= [d_{0},d_{1},\dots,d_{14}, d_{345}, d_{346},\dots, d_{359}], \texttt{N=30} \\
-        right &= [d_{300}, d_{301},\dots, d_{344}], \texttt{N=45}
+        \texttt{left}  &= [d_{15}, d_{16},\dots,d_{60}], \texttt{N=45} \\
+        \texttt{front} &= [d_{0},d_{1},\dots,d_{14}, d_{345}, d_{346},\dots, d_{359}], \texttt{N=30} \\
+        \texttt{right} &= [d_{300}, d_{301},\dots, d_{344}], \texttt{N=45}
     \end{align*}
     We decided to do this so the robot more often would \emph{turn} instead of just driving \emph{backwards}, 
     since this supposedly would achieve an overall higher linear speed. \par

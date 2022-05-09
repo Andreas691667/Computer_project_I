@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2022.2.13)  9 MAY 2022 13:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2022.2.13)  9 MAY 2022 14:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -327,14 +327,14 @@ Overfull \hbox (6.0pt too wide) in paragraph at lines 107--108
  [][] 
  []
 
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 134.
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 126.
 (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 ) [1{C:/Users/Andreas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
 
 
  <./img//see_think_act.png>]
-<img//obstacle_cases.jpg, id=17, 441.44925pt x 464.937pt>
+<img//obstacle_cases.jpg, id=18, 441.44925pt x 464.937pt>
 File: img//obstacle_cases.jpg Graphic file (type jpg)
 <use img//obstacle_cases.jpg>
 Package pdftex.def Info: img//obstacle_cases.jpg  used on input line 141.
@@ -356,7 +356,7 @@ File: omlptm.fd
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <8> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 167.
-<img//arduino_final.jpeg, id=19, 1541.76pt x 2055.68pt>
+<img//arduino_final.jpeg, id=20, 1541.76pt x 2055.68pt>
 File: img//arduino_final.jpeg Graphic file (type jpg)
 <use img//arduino_final.jpeg>
 Package pdftex.def Info: img//arduino_final.jpeg  used on input line 205.
@@ -409,13 +409,13 @@ Before submitting the final camera ready copy, remember to:
 Here is how much of TeX's memory you used:
  6358 strings out of 478593
  97419 string characters out of 2843660
- 711702 words of memory out of 3000000
+ 711695 words of memory out of 3000000
  24444 multiletter control sequences out of 15000+600000
  515298 words of font info for 125 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,11n,62p,311b,1550s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Final_report.pdf (3 pages, 1307735 bytes).
+Output written on Final_report.pdf (3 pages, 1306019 bytes).
 PDF statistics:
  85 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
