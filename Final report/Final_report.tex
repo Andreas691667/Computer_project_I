@@ -19,7 +19,7 @@
 \definecolor{mPurple}{rgb}{0.58,0,0.82}
 \definecolor{backgroundColour}{rgb}{0.95,0.95,0.92}
 
-\lstdefinestyle{CStyle}{
+\lstdefinestyle{my_python}{
     backgroundcolor=\color{backgroundColour},   
     commentstyle=\color{mGreen},
     keywordstyle=\color{magenta},
@@ -31,12 +31,13 @@
     captionpos=b,                    
     keepspaces=true,                 
     numbers=left,                    
-    numbersep=5pt,                  
+    numbersep=2pt,                  
     showspaces=false,                
     showstringspaces=false,
     showtabs=false,                  
-    tabsize=2,
-    language=C
+    tabsize=1,
+    language=Python
+    % basicstyle = \tiny
 }
 
 
@@ -59,8 +60,8 @@
 \author{\IEEEauthorblockN{1\textsuperscript{st} Asger Høøck Song Poulsen }
 \IEEEauthorblockA{\textit{Undergraduates at Aarhus University,} \\
 \textit{Dept. of electrical and computer engineering}\\
-Study number: \\
-AU-id: }
+Study number: 202106630\\
+AU-id: au704738}
 \and
 \IEEEauthorblockN{2\textsuperscript{nd} Andreas Kaag Thomsen}
 \IEEEauthorblockA{\textit{Undergraduates at Aarhus University,} \\
@@ -78,8 +79,8 @@ AU-id: au691667}
 \section{Introduction}
     Overall, the project can be divided into four parts with certain aim and objectives: 
     \begin{enumerate}
-        \item Understanding the basic concepts of robot programming by working with an Arduino - that is, the \emph{See-think-act cycle}. 
-        Reading and analyzing data from Range sensor and RGB sensor.
+        \item Understanding the basic concepts of robotics programming by working with an Arduino - that is, the \emph{See-think-act cycle}. 
+        Reading and analyzing data from a range sensor and RGB sensor.
         \item ROS Programming on Raspberry PI. Learning the structure that ROS provides and going through the beginner's tutorial. 
         \item Programming the robot to avoid obstacles. Then optimize the robot's performance both with respect to linear speed and collision avoidance.
         \item Finalizing the code and testing the robot on an obstacle course. 
@@ -138,14 +139,14 @@ For programming the Turtlebot we have been using Python and the command prompt w
     The cases and the decisions in each case can be seen in the figure below. 
     \begin{figure}[H]
         \centering
-            \includegraphics*[scale = 0.5]{obstacle_cases.jpg}   
+            \includegraphics*[scale = 0.5]{obstacle_cases.png}   
         \caption{Obstacle cases}
         \label{fig:obstacle_cases}
     \end{figure}
 
     \subsection{Part 4}
     In the last part of the course we should test the robot on an arbitrary course of obstacles.
-    We did, however, test the robot continuosly in part 3, so we focused this part on optimizing the existing code.
+    We did, however, test the robot continuosly in part 3, so we focused this part on optimizing the existing code. The goal for the optimization part of this course was to maintain the linear speed as high as possible and the number of collisions as low as possible.
     This will be elaborated in the next section.   
      
 
@@ -153,7 +154,7 @@ For programming the Turtlebot we have been using Python and the command prompt w
 
     \subsection{Part 1}
     We connected the Range sensor the Arduino and intialized it as follows:
-    \begin{lstlisting}[style = CStyle, caption = Initialization of variables]        
+    \begin{lstlisting}[style = my_python, caption = Initialization of variables]        
 int SENSOR = A0; //range sensor connected to port A0
 double range_input = 0; //variable for storing input values
 void setup()
@@ -163,7 +164,7 @@ void setup()
 \end{lstlisting}
 In the control loop we updated \texttt{range\_input} with the value read from the sensor with using the \texttt{analogRead} function.
 Through a series of \texttt{if-else} statements we made the LED blink with different intervals for different distances:
-\begin{lstlisting}[style = CStyle, caption = \texttt{else-if} statements for Arduino]
+\begin{lstlisting}[style = my_python, caption = \texttt{else-if} statements for Arduino, basicstyle = \footnotesize]
 if (range_input+margin < 20 && range_input+margin > 0) {
     TXLED0;
     delay(50);
@@ -191,7 +192,7 @@ Afterwards we extended the circuit to include three range sensors in the same wa
 We discovered that our measurements at first were wrong since we did not convert the input values to distances. 
 Looking at the equipment specifications we found out that the sensor uses a scaling factor of \(6.4 \frac{mV}{inch}\). 
 By dividing the analog input with this scaling factor, a measurement in inches is calculated. Afterwards, this is multiplied by \(2.54 \frac{cm}{inch}\).
-\begin{lstlisting}[style = CStyle, caption = Calculations of ranges]
+\begin{lstlisting}[style = my_python, caption = Calculations of ranges, basicstyle = \footnotesize]
 front_input_cm = (front_input/6.4)*2.54;
 left_input_cm = (left_input/6.4)*2.54;
 right_input_cm = (right_input/6.4)*2.54;
@@ -223,17 +224,179 @@ one LED was turned on. With everything connected as described above, our final c
  
     \subsection{Part 3}
     In this part we are going to describe our initial implementation. The optimization we did, will be described in part 4. \\
-
-\begin{lstlisting}[style = Cstyle, caption = My example]
-import rospy as rp
-else:
-    left_lidar_samples_ranges = 60
-    right_lidar_samples_ranges = 345
-    front_lidar_samples_ranges = 15
+    We were given a robot navigation example from a GitHub repository from where we were to get inspiration and further implement our own robot navigation. The idea of the initial example was to: \emph{Drive forward until we get close to an obstacle, then stop}. \\
+    For case \(1\) we initially programmed the robot to back out of the blind alley for  and then turn around:
+\begin{lstlisting}[style = my_python, caption = Case 1, basicstyle = \footnotesize]
+if (right_distance < SAFE_STOP_DISTANCE and left_distance < SAFE_STOP_DISTANCE and front_distance < SAFE_STOP_DISTANCE):
+    if turtlebot_moving:
+        twist.linear.x = -LINEAR_VEL
+        twist.angular.z = 0.0
+        self._cmd_pub.publish(twist)
+        rospy.loginfo('Turning backwards for 1 second')
+        t.sleep(1.0)
+        twist.linear.x = 0.0
+        twist.angular.z = 3.14/2
+        self._cmd_pub.publish(twist)
+        rospy.loginfo('Turning around')
+        t.sleep(1.0)
+        turtlebot_moving = False
+\end{lstlisting}
+    For case \(2\) the robot was programmed to look to the left and right respectively and then turn in the opposite direction of the closest obstacle:
+\begin{lstlisting}[style = my_python, caption = Case 2, basicstyle = \footnotesize]
+elif (front_distance < SAFE_STOP_DISTANCE + 0.05):
+    if turtlebot_moving:
+        if (right_distance < left_distance):
+            small_turns('left', turn_angle + 0.2)
+        elif(left_distance < right_distance):
+            small_turns('right', turn_angle + 0.2)
+\end{lstlisting}
+    Lastly, for case \(3\) and \(4\): If an obstacle on the left is within the \texttt{SAFE\_STOP\_DISTANCE} turn right and vice versa.
+\begin{lstlisting}[style = my_python, caption = Case 3 \& 4, basicstyle = \footnotesize]
+elif(left_distance < SAFE_STOP_DISTANCE or right_distance < SAFE_STOP_DISTANCE):
+    if turtlebot_moving:
+        if(right_distance < left_distance):
+            small_turns('left', turn_angle)
+        else:
+            small_turns('right', turn_angle)
 \end{lstlisting}
 
-
     \subsection{Part 4}
+    In this part we are going to describe the changes we applied to the code setup from part 3 and the results we got. \\
+    \subsubsection{Adding a \texttt{factor} to \texttt{SAFE\_STOP\_DISTANCE}}
+    We experienced that when the robot encountered an obstacle on its front it did not manage to avoid it optimally. 
+    We thus added a factor of \(0.08\)cm to the \texttt{SAFE\_STOP\_DISTANCE} constant in this case. By doing this, the robot began avoiding the obstacle earlier, 
+    and thus it was able to avoid it more optimally. \\
+    
+    \subsubsection{Making sure to avoid the obstacle before next iteration}\label{subsec:avoid_obstacle}
+    We wanted to make sure that the robot actualy avoided the obstacle before the next control loop iteration.
+    We did this by adding a \texttt{while}-loop to each case:
+\begin{lstlisting}[style = my_python, caption = \texttt{while}-loops for obstacle avoidance, basicstyle = \footnotesize, label=lst:while_loops]
+elif(front\_left\_distance < SAFE_STOP_DISTANCE+0.15 or front_right_distance < SAFE_STOP_DISTANCE+0.15):
+# case 1: obstacle in front
+if (front_distance < SAFE_STOP_DISTANCE + 0.08):
+    print('obstacle in front')
+    # look ahead:
+    if turtlebot_moving:
+        if (right_distance < left_distance):
+            while(front_distance < SAFE_STOP_DISTANCE + factor):
+                small_turns('left', 'angular vel', 'linear vel.')
+                front_new = self.get_scan()
+                non_zeros(front_new)
+                emergency_check(front_new)
+                front_distance = np.mean(front_new[1] + front_new[2]) \end{lstlisting}
+    By doing this we ensured that the robot would not stop avoiding the obstacle before it had actually escaped it.
+    Note that the 2nd and 3rd argument in the \texttt{small\_turns} function are written in pseudo-code since we did further optimizations, which will be described in subsection \ref{subsec:optimize_linear_speed}. 
+    Same goes for the variable \texttt{factor}, which was described in the subsection before. The function \texttt{emergency\_check} will also be described in subsection \ref{subsec:emergency_check}.
+    For each loop iteration we made a new laser scan and checked if the robot was within the \texttt{SAFE\_STOP\_DISTANCE+factor}. If it is, we called the \texttt{small\_turns} function,
+    and turned the robot in the opposite direction of the closest obstacle as normally.     
+
+    \subsubsection{Checking the blind angles}
+    In addition to the three directions we had already implemented, we decided to focus on two more directions; the so-called blind angles.
+    These were meant to make the robot able to avoid an obstacle if it was only slightly in front of it, but not so much that the average would get low enough. 
+    We calculated these by measuring the minimal distance between two obstacles that robot could drive through - that is, the width of the robot, which we measured to be \(20\)cm.
+    We wanted the robot to begin avoiding the obstacles at the blind angles from a distance of \(40\)cm. We got the result as depicted in figure \ref{fig:blind_angle}. 
+    We also wanted these angles to be very narrow such that the robot would be able to detect even a small corner of some obstacle. For this reason we only looked at a span of \(8\) degrees. 
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{blind_angle.png}
+    \caption{Blind angles}
+    \label{fig:blind_angle}
+    \end{figure}
+    We thus included the following code in our function \texttt{get\_scan()}:
+    \begin{lstlisting}[style = my_python, caption = Blind angles in \texttt{get\_scan()}, basicstyle = \footnotesize]
+front_left_lidar_samples = scan.ranges[14:22]
+front_right_lidar_samples = scan.ranges[338:346]
+
+scan_filter.append(front_left_lidar_samples)
+scan_filter.append(front_right_lidar_samples) \end{lstlisting}
+    In addition to this, we added an extra case (named case 3) for checking these blind angles. This was implemented in the exact same way as desribed in subsection \ref{subsec:avoid_obstacle} using another \texttt{elif}-statement. 
+    The robot should detect these blind angles quite early, so we added a factor of \(0.15\)cm to the \texttt{SAFE\_STOP\_DISTANCE} constant.
+
+    \subsubsection{Optimizing linear speed}\label{subsec:optimize_linear_speed}
+    For our initial implementation, our robot would turn with a constant speed of \(0.1 \frac{m}{s}\). Our goal was to achieve an overall higher linear speed.
+    We did this by considering the relationship between the linear speed and distance to object as well as the relationship between the angular speed and distance to object.
+    We wanted the following:
+    \begin{itemize}
+        \item The linear speed should be smaller, the closer the obstacle was.
+        \item The angular speed should be greater, the closer the obstacle was.
+    \end{itemize}
+    To do this, we considered some distinct cases\footnote{These speeds were tested empirically until we found appropriate values.}:
+    \begin{enumerate}
+        \item Robot is at maximal \texttt{SAFE\_STOP\_DISTANCE} away from the obstacle, that is \(0.4\)m for blind angle obstacles and \(0.33\)m for front obstacles.
+        \begin{itemize}
+            \item Linear speed should be \texttt{MAX\_LINEAR\_VEL}, that is \(0.22 \frac{m}{s}\).
+            \item Angular speed should be minimal, that is \(0.79 \frac{rad}{s}\) for blind angle obstacles and \(2.0 \frac{rad}{s}\) for front obstacles. 
+        \end{itemize}
+        \item Robot is crititacally close to the obstacle, that is \(0.1\)m. 
+        \begin{itemize}
+            \item Linear speed should essentially be zero, that is \(0.01 \frac{m}{s}\).
+            \item Angular speed should be \texttt{MAX\_ANGLE}, that is \(2.84 \frac{rad}{s}\). 
+        \end{itemize}
+    \end{enumerate}
+    With these values, we made power regression using GeoGebra. The result for linear velocity is depicted in figure \ref{fig:lin_vel_graph}. Here, \(p(x)\) is the linear velocity in \(\frac{m}{s}\), and \(x\) is the distance to the obstacle in m.
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.3\textwidth]{lin_vel_graph.png}
+            \caption{Linear velocity graph}
+            \label{fig:lin_vel_graph}
+        \end{figure}
+    The result for angular velocity is depicted in figure \ref{fig:ang_vel_graph}. Here, \(g(x)\) and \(h(x)\) are the angular velocities in \(\frac{rad}{s}\) for front obstacles and blind spot obstacles, respectively.
+    \(x\) is the distance to the obstacle in m.        
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.3\textwidth]{ang_vel_graps.png}
+            \caption{Angular velocity graphs}
+            \label{fig:ang_vel_graph}
+        \end{figure}
+    Afterwards, we implemented this in our code. We needed to include the power functions we had found each time we called the \texttt{small\_turns} function. 
+    An example for the blind spot case is shown in listing \ref{lst:blind_spot}.
+    \begin{lstlisting}[style = my_python, caption = Power functions for blind spot, basicstyle = \footnotesize, label = lst:blind_spot]
+        small_turns('right', 0.34*front_left_distance **
+        (-0.93), 1.7*front_left_distance**2.23)
+    \end{lstlisting}
+    After implementing these changes in the code, we significantly improved the performance of the robot's linear speed.
+
+    \subsubsection{Better collision avoidance}\label{subsec:emergency_check}
+    Another goal of our optimization was to avoid collisions with obstacles completely. We did this by implementing a new function called \texttt{emergency\_check} that would check if the robot was crititacally close to an obstacle. 
+    If it was, the robot's linear speed would be set to zero and the robot would turn with max angular speed. The function is depicted in listing \ref{lst:emergency_check}.
+    \begin{lstlisting}[style = my_python, caption = Emergency check, basicstyle = \footnotesize, label = lst:emergency_check]
+def emergency_check(l):
+    # calculate mean of our slices:
+    left_distance = np.mean((l[0]))
+    front_distance = np.mean(l[1] + l[2])
+    right_distance = np.mean(l[3])
+    front_left_distance = np.mean(l[4])
+    front_right_distance = np.mean(l[5])
+
+    # calculate mean of special case slices
+    special_case_right = np.mean(l[3][27:35])
+    special_case_left = np.mean(l[0][10:18])
+
+    if (front_distance < EMERGENCY_STOP_DISTANCE and left_distance < EMERGENCY_STOP_DISTANCE):
+        small_turns('right', MAX_ANGLE, 0.0)
+
+    elif (front_distance < EMERGENCY_STOP_DISTANCE and right_distance < EMERGENCY_STOP_DISTANCE):
+        small_turns('left', MAX_ANGLE, 0.0)
+
+    elif (front_distance < EMERGENCY_STOP_DISTANCE):
+        if (left_distance < right_distance):
+            small_turns('right', MAX_ANGLE, 0.0)
+        else:
+            small_turns('left', MAX_ANGLE, 0.0)
+
+    elif(special_case_right < SAFE_STOP_DISTANCE and special_case_left < SAFE_STOP_DISTANCE):
+        make_180()
+
+    elif(front_left_distance < SAFE_STOP_DISTANCE):
+        small_turns('right', MAX_ANGLE, 0.0)
+
+    elif(front_right_distance < SAFE_STOP_DISTANCE):
+        small_turns('left', MAX_ANGLE, 0.0) \end{lstlisting}
+
+    The function takes an input \texttt{l} which is a list of tuples containing the latest readings. 
+    We called this function for each loop iteration, both in the overall control loop as well as in the loops described in subsection \ref{subsec:avoid_obstacle} and depicted in listing \ref{lst:while_loop}.
+    By doing this we constantly checked if the robot was so close to an obstacle that it could not avoid it by turning conventionally. 
+    Instead, the robot should turn \emph{in place} with maximal angular speed.     
 
 \section{Discussion}
 In this section of the report we will discuss some of the difficulties we encountered during the project.
@@ -280,6 +443,7 @@ Again, we have divided it into the four main parts of the project described earl
         \item ROS beginner's tutorial: \emph{http://wiki.ros.org/ROS/Tutorials}
         \item Data sheet and specifications for Ultrasonic Range Finder: \emph{shorturl.at/cBHN1}
         \item Data sheet and specifications for RGB light sensor: \\ \emph{shorturl.at/htEP8}
+        \item First robot navigation example: \emph{shorturl.at/lpuM8}
     \end{itemize}
 
 

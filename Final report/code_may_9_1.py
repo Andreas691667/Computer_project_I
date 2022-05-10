@@ -123,7 +123,6 @@ class Obstacle():
 
             if (right_distance < SAFE_STOP_DISTANCE and left_distance < SAFE_STOP_DISTANCE and front_distance < SAFE_STOP_DISTANCE):
                 if turtlebot_moving:
-                    #			small_turns('right')
                     twist.linear.x = -LINEAR_VEL
                     twist.angular.z = 0.0
                     self._cmd_pub.publish(twist)
@@ -134,7 +133,6 @@ class Obstacle():
                     self._cmd_pub.publish(twist)
                     rospy.loginfo('Turning 180 degrees')
                     t.sleep(1.0)
-            #			small_turns('right', turn_angle)
                     turtlebot_moving = False
 
 #					while(right_distance < SAFE_STOP_DISTANCE or left_distance < SAFE_STOP_DISTANCE):

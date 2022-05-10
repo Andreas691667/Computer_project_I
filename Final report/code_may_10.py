@@ -26,7 +26,8 @@ import numpy as np
 LINEAR_VEL = 0.22
 STOP_DISTANCE = 0.2
 LIDAR_ERROR = 0.05
-SAFE_STOP_DISTANCE = STOP_DISTANCE + LIDAR_ERROR # radius of turtlebot is 10 cm and for safety measure LIDAR_ERROR is added.
+# radius of turtlebot is 10 cm and for safety measure LIDAR_ERROR is added.
+SAFE_STOP_DISTANCE = STOP_DISTANCE + LIDAR_ERROR 
 EMERGENCY_STOP_DISTANCE = 0.15
 MAX_ANGLE = 2.84
 DEFAULT_TURN_ANGLE = 3.14/2
@@ -124,7 +125,7 @@ class Obstacle():
 
         # function converts list of tuples to list of lists and then converts zeros to 3.5:
         def non_zeros(l):
-            # convert to list
+            # convert tuples to list
             for i in range(len(l)):
                 l[i] = list(l[i])
 
@@ -151,7 +152,6 @@ class Obstacle():
             # case 1: obstacle in front
             if (front_distance < SAFE_STOP_DISTANCE + 0.08):
                 print('obstacle in front')
-
                 # look ahead:
                 if turtlebot_moving:
                     if (right_distance < left_distance):
@@ -161,8 +161,7 @@ class Obstacle():
                             front_new = self.get_scan()
                             non_zeros(front_new)
                             emergency_check(front_new)
-                            front_distance = np.mean(
-                                front_new[1] + front_new[2])
+                            front_distance = np.mean(front_new[1] + front_new[2])
 
                     elif(left_distance < right_distance):
                         while(front_distance < SAFE_STOP_DISTANCE + 0.08):
