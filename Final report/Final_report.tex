@@ -394,7 +394,7 @@ def emergency_check(l):
         small_turns('left', MAX_ANGLE, 0.0) \end{lstlisting}
 
     The function takes an input \texttt{l} which is a list of tuples containing the latest readings. 
-    We called this function for each loop iteration, both in the overall control loop as well as in the loops described in subsection \ref{subsec:avoid_obstacle} and depicted in listing \ref{lst:while_loop}.
+    We called this function for each loop iteration, both in the overall control loop as well as in the loops described in subsection \ref{subsec:avoid_obstacle} and depicted in listing \ref{lst:while_loops}.
     By doing this we constantly checked if the robot was so close to an obstacle that it could not avoid it by turning conventionally. 
     Instead, the robot should turn \emph{in place} with maximal angular speed.     
 
