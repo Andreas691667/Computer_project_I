@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1652256430 "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final report/Final_report.tex" "Final_report.pdf" "Final_report" 1652256432
+["pdflatex"] 1652261652 "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final report/Final_report.tex" "Final_report.pdf" "Final_report" 1652261655
   "C:/Users/Andreas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1651057161 136886 13b03990c8332ac873f3265c1f537334 ""
   "C:/Users/Andreas/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1644768407 10244413 9950a3456d2583571166a5e6c15ad4e7 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -98,9 +98,10 @@
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ot1ptm.fd" 1585253778 1007 15056f4a61917ceed3a44e4ac11fcc52 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ts1ptm.fd" 1585253778 653 96f56dc5d1ef1fe1121f1cfeec70ee0c ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1636284872 56029 3f7889dab51d620aa43177c391b7b190 ""
-  "Final_report.aux" 1652256432 5379 634c8511c64092b47f3d9b7c1800e09b "pdflatex"
-  "Final_report.tex" 1652256428 28424 ffe65cadeb8e592c7aebed9e404b616d ""
-  "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final report/Final_report.tex" 1652256428 28424 ffe65cadeb8e592c7aebed9e404b616d ""
+  "Final_report.aux" 1652261655 5892 5adbdcdad056d2ce5ffa55a31fc179c3 "pdflatex"
+  "Final_report.tex" 1652261645 29348 742536570b94c4c825cd3ec735723acb ""
+  "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final report/Final_report.tex" 1652261645 29348 742536570b94c4c825cd3ec735723acb ""
+  "img//120_degrees_argumentation.png" 1652261596 104281 68394c785f25dd107b93bac937cad446 ""
   "img//ang_vel_graps.png" 1652190303 52473 cf0a11a89d0ae6e20176ed0e32418da2 ""
   "img//arduino_final.jpeg" 1651995424 1024348 960ac7c53f8d76b6a9c741c6853a66a9 ""
   "img//blind_angle.png" 1652184371 42732 cb9a16daf32c80b2f2272ed103d586b9 ""

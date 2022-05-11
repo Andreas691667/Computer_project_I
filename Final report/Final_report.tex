@@ -99,9 +99,10 @@ For coding we have used the language C for programming the Arduino on the Arduin
 For programming the Turtlebot we have been using Python and the command prompt with the built in nano-editor. 
 
 \section{Design and implementation}
-    Design and implementation of the system.
+    In this section we are going to describe our thoughts on design and implementation of the project.
+    We are only going to desribe the underlying abstract thoughts and the concrete implementation will be elaborated in section \ref{sec:experiment_setup_and_result}.
 
-    \subsection{Part 1}
+    \subsection{Part 1: Arduino Programming}
     We were to consider the \emph{See-think-act} cycle as can be seen in figure \ref{fig:See-think-act} below:
     \begin{figure}[H]
         \centering
@@ -116,11 +117,11 @@ For programming the Turtlebot we have been using Python and the command prompt w
     Afterwards we extended the circuit to include three range finder sensors plus the RGB light sensor and four LED's. 
     This thus acted as a simulation of the real Turtlebot, which we should work with in part 3. 
 
-    \subsection{Part 2}
+    \subsection{Part 2: ROS Programming}
     In this part of the course we worked on a Virtual Machine (VM) on which we had installed Ubuntu. 
     We went through the ROS beginner's tutorial and learned the structure of a ROS system. 
 
-    \subsection{Part 3}
+    \subsection{Part 3: Programming the robot to avoid obstacles}
     As described, the Turtlebot is equipped with a LiDAR 360\textdegree laser sensor, which measures the distance.
     It continuosly returns an array: 
     \begin{displaymath}
@@ -144,7 +145,7 @@ For programming the Turtlebot we have been using Python and the command prompt w
         \label{fig:obstacle_cases}
     \end{figure}
 
-    \subsection{Part 4}
+    \subsection{Part 4: Optimizing the robot's performance }
     In the last part of the course we should test the robot on an arbitrary course of obstacles.
     We did, however, test the robot continuosly in part 3, so we focused this part on optimizing the existing code. The goal for the optimization part of this course was to maintain the linear speed as high as possible and the number of collisions as low as possible.
     This will be elaborated in subsection \ref{subsec:partIV_4}.   
@@ -152,7 +153,7 @@ For programming the Turtlebot we have been using Python and the command prompt w
 
 \section{Experiment setup and results}\label{sec:experiment_setup_and_result}
 
-    \subsection{Part 1}
+    \subsection{Part 1: Arduino Programming}
     We connected the Range sensor to the Arduino and intialized it as follows:
     \begin{lstlisting}[style = my_python, caption = Initialization of variables]        
 int SENSOR = A0; //range sensor connected to port A0
@@ -208,7 +209,7 @@ one LED was turned on. With everything connected as described above, our final c
     \label{fig:arduino_final}
 \end{figure}
 
-    \subsection{Part 2}
+    \subsection{Part 2: ROS Programming}
     As mentioned we followed the ROS beginner's tutorial in which we installed ROS using several commands. 
     We got stuck in part 2 of the tutorial, so we decided to go back to the beginning and reinstall everything.
     After doing this, we were able to complete all the steps from 1 through 17. 
@@ -222,7 +223,7 @@ one LED was turned on. With everything connected as described above, our final c
     \end{enumerate}
 
  
-    \subsection{Part 3}
+    \subsection{Part 3: Programming the robot to avoid obstacles}
     In this part we are going to describe our initial implementation. The optimization we did, will be described in part 4. \\
     We were given a robot navigation example from a GitHub repository from where we were to get inspiration and further implement our own robot navigation. The idea of the initial example was to: \emph{Drive forward until we get close to an obstacle, then stop}. \\
     For case \(1\) we initially programmed the robot to back out of the blind alley for  and then turn around:
@@ -278,7 +279,7 @@ def non_zeros(l):
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-    \subsection{Part 4}\label{subsec:partIV_4}
+    \subsection{Part 4: Optimizing the robot's performance }\label{subsec:partIV_4}
     In this part we are going to describe the changes we applied to the code setup from part 3 and the results we got. \\
     \subsubsection{Adding a \texttt{factor} to \texttt{SAFE\_STOP\_DISTANCE}}
     We experienced that when the robot encountered an obstacle on its front it did not manage to avoid it optimally. 
@@ -420,7 +421,7 @@ In this section of the report we will discuss some of the difficulties we encoun
 We are also going to discuss whether or not we reached our goal.
 Again, we have divided it into the four main parts of the project described earlier. 
 
-    \subsection{Part 1}
+    \subsection{Part 1: Arduino Programming}
     \begin{enumerate}
         \item \textbf{Computing the readings correctly} \\
         We experienced some difficulties in computing the readings correctly since we were not able to find the right scaling factor. 
@@ -436,13 +437,13 @@ Again, we have divided it into the four main parts of the project described earl
     \end{enumerate}
 
 
-    \subsection{Part 2}
+    \subsection{Part 2: ROS Programming}
     \begin{enumerate}
         \item \textbf{Understanding the ROS structure} \\
     \end{enumerate}
 
 
-    \subsection{Part 3}
+    \subsection{Part 3: Programming the robot to avoid obstacles}
     \begin{enumerate}
         \item \textbf{Getting wrong sensor measurements} \\
         We experienced quite a difficulty in getting the right measurements from the sensor.
@@ -461,11 +462,19 @@ Again, we have divided it into the four main parts of the project described earl
         This converted potential zeros to the sensor's max range of \(3.5\)m. 
         This could however actually become a problem since both very close obstacles and very far obstacles could be represented by the same distance of 0.
         Thus our average value could become quite ambiguous. A better way to deal with this problem could be to \emph{remove} these faulty reading, making the average more precise and more reliable.
-        \item \textbf{Finding the right span}
+        \item \textbf{Finding the right span} \\
+        As mentioned, we had decided to look at a span of \(120\) degrees, which is not coincidental. 
+        \begin{figure}
+            \centering
+            \includegraphics[width=0.45\textwidth]{120_degrees_argumentation.png}
+            \caption{The span of the robot's sensor.}
+            \label{fig:span}
+        \end{figure}
+
     \end{enumerate}
 
 
-    \subsection{Part 4}
+    \subsection{Part 4: Optimizing the robot's performance }
     \begin{enumerate}
         \item \textbf{Structuring the \texttt{else-if} statements} \\
         \item \textbf{Finding the proper regression type} \\
