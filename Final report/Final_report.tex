@@ -11,6 +11,8 @@
 \usepackage{xcolor}
 \usepackage[utf8]{inputenc}
 \usepackage{fancyhdr}
+\usepackage{caption}
+\usepackage{subcaption}
 
 % pakker til c kode
 \usepackage{listings}
@@ -480,11 +482,12 @@ Again, we have divided it into the four main parts of the project described earl
         We the choice of \(120\) degrees, we had a complete view of the field of view of the robot and achieved the following:
         \begin{itemize}
             \item The robot could see obstacles that was \emph{directly} in front of it. 
-            In these cases, it would also be able to select whether to turn left or right.
+            In these cases, it would also be able to select whether to turn left or right. 
+            We chose the front span to be only \(30\) degrees wide such that it could also avoid very narrow obstacles in front of it. 
             \item The robot could see obstacles that was \emph{indirectly} in front of it. That is, to the left \emph{or} right of it. 
             In these cases, it would only turn slightly to the left or right with high linear speed and thus almost maintain its path. 
             \item In the special case that the robot was facing just a corner of an obstacle, it would also see this due the 'blind angle' sections. 
-            Again, the robot would only turn very slightly to the left or right with high linear speed and thus almost maintain its path.
+            Again, the robot would only turn very slightly to the left or right with high linear speed and thus practically maintain its path.
         \end{itemize}
         The \texttt{SAFE\_STOP\_DISTANCE}s in figure \ref{fig:span} are due to the factors introduced in subsection \ref{subsec:factor}.
 
@@ -496,7 +499,61 @@ Again, we have divided it into the four main parts of the project described earl
     \begin{enumerate}
         \item \textbf{Structuring the \texttt{else-if} statements} \\
         \item \textbf{Finding the proper regression type} \\
+        As mentioned, we used power regression to determine the relationship between the distance and the speed (angular and linear).
+        But why did we choose this instead of a linear regression? Or exponential regression? Linear regression would indisputable result in a higher average linear speed (see figure \ref{fig:regression_types}).
+        We found that if the robot was driving too fast while avoiding an obstacle it would eventually drive into the obstacle.
+        We thus wanted a regression type, which would slow down the robot quite early, avoid the obstacle and then quickly accelerate again.
+        It should, however, not slow down the robot too much since we still wanted a high average linear speed. Thus we chose power regression for linear velocity (the green curve in figure \ref{subfig:regression_types_linear}).  
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}{.5\textwidth}
+              \centering
+              \includegraphics[width=.5\linewidth]{regression_types_linear.png}
+              \caption{Linear velocity}
+              \label{subfig:regression_types_linear}
+            \end{subfigure}
+            \begin{subfigure}{.5\textwidth}
+              \centering
+              \includegraphics[width=.5\linewidth]{regression_types_angular.png}
+              \caption{Angular velocity}
+              \label{subfig:regression_types_angular}
+            \end{subfigure}
+            \caption{Comparison of three different regression types.}
+            \label{fig:regression_types}
+        \end{figure}
+        When it comes to the angular velocity we wanted the robot to only turn very slightly if it was far away from the obstacle. 
+        This was because the able should essentially maintain its path if possible. 
+        We only wanted it to turn with max angular speed if it was critically close to the obstacle (around \(15\)cm). 
+        Looking closely at our chosen curve (the green one in figure \ref{subfig:regression_types_angular}), we see a very steep slope around the critical distance.
+        Further mathematical analysis revealed that the slope of the green curve was actually the greatest at \(x=0.15 \text{cm} \pm 0.02\)cm.\footnote{The slope of these curves is naturally the acceleration since differentiation of the velocity gives the acceleration.}
+        The actual calculations can be seen in table \ref{tab:slope_calculations}. 
+        Thus we chose to use power regression for the angular velocity as well. 
+
+        %insert table here
+        \begin{table}[htbp]
+            \caption{Table Type Styles}
+            \begin{center}
+            \begin{tabular}{|c|c|c|c|}
+            \hline
+            \textbf{Table}&\multicolumn{3}{|c|}{\textbf{Table Column Head}} \\
+            \cline{2-4} 
+            \textbf{Head} & \textbf{\textit{Table column subhead}}& \textbf{\textit{Subhead}}& \textbf{\textit{Subhead}} \\
+            \hline
+            copy& More table copy$^{\mathrm{a}}$& &  \\
+            \hline
+            \caption{Sample of a Table footnote.}
+            \end{tabular}
+            \label{tab:slope_calculations}
+            \end{center}
+        \end{table}
+
         \item \textbf{Obstacle avoidance for some special cases} \\
+        We have already argued that the robot would avoid an obstacle even if it was just facing a corner of it, though we emphasized the fact that it would be on \emph{either} of the sides. 
+        However, we did not completely succeed in solving the problem of an obstacle in both blind spots. 
+        We did calculate these angles such that it would be able to drive through if there was nothing in both blind spots.
+        But we experienced that this only worked when the robot was driving completely straight towards these blind angles.
+        We discussed that the problem might could have been solved by widening the gap between the blind spots and thus having larger safety margin. 
+        However, this would compromise the original thought behind these angles. Perhaps a better solution would be to introduce a new case having its own parameters considering this situation. 
         \item \textbf{Is it possible to avoid the emergency stop?} \\
     \end{enumerate}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2022.2.13)  11 MAY 2022 13:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2022.2.13)  11 MAY 2022 15:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -239,23 +239,50 @@ Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and footer
 \f@nch@O@erf=\skip61
 \f@nch@O@olf=\skip62
 \f@nch@O@orf=\skip63
+) (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+ (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen173
+\captionmargin@=\dimen174
+\captionwidth=\dimen175
+\caption@tempdima=\dimen176
+\caption@indent=\dimen177
+\caption@parindent=\dimen178
+\caption@hangindent=\dimen179
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+Package caption Info: \@makecaption = \long macro:#1#2->\ifx \@captype \@IEEEtablestring \footnotesize \bgroup \par \centering \@IEEEtabletopskipstrut {\normalfont \footnotesize #1}\\{\normalfont \footnotesize \scshape #2}\par \addvspace {0.5\baselineskip }\egroup \@IEEEtablecaptionsepspace \else \@IEEEfigurecaptionsepspace \setbox \@tempboxa \hbox {\normalfont \footnotesize {#1.}\nobreakspace \nobreakspace #2}\ifdim \wd \@tempboxa >\hsize \setbox \@tempboxa \hbox {\normalfont \footnotesize {#1.}\nobreakspace \nobreakspace }\parbox [t]{\hsize }{\normalfont \footnotesize \noindent \unhbox \@tempboxa #2}\else \ifCLASSOPTIONconference \hbox to\hsize {\normalfont \footnotesize \hfil \box \@tempboxa \hfil }\else \hbox to\hsize {\normalfont \footnotesize \box \@tempboxa \hfil }\fi \fi \fi  on input line 1139.
+)
+
+Package caption Warning: Unknown document class (or package),
+(caption)                standard defaults will be used.
+See the caption package documentation for explanation.
+
+\c@caption@flags=\count283
+\c@continuedfloat=\count284
+Package caption Info: float package is loaded.
+) (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
+Package: subcaption 2020/10/07 v1.3j Sub-captions (AR)
+\c@subfigure=\count285
+\c@subtable=\count286
 ) (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
-\lst@mode=\count283
+\lst@mode=\count287
 \lst@gtempboxa=\box56
 \lst@token=\toks27
-\lst@length=\count284
-\lst@currlwidth=\dimen173
-\lst@column=\count285
-\lst@pos=\count286
-\lst@lostspace=\dimen174
-\lst@width=\dimen175
-\lst@newlines=\count287
-\lst@lineno=\count288
-\lst@maxwidth=\dimen176
+\lst@length=\count288
+\lst@currlwidth=\dimen180
+\lst@column=\count289
+\lst@pos=\count290
+\lst@lostspace=\dimen181
+\lst@width=\dimen182
+\lst@newlines=\count291
+\lst@lineno=\count292
+\lst@maxwidth=\dimen183
  (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count289
-\lst@skipnumbers=\count290
+\c@lstnumber=\count293
+\lst@skipnumbers=\count294
 \lst@framebox=\box57
 ) (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
 File: listings.cfg 2020/03/24 1.8d listings configuration
@@ -263,39 +290,39 @@ File: listings.cfg 2020/03/24 1.8d listings configuration
 Package: listings 2020/03/24 1.8d (Carsten Heinz)
  (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count291
+\l__color_backend_stack_int=\count295
 \l__pdf_internal_box=\box58
 ) (Final_report.aux)
 \openout1 = `Final_report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
 
 -- Lines per column: 56 (exact).
 (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count292
-\scratchdimen=\dimen177
+\scratchcounter=\count296
+\scratchdimen=\dimen184
 \scratchbox=\box59
-\nofMPsegments=\count293
-\nofMParguments=\count294
+\nofMPsegments=\count297
+\nofMParguments=\count298
 \everyMPshowfont=\toks28
-\MPscratchCnt=\count295
-\MPscratchDim=\dimen178
-\MPnumerator=\count296
-\makeMPintoPDFobject=\count297
+\MPscratchCnt=\count299
+\MPscratchDim=\dimen185
+\MPnumerator=\count300
+\makeMPintoPDFobject=\count301
 \everyMPtoPDFconversion=\toks29
 ) (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -303,26 +330,29 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-\c@lstlisting=\count298
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 73.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 73.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count302
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 75.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 75.
  (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 73.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 75.
  (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 96.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 98.
  (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 <img//see_think_act.png, id=1, 516.12825pt x 278.2395pt>
 File: img//see_think_act.png Graphic file (type png)
 <use img//see_think_act.png>
-Package pdftex.def Info: img//see_think_act.png  used on input line 109.
+Package pdftex.def Info: img//see_think_act.png  used on input line 111.
 (pdftex.def)             Requested size: 206.39685pt x 111.2641pt.
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 128.
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 130.
  (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 ) [1{C:/Users/Andreas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
@@ -332,42 +362,42 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 <img//obstacle_cases.png, id=18, 386.44376pt x 416.55624pt>
 File: img//obstacle_cases.png Graphic file (type png)
 <use img//obstacle_cases.png>
-Package pdftex.def Info: img//obstacle_cases.png  used on input line 143.
+Package pdftex.def Info: img//obstacle_cases.png  used on input line 145.
 (pdftex.def)             Requested size: 193.2214pt x 208.2776pt.
  (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
-LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 162.
+LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 164.
  (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 162.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 164.
  (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 ) (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 )
-LaTeX Font Info:    Trying to load font information for OML+ptm on input line 169.
+LaTeX Font Info:    Trying to load font information for OML+ptm on input line 171.
  (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omlptm.fd
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <8> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 169.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 171.
 <img//arduino_final.jpeg, id=20, 1541.76pt x 2055.68pt>
 File: img//arduino_final.jpeg Graphic file (type jpg)
 <use img//arduino_final.jpeg>
-Package pdftex.def Info: img//arduino_final.jpeg  used on input line 207.
+Package pdftex.def Info: img//arduino_final.jpeg  used on input line 209.
 (pdftex.def)             Requested size: 154.80157pt x 206.39558pt.
  [2 <./img//obstacle_cases.png> <./img//arduino_final.jpeg>]
-Underfull \hbox (badness 10000) in paragraph at lines 283--284
+Underfull \hbox (badness 10000) in paragraph at lines 285--286
 
  []
 
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <10> not available
-(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 285.
+(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 287.
 
-Underfull \hbox (badness 10000) in paragraph at lines 285--288
+Underfull \hbox (badness 10000) in paragraph at lines 287--290
 
  []
 
@@ -375,35 +405,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 285--288
 <img//blind_angle.png, id=32, 425.79076pt x 420.3705pt>
 File: img//blind_angle.png Graphic file (type png)
 <use img//blind_angle.png>
-Package pdftex.def Info: img//blind_angle.png  used on input line 318.
+Package pdftex.def Info: img//blind_angle.png  used on input line 320.
 (pdftex.def)             Requested size: 206.39685pt x 203.7704pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 329--331
+Underfull \hbox (badness 10000) in paragraph at lines 331--333
 
  []
 
 <img//lin_vel_graph.png, id=33, 379.4175pt x 293.72592pt>
 File: img//lin_vel_graph.png Graphic file (type png)
 <use img//lin_vel_graph.png>
-Package pdftex.def Info: img//lin_vel_graph.png  used on input line 356.
+Package pdftex.def Info: img//lin_vel_graph.png  used on input line 358.
 (pdftex.def)             Requested size: 154.80157pt x 119.84128pt.
 <img//ang_vel_graps.png, id=34, 488.565pt x 258.885pt>
 File: img//ang_vel_graps.png Graphic file (type png)
 <use img//ang_vel_graps.png>
-Package pdftex.def Info: img//ang_vel_graps.png  used on input line 364.
+Package pdftex.def Info: img//ang_vel_graps.png  used on input line 366.
 (pdftex.def)             Requested size: 206.39685pt x 109.36694pt.
 [4 <./img//blind_angle.png> <./img//lin_vel_graph.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 374--375
+Underfull \hbox (badness 10000) in paragraph at lines 376--377
 
  []
 
 
-Underfull \hbox (badness 2005) in paragraph at lines 377--380
+Underfull \hbox (badness 2005) in paragraph at lines 379--382
 \OT1/ptm/m/n/10 ti-miza-tion was to avoid col-li-sions with ob-sta-cles com-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 442--443
+Underfull \hbox (badness 10000) in paragraph at lines 444--445
 
  []
 
@@ -411,57 +441,87 @@ Underfull \hbox (badness 10000) in paragraph at lines 442--443
 <img//120_degrees_argumentation.png, id=44, 1325.70282pt x 854.44218pt>
 File: img//120_degrees_argumentation.png Graphic file (type png)
 <use img//120_degrees_argumentation.png>
-Package pdftex.def Info: img//120_degrees_argumentation.png  used on input line 472.
+Package pdftex.def Info: img//120_degrees_argumentation.png  used on input line 474.
 (pdftex.def)             Requested size: 232.19843pt x 149.64696pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 497--498
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 498--499
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 499--500
-
- []
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 500--501
 
  []
 
+<img//regression_types_linear.png, id=45, 448.67625pt x 328.22626pt>
+File: img//regression_types_linear.png Graphic file (type png)
+<use img//regression_types_linear.png>
+Package pdftex.def Info: img//regression_types_linear.png  used on input line 511.
+(pdftex.def)             Requested size: 129.0pt x 94.3668pt.
+<img//regression_types_angular.png, id=46, 464.937pt x 230.0595pt>
+File: img//regression_types_angular.png Graphic file (type png)
+<use img//regression_types_angular.png>
+Package pdftex.def Info: img//regression_types_angular.png  used on input line 517.
+(pdftex.def)             Requested size: 129.0pt x 63.83348pt.
 
-Underfull \hbox (badness 1824) in paragraph at lines 509--510
-[]\OT1/ptm/m/n/10 Data sheet and spec-i-fi-ca-tions for Ul-tra-sonic Range
+Overfull \hbox (6.0pt too wide) in paragraph at lines 509--521
+ []$[]$ 
  []
 
 
-** Conference Paper **
-Before submitting the final camera ready copy, remember to:
+Overfull \hbox (6.0pt too wide) in paragraph at lines 509--521
+ []$ 
+ []
 
- 1. Manually equalize the lengths of two columns on the last page
- of your paper;
 
- 2. Ensure that any PostScript and/or PDF output post-processing
- uses only Type 1 fonts and that every step in the generation
- process uses the appropriate paper size.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[6 <./img//120_degrees_argumentation.png>] (Final_report.aux) ) 
-Here is how much of TeX's memory you used:
- 6622 strings out of 478593
- 101238 string characters out of 2843660
- 998101 words of memory out of 3000000
- 24701 multiletter control sequences out of 15000+600000
- 515915 words of font info for 127 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 55i,12n,62p,439b,1615s stack positions out of 5000i,500n,10000p,200000b,80000s
-{C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrro8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Final_report.pdf (6 pages, 1715758 bytes).
-PDF statistics:
- 113 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 42 words of extra memory for PDF output out of 10000 (max. 10000000)
+ [6 <./img//120_degrees_argumentation.png>]
+c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final report/Final_report.tex:544: You can't use `\hrule' here except with leaders.
+\caption@hrule ->\hrule 
+                        \@height \z@ 
+l.544 ...    \caption{Sample of a Table footnote.}
+                                                  
+To put a horizontal rule in an hbox or an alignment,
+you should use \leaders or \hrulefill (see The TeXbook).
 
+c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final report/Final_report.tex:544: Missing number, treated as zero.
+<to be read again> 
+                   \vskip 
+l.544 ...    \caption{Sample of a Table footnote.}
+                                                  
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final report/Final_report.tex:544: Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \vskip 
+l.544 ...    \caption{Sample of a Table footnote.}
+                                                  
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final report/Final_report.tex:544: Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.544 ...    \caption{Sample of a Table footnote.}
+                                                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final report/Final_report.tex:544: Missing } inserted.
+<inserted text> 
+                }
+l.544 ...    \caption{Sample of a Table footnote.}
+                                                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final report/Final_report.tex:544: Missing } inserted.
+<inserted text> 
