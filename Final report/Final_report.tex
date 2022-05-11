@@ -281,7 +281,7 @@ def non_zeros(l):
 
     \subsection{Part 4: Optimizing the robot's performance }\label{subsec:partIV_4}
     In this part we are going to describe the changes we applied to the code setup from part 3 and the results we got. \\
-    \subsubsection{Adding a \texttt{factor} to \texttt{SAFE\_STOP\_DISTANCE}}
+    \subsubsection{Adding a \texttt{factor} to \texttt{SAFE\_STOP\_DISTANCE}}\label{subsec:factor}
     We experienced that when the robot encountered an obstacle on its front it did not manage to avoid it optimally. 
     We thus added a factor of \(0.08\)cm to the \texttt{SAFE\_STOP\_DISTANCE} constant in this case. By doing this, the robot began avoiding the obstacle earlier, 
     and thus it was able to avoid it more optimally. \\
@@ -473,6 +473,20 @@ Again, we have divided it into the four main parts of the project described earl
                 \caption{The chosen span of the robot's sensor-readings.}
                 \label{fig:span}
         \end{figure}
+        First of all, the span should be less than \(180\) degrees, as the robot should \emph{not} try to avoid obstacles that it would not drive into by continuing driving forward. 
+        Secondly, the span should be large enough to cover the entire field of view of the robot.
+        If we only looked at, say, \(30-50\) degrees ahead, the span was not wide enough to differentiate between different directions,
+        and thus choose in which direction to turn. 
+        We the choice of \(120\) degrees, we had a complete view of the field of view of the robot and achieved the following:
+        \begin{itemize}
+            \item The robot could see obstacles that was \emph{directly} in front of it. 
+            In these cases, it would also be able to select whether to turn left or right.
+            \item The robot could see obstacles that was \emph{indirectly} in front of it. That is, to the left \emph{or} right of it. 
+            In these cases, it would only turn slightly to the left or right with high linear speed and thus almost maintain its path. 
+            \item In the special case that the robot was facing just a corner of an obstacle, it would also see this due the 'blind angle' sections. 
+            Again, the robot would only turn very slightly to the left or right with high linear speed and thus almost maintain its path.
+        \end{itemize}
+        The \texttt{SAFE\_STOP\_DISTANCE}s in figure \ref{fig:span} are due to the factors introduced in subsection \ref{subsec:factor}.
 
 
     \end{enumerate}
