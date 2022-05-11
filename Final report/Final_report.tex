@@ -525,9 +525,7 @@ Again, we have divided it into the four main parts of the project described earl
         We only wanted it to turn with max angular speed if it was critically close to the obstacle (around \(15\)cm). 
         Looking closely at our chosen curve (the green one in figure \ref{subfig:regression_types_angular}), we see a very steep slope around the critical distance.
         Further mathematical analysis revealed that the slope of the green curve was actually the greatest at \(x=0.15 \text{cm} \pm 0.02\)cm.\footnote{The slope of these curves is naturally the acceleration since differentiation of the velocity gives the acceleration.}
-        The actual calculations can be seen in table \ref{tab:slope_calculations}. 
-        Thus we chose to use power regression for the angular velocity as well. 
-
+        The actual calculations can be seen in table \ref{tab:slope_calculations}.  
         \begin{table}[H]
         \centering
             \resizebox{0.4\textwidth}{!}{
@@ -542,8 +540,8 @@ Again, we have divided it into the four main parts of the project described earl
             \caption{Slope of curves around critical distance.}
             \label{tab:slope_calculations}
         \end{table}
-
-
+        In this way the robot would only make a sharp turn when the obstacle was critically close to an obstacle. The acceleration would be the greatest at the critical distance, which we wanted. 
+        Thus we chose power regression for the angular velocity as well. 
 
         \item \textbf{Obstacle avoidance for some special cases} \\
         We have already argued that the robot would avoid an obstacle even if it was just facing a corner of it, though we emphasized the fact that it would be on \emph{either} of the sides. 
