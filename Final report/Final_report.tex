@@ -80,10 +80,10 @@ AU-id: au691667}
 \section{Introduction}
     Overall, the project can be divided into four parts with certain aim and objectives: 
     \begin{enumerate}
-        \item Understanding the basic concepts of robotics programming by working with an Arduino - that is, the \emph{See-think-act cycle} (see figure \ref{fig:See-think-act}). 
+        \item Understanding the basic concepts of robotics programming by working with an Arduino - that is, the \emph{see-think-act cycle} (see figure \ref{fig:See-think-act}). 
         Reading and analyzing data from a range sensor and RGB sensor.
-        \item ROS Programming on Raspberry PI. Learning the structure that ROS provides and going through the beginner's tutorial. 
-        \item Programming the robot to avoid obstacles in different scenarios. 
+        \item ROS Programming on virtual machine. Learning the structure that ROS provides and going through the beginner's tutorial. 
+        \item ROS programming on Raspberry PI. Programming the robot to avoid obstacles in different scenarios. 
         \item Optimizing the robot's performance both with respect to linear speed and collision avoidance. Finalizing the code and testing the robot on an obstacle course. 
     \end{enumerate}
 
@@ -104,14 +104,14 @@ For programming the Turtlebot we have been using Python and the command prompt w
     We are only going to desribe the underlying abstract thoughts and the concrete implementation will be elaborated in section \ref{sec:experiment_setup_and_result}.
 
     \subsection{Part 1: Arduino Programming}
-    We were to consider the \emph{See-think-act} cycle as can be seen in figure \ref{fig:See-think-act} below:
+    We were to consider the \emph{see-think-act} cycle as can be seen in figure \ref{fig:See-think-act}:
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.4\textwidth]{see_think_act.png}
         \caption{See-think-act cycle}
         \label{fig:See-think-act}
     \end{figure}
-    On our breadboard we connected the Arduino to which we connected the ultrasonic range finders and som LED's. 
+    On our breadboard we connected the Arduino to which we connected the ultrasonic range finders and some LED's. 
     The cycle was then implemented as follows: the range finder sensors \textbf{saw} any obstacle we put in front of it, and sent some data back to Arduino. 
     This data was computed - that is the \textbf{think} step of the cycle. Then the \textbf{act} step was performed, which
     in this case was the LED blinking. \\
@@ -136,7 +136,7 @@ For programming the Turtlebot we have been using Python and the command prompt w
         \texttt{right} &= [d_{300}, d_{301},\dots, d_{344}], \texttt{N=45}
     \end{align*}
     We decided to do this so the robot more often would \emph{turn} instead of just driving \emph{backwards}, 
-    since this supposedly would achieve an overall higher linear speed. \par
+    since this supposedly would achieve an overall higher linear speed. This will be discussed further in section \ref{sec:discussion}. \par
     For the different cases of obstacles we have made several cases of \texttt{if/elif} statements. 
     The cases and the decisions in each case can be seen in figure \ref{fig:obstacle_cases} below.
     \begin{figure}[H]
@@ -148,11 +148,14 @@ For programming the Turtlebot we have been using Python and the command prompt w
 
     \subsection{Part 4: Optimizing the robot's performance }
     In the last part of the course we should test the robot on an arbitrary course of obstacles.
-    We did, however, test the robot continuosly in part 3, so we focused this part on optimizing the existing code. The goal for the optimization part of this course was to maintain the linear speed as high as possible and the number of collisions as low as possible.
+    We did, however, test the robot continuosly in part 3, so we focused this part on optimizing the existing code. 
+    The goal for the optimization part was to maintain the linear speed as high as possible and the number of collisions as low as possible.
     This will be elaborated in subsection \ref{subsec:partIV_4}.   
      
 
 \section{Experiment setup and results}\label{sec:experiment_setup_and_result}
+In this section we will describe the concrete implementation of the project and the results we got, which will
+include several code snippets and figures. 
 
     \subsection{Part 1: Arduino Programming}
     We connected the Range sensor to the Arduino and intialized it as follows:
@@ -417,7 +420,7 @@ def emergency_check(l):
     By doing this we constantly checked if the robot was so close to an obstacle that it could not avoid it by turning conventionally. 
     Instead, the robot should turn \emph{in place} with maximal angular speed.     
 
-\section{Discussion}
+\section{Discussion}\label{sec:discussion}
 In this section of the report we will discuss some of the difficulties we encountered during the project.
 We are also going to discuss whether or not we reached our goal.
 Again, we have divided it into the four main parts of the project described earlier. 

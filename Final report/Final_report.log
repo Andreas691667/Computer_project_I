@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2022.2.13)  11 MAY 2022 16:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2022.2.13)  11 MAY 2022 16:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -367,112 +367,119 @@ Package pdftex.def Info: img//obstacle_cases.png  used on input line 144.
  (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
-LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 163.
+LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 166.
  (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 163.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 166.
  (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 ) (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 )
-LaTeX Font Info:    Trying to load font information for OML+ptm on input line 170.
+LaTeX Font Info:    Trying to load font information for OML+ptm on input line 173.
  (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omlptm.fd
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <8> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 170.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 173.
 <img//arduino_final.jpeg, id=20, 1541.76pt x 2055.68pt>
 File: img//arduino_final.jpeg Graphic file (type jpg)
 <use img//arduino_final.jpeg>
-Package pdftex.def Info: img//arduino_final.jpeg  used on input line 208.
+Package pdftex.def Info: img//arduino_final.jpeg  used on input line 211.
 (pdftex.def)             Requested size: 154.80157pt x 206.39558pt.
- [2 <./img//obstacle_cases.png> <./img//arduino_final.jpeg>]
-Underfull \hbox (badness 10000) in paragraph at lines 284--285
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2 <./img//obstacle_cases.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 287--288
 
  []
 
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <10> not available
-(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 286.
+(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 289.
 
-Underfull \hbox (badness 10000) in paragraph at lines 286--289
+Underfull \hbox (badness 10000) in paragraph at lines 289--292
 
  []
 
-[3]
+[3 <./img//arduino_final.jpeg>]
 <img//blind_angle.png, id=32, 425.79076pt x 420.3705pt>
 File: img//blind_angle.png Graphic file (type png)
 <use img//blind_angle.png>
-Package pdftex.def Info: img//blind_angle.png  used on input line 319.
+Package pdftex.def Info: img//blind_angle.png  used on input line 322.
 (pdftex.def)             Requested size: 206.39685pt x 203.7704pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 330--332
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--335
 
  []
 
-<img//lin_vel_graph.png, id=33, 379.4175pt x 293.72592pt>
+[4 <./img//blind_angle.png>]
+<img//lin_vel_graph.png, id=37, 379.4175pt x 293.72592pt>
 File: img//lin_vel_graph.png Graphic file (type png)
 <use img//lin_vel_graph.png>
-Package pdftex.def Info: img//lin_vel_graph.png  used on input line 357.
+Package pdftex.def Info: img//lin_vel_graph.png  used on input line 360.
 (pdftex.def)             Requested size: 154.80157pt x 119.84128pt.
-<img//ang_vel_graps.png, id=34, 488.565pt x 258.885pt>
+<img//ang_vel_graps.png, id=38, 488.565pt x 258.885pt>
 File: img//ang_vel_graps.png Graphic file (type png)
 <use img//ang_vel_graps.png>
-Package pdftex.def Info: img//ang_vel_graps.png  used on input line 365.
+Package pdftex.def Info: img//ang_vel_graps.png  used on input line 368.
 (pdftex.def)             Requested size: 206.39685pt x 109.36694pt.
-[4 <./img//blind_angle.png> <./img//lin_vel_graph.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 375--376
+
+Underfull \hbox (badness 10000) in paragraph at lines 378--379
 
  []
 
 
-Underfull \hbox (badness 2005) in paragraph at lines 378--381
+Underfull \hbox (badness 2005) in paragraph at lines 381--384
 \OT1/ptm/m/n/10 ti-miza-tion was to avoid col-li-sions with ob-sta-cles com-
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 443--444
+[5 <./img//lin_vel_graph.png> <./img//ang_vel_graps.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 446--447
 
  []
 
-[5 <./img//ang_vel_graps.png>]
 <img//120_degrees_argumentation.png, id=44, 1325.70282pt x 854.44218pt>
 File: img//120_degrees_argumentation.png Graphic file (type png)
 <use img//120_degrees_argumentation.png>
-Package pdftex.def Info: img//120_degrees_argumentation.png  used on input line 473.
+Package pdftex.def Info: img//120_degrees_argumentation.png  used on input line 476.
 (pdftex.def)             Requested size: 232.19843pt x 149.64696pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 499--500
+Underfull \hbox (badness 10000) in paragraph at lines 502--503
 
  []
 
-<img//regression_types_linear.png, id=45, 448.67625pt x 328.22626pt>
+[6 <./img//120_degrees_argumentation.png>]
+<img//regression_types_linear.png, id=51, 448.67625pt x 328.22626pt>
 File: img//regression_types_linear.png Graphic file (type png)
 <use img//regression_types_linear.png>
-Package pdftex.def Info: img//regression_types_linear.png  used on input line 510.
+Package pdftex.def Info: img//regression_types_linear.png  used on input line 513.
 (pdftex.def)             Requested size: 129.0pt x 94.3668pt.
-<img//regression_types_angular.png, id=46, 464.937pt x 230.0595pt>
+<img//regression_types_angular.png, id=52, 464.937pt x 230.0595pt>
 File: img//regression_types_angular.png Graphic file (type png)
 <use img//regression_types_angular.png>
-Package pdftex.def Info: img//regression_types_angular.png  used on input line 516.
+Package pdftex.def Info: img//regression_types_angular.png  used on input line 519.
 (pdftex.def)             Requested size: 129.0pt x 63.83348pt.
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 508--520
+Overfull \hbox (6.0pt too wide) in paragraph at lines 511--523
  []$[]$ 
  []
 
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 508--520
+Overfull \hbox (6.0pt too wide) in paragraph at lines 511--523
  []$ 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [6 <./img//120_degrees_argumentation.png>]
-Underfull \hbox (badness 1824) in paragraph at lines 571--572
+ [7 <./img//regression_types_linear.png> <./img//regression_types_angular.png>]
+Underfull \hbox (badness 1824) in paragraph at lines 574--575
 []\OT1/ptm/m/n/10 Data sheet and spec-i-fi-ca-tions for Ul-tra-sonic Range
  []
 
@@ -487,19 +494,21 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[7 <./img//regression_types_linear.png> <./img//regression_types_angular.png>] (Final_report.aux) ) 
+[8
+
+] (Final_report.aux) ) 
 Here is how much of TeX's memory you used:
- 7974 strings out of 478593
- 128359 string characters out of 2843660
- 1013751 words of memory out of 3000000
- 26040 multiletter control sequences out of 15000+600000
+ 7975 strings out of 478593
+ 128375 string characters out of 2843660
+ 907913 words of memory out of 3000000
+ 26041 multiletter control sequences out of 15000+600000
  519236 words of font info for 130 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,12n,63p,513b,1613s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,12n,63p,513b,1776s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrro8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Final_report.pdf (7 pages, 1769837 bytes).
+Output written on Final_report.pdf (8 pages, 1771247 bytes).
 PDF statistics:
- 127 PDF objects out of 1000 (max. 8388607)
+ 130 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  52 words of extra memory for PDF output out of 10000 (max. 10000000)
 
