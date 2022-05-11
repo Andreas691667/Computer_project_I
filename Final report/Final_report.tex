@@ -463,13 +463,17 @@ Again, we have divided it into the four main parts of the project described earl
         This could however actually become a problem since both very close obstacles and very far obstacles could be represented by the same distance of 0.
         Thus our average value could become quite ambiguous. A better way to deal with this problem could be to \emph{remove} these faulty reading, making the average more precise and more reliable.
         \item \textbf{Finding the right span} \\
-        As mentioned, we had decided to look at a span of \(120\) degrees, which is not coincidental. 
-        \begin{figure}
+        In the beginning of the robot programming, we only looked at \emph{point readings} and not an entire span of readings. 
+        Of course, this resulted in a lot of problems, since we could not see most obstacles. Thus, we had to find a proper span of angles to look at.
+        As mentioned, we ultimately decided to look at a span of \(120\) degrees, which is not coincidental. 
+        Figure \ref{fig:span} shows a graphic representation of the chosen span, which we will argue for. 
+        \begin{figure}[H]
             \centering
-            \includegraphics[width=0.45\textwidth]{120_degrees_argumentation.png}
-            \caption{The span of the robot's sensor.}
-            \label{fig:span}
+                \includegraphics[width=0.45\textwidth]{120_degrees_argumentation.png}
+                \caption{The chosen span of the robot's sensor-readings.}
+                \label{fig:span}
         \end{figure}
+
 
     \end{enumerate}
 
@@ -478,6 +482,8 @@ Again, we have divided it into the four main parts of the project described earl
     \begin{enumerate}
         \item \textbf{Structuring the \texttt{else-if} statements} \\
         \item \textbf{Finding the proper regression type} \\
+        \item \textbf{Obstacle avoidance for some special cases} \\
+        \item \textbf{Is it possible to avoid the emergency stop?} \\
     \end{enumerate}
 
 % \section{Personal contributions}
@@ -489,6 +495,7 @@ Again, we have divided it into the four main parts of the project described earl
         \item Data sheet and specifications for Ultrasonic Range Finder: \emph{shorturl.at/cBHN1}
         \item Data sheet and specifications for RGB light sensor: \\ \emph{shorturl.at/htEP8}
         \item First robot navigation example: \emph{shorturl.at/lpuM8}
+        \item Turtlebot3 specifications: \emph{shorturl.at/dxWZ8} 
     \end{itemize}
 
 
