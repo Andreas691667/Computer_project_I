@@ -42,8 +42,7 @@
     % basicstyle = \tiny
 }
 
-
-
+\def\tablename{Table}
 
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
@@ -522,30 +521,29 @@ Again, we have divided it into the four main parts of the project described earl
             \label{fig:regression_types}
         \end{figure}
         When it comes to the angular velocity we wanted the robot to only turn very slightly if it was far away from the obstacle. 
-        This was because the able should essentially maintain its path if possible. 
+        This was because it should essentially maintain its current path if possible. 
         We only wanted it to turn with max angular speed if it was critically close to the obstacle (around \(15\)cm). 
         Looking closely at our chosen curve (the green one in figure \ref{subfig:regression_types_angular}), we see a very steep slope around the critical distance.
         Further mathematical analysis revealed that the slope of the green curve was actually the greatest at \(x=0.15 \text{cm} \pm 0.02\)cm.\footnote{The slope of these curves is naturally the acceleration since differentiation of the velocity gives the acceleration.}
         The actual calculations can be seen in table \ref{tab:slope_calculations}. 
         Thus we chose to use power regression for the angular velocity as well. 
 
-        %insert table here
-        \begin{table}[htbp]
-            \caption{Table Type Styles}
-            \begin{center}
-            \begin{tabular}{|c|c|c|c|}
+        \begin{table}[H]
+        \centering
+            \resizebox{0.4\textwidth}{!}{
+            \begin{tabular}{|l|cll|}
             \hline
-            \textbf{Table}&\multicolumn{3}{|c|}{\textbf{Table Column Head}} \\
-            \cline{2-4} 
-            \textbf{Head} & \textbf{\textit{Table column subhead}}& \textbf{\textit{Subhead}}& \textbf{\textit{Subhead}} \\
-            \hline
-            copy& More table copy$^{\mathrm{a}}$& &  \\
-            \hline
-            \caption{Sample of a Table footnote.}
-            \end{tabular}
+                                & \multicolumn{3}{c|}{\textbf{Distance}}                    \\ \hline
+            {\textbf{Regression type}} & \multicolumn{1}{c|}{\(x = 0.13\)} & \multicolumn{1}{l|}{\(x = 0.15\)} & \(x = 0.17\) \\ \hline
+            Power regression       & \multicolumn{1}{c|}{\(-16.22\)}  & \multicolumn{1}{l|}{\(-12.3 \)} & \(-9.66\)\\ \hline
+            Exponential regression & \multicolumn{1}{c|}{\(-10.71\)}  & \multicolumn{1}{l|}{\(-9.83 \)} & \(-9.02\)\\ \hline
+            Linear regression      & \multicolumn{1}{c|}{\(-6.85\)}  & \multicolumn{1}{l|}{\(-6.85 \)}  & \(-6.85\)\\ \hline
+            \end{tabular} }
+            \caption{Slope of curves around critical distance.}
             \label{tab:slope_calculations}
-            \end{center}
         \end{table}
+
+
 
         \item \textbf{Obstacle avoidance for some special cases} \\
         We have already argued that the robot would avoid an obstacle even if it was just facing a corner of it, though we emphasized the fact that it would be on \emph{either} of the sides. 
