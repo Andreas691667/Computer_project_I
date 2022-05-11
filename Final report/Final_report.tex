@@ -420,11 +420,19 @@ Again, we have divided it into the four main parts of the project described earl
         We experienced quite a difficulty in getting the right measurements from the sensor.
         We knew that it would return an array of size 360 with one distance for each angle. 
         However, we couldn't figure out how they were indexed and our robot thus behaved incorrectly and sometimes
-        turned left when it should turn right. \\
-        \textbf{Solution}  \\
+        turned left when it should turn right.
         We solved the problem by manually printing out different test angles and then physically measure that angle also. 
         For instance printing \texttt{scan\_ranges[45]} which gave some change in output distance for some specific angle, which we measured. 
         In turned out that it our code should be reversed. 
+        \item \textbf{Using \texttt{mean} instead of \texttt{min} and resolving problems with faulty readings} \\
+        Our initial code setup from GitHub used Python's \texttt{min} function to find the representative for each direction's minimum distance.
+        However, we found that our readings from the LiDAR contained a lot of zeros, which caused this representative to be zero very often. 
+        For this reason we decided to calculate the average of the readings instead using Numpy's \texttt{mean} function.
+        After doing this we experienced that our readings became much more representative of the actual distance.\\
+        Moreover, since our readings still contained a lot of zeros, we modified our code to use the \texttt{non\_zeros}-function as shown in listing \ref{lst:non_zeros}.
+        This converted potential zeros to the sensor's max range of \(3.5\)m. 
+        This could however actually become a problem since both very close obstacles and very far obstacles could be represented by the same distance of 0.
+        Thus our average value could become quite ambiguous. A better way to deal with this problem could be to \emph{remove} these faulty reading, making the average more precise and more reliable.
         
     \end{enumerate}
 

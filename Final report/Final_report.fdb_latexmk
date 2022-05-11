@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1652252354 "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final report/Final_report.tex" "Final_report.pdf" "Final_report" 1652252356
+["pdflatex"] 1652253502 "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final report/Final_report.tex" "Final_report.pdf" "Final_report" 1652253504
   "C:/Users/Andreas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1651057161 136886 13b03990c8332ac873f3265c1f537334 ""
   "C:/Users/Andreas/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1644768407 10244413 9950a3456d2583571166a5e6c15ad4e7 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -98,9 +98,9 @@
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ot1ptm.fd" 1585253778 1007 15056f4a61917ceed3a44e4ac11fcc52 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/psnfss/ts1ptm.fd" 1585253778 653 96f56dc5d1ef1fe1121f1cfeec70ee0c ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1636284872 56029 3f7889dab51d620aa43177c391b7b190 ""
-  "Final_report.aux" 1652252356 5137 9578d554dd95a3eb12d95c686601675d "pdflatex"
-  "Final_report.tex" 1652252351 25100 f14519c0046073e5914d7e8556f53f62 ""
-  "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final report/Final_report.tex" 1652252351 25100 f14519c0046073e5914d7e8556f53f62 ""
+  "Final_report.aux" 1652253504 5137 4f12fe97dedeff22687e66ccb20489f9 "pdflatex"
+  "Final_report.tex" 1652253500 26319 e7d60669668713934a0e6c03a2da3d9b ""
+  "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final report/Final_report.tex" 1652253500 26319 e7d60669668713934a0e6c03a2da3d9b ""
   "img//ang_vel_graps.png" 1652190303 52473 cf0a11a89d0ae6e20176ed0e32418da2 ""
   "img//arduino_final.jpeg" 1651995424 1024348 960ac7c53f8d76b6a9c741c6853a66a9 ""
   "img//blind_angle.png" 1652184371 42732 cb9a16daf32c80b2f2272ed103d586b9 ""
