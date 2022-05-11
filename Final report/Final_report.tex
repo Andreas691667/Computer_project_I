@@ -350,10 +350,10 @@ scan_filter.append(front_right_lidar_samples) \end{lstlisting}
         \end{figure}
     Afterwards, we implemented this in our code. We needed to include the power functions we had found each time we called the \texttt{small\_turns} function. 
     An example for the blind spot case is shown in listing \ref{lst:blind_spot}.
-    \begin{lstlisting}[style = my_python, caption = Power functions for blind spot, basicstyle = \footnotesize, label = lst:blind_spot]
-        small_turns('right', 0.34*front_left_distance **
-        (-0.93), 1.7*front_left_distance**2.23)
-    \end{lstlisting}
+\begin{lstlisting}[style = my_python, caption = Power functions implemented for blind spot, basicstyle = \footnotesize, label = lst:blind_spot]
+small_turns('right', 0.34*front_left_distance**
+(-0.93), 1.7*front_left_distance**2.23)
+\end{lstlisting}
     After implementing these changes in the code, we significantly improved the performance of the robot's linear speed.
 
     \subsubsection{Better collision avoidance}\label{subsec:emergency_check}
