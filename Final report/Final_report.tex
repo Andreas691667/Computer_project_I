@@ -537,7 +537,7 @@ Again, we have divided it into the four main parts of the project described earl
             Exponential regression & \multicolumn{1}{c|}{\(-10.71\)}  & \multicolumn{1}{l|}{\(-9.83 \)} & \(-9.02\)\\ \hline
             Linear regression      & \multicolumn{1}{c|}{\(-6.85\)}  & \multicolumn{1}{l|}{\(-6.85 \)}  & \(-6.85\)\\ \hline
             \end{tabular} }
-            \caption{Slope of curves around critical distance.}
+            \caption{Slope of curves from figure \ref{fig:regression_types} around critical distance.}
             \label{tab:slope_calculations}
         \end{table}
         In this way the robot would only make a sharp turn when the obstacle was critically close to an obstacle. The acceleration would be the greatest at the critical distance, which we wanted. 
@@ -551,6 +551,15 @@ Again, we have divided it into the four main parts of the project described earl
         We discussed that the problem might could have been solved by widening the gap between the blind spots and thus having larger safety margin. 
         However, this would compromise the original thought behind these angles. Perhaps a better solution would be to introduce a new case having its own parameters considering this situation. 
         \item \textbf{Is it possible to avoid the emergency stop?} \\
+        As mentioned in subsection \ref{subsec:avoid_obstacle} we implemented a function called \texttt{emergency\_check} which would check if the robot was in an emergency situation.
+        If so, it would set the linear velocity to zero and the angular velocity to the maximum possible. However, one could argue that an optimal implementation (with respect to linear speed) would not need this. 
+        It is important to consider the trade-off between linear speed, obstacle avoidance, and areal covered\footnote{Our motivation for the project was namely to simulate a search and rescue robot, which could both avoid obstacles \emph{and} find victims. For this reason it is very important to cover as much area as possible. The 'rescue' part was discarded during the course due to different reasons.}. 
+        Assume that we set the \texttt{SAFE\_STOP\_DISTANCE} very high, perhaps \(1.0\)m. Then the robot would act very early and easily avoid the obstacle. 
+        But this would also have the effect that the robot would not be able to drive close to the obstacle. 
+        Ultimately we wanted a robot that could drive close to an obstacle and still be able to avoid it maintaining a high average linear speed.
+        This caused the robot to sometimes be very close to an obstacle, which prompted that the linear speed had to be set to zero for a moment. 
+        An implementation which should \emph{only} be optimized with respect to obstacle avoidance and linear speed could avoid this and just drive away from potential obstacles in good time with maximal linear speed.
+        This was not the goal of our implementation and so we chose to have the emergency-function.  
     \end{enumerate}
 
 % \section{Personal contributions}
