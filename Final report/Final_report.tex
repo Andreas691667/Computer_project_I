@@ -79,11 +79,11 @@ AU-id: au691667}
 \section{Introduction}
     Overall, the project can be divided into four parts with certain aim and objectives: 
     \begin{enumerate}
-        \item Understanding the basic concepts of robotics programming by working with an Arduino - that is, the \emph{See-think-act cycle}. 
+        \item Understanding the basic concepts of robotics programming by working with an Arduino - that is, the \emph{See-think-act cycle} (see figure \ref{fig:See-think-act}). 
         Reading and analyzing data from a range sensor and RGB sensor.
         \item ROS Programming on Raspberry PI. Learning the structure that ROS provides and going through the beginner's tutorial. 
-        \item Programming the robot to avoid obstacles. Then optimize the robot's performance both with respect to linear speed and collision avoidance.
-        \item Finalizing the code and testing the robot on an obstacle course. 
+        \item Programming the robot to avoid obstacles in different scenarios. 
+        \item Optimizing the robot's performance both with respect to linear speed and collision avoidance. Finalizing the code and testing the robot on an obstacle course. 
     \end{enumerate}
 
 \section{Specifications}
@@ -135,8 +135,8 @@ For programming the Turtlebot we have been using Python and the command prompt w
     \end{align*}
     We decided to do this so the robot more often would \emph{turn} instead of just driving \emph{backwards}, 
     since this supposedly would achieve an overall higher linear speed. \par
-    For the different cases of obstacles we have made several cases of \texttt{if-else} statements. 
-    The cases and the decisions in each case can be seen in the figure below. 
+    For the different cases of obstacles we have made several cases of \texttt{if/elif} statements. 
+    The cases and the decisions in each case can be seen in figure \ref{fig:obstacle_cases} below.
     \begin{figure}[H]
         \centering
             \includegraphics*[scale = 0.5]{obstacle_cases.png}   
@@ -147,13 +147,13 @@ For programming the Turtlebot we have been using Python and the command prompt w
     \subsection{Part 4}
     In the last part of the course we should test the robot on an arbitrary course of obstacles.
     We did, however, test the robot continuosly in part 3, so we focused this part on optimizing the existing code. The goal for the optimization part of this course was to maintain the linear speed as high as possible and the number of collisions as low as possible.
-    This will be elaborated in the next section.   
+    This will be elaborated in subsection \ref{subsec:partIV_4}.   
      
 
-\section{Experiment setup and results}
+\section{Experiment setup and results}\label{sec:experiment_setup_and_result}
 
     \subsection{Part 1}
-    We connected the Range sensor the Arduino and intialized it as follows:
+    We connected the Range sensor to the Arduino and intialized it as follows:
     \begin{lstlisting}[style = my_python, caption = Initialization of variables]        
 int SENSOR = A0; //range sensor connected to port A0
 double range_input = 0; //variable for storing input values
@@ -164,7 +164,7 @@ void setup()
 \end{lstlisting}
 In the control loop we updated \texttt{range\_input} with the value read from the sensor with using the \texttt{analogRead} function.
 Through a series of \texttt{if-else} statements we made the LED blink with different intervals for different distances:
-\begin{lstlisting}[style = my_python, caption = \texttt{else-if} statements for Arduino, basicstyle = \footnotesize]
+\begin{lstlisting}[style = my_python, language = C, caption = \texttt{else-if} statements for Arduino, basicstyle = \footnotesize]
 if (range_input+margin < 20 && range_input+margin > 0) {
     TXLED0;
     delay(50);
@@ -260,7 +260,25 @@ elif(left_distance < SAFE_STOP_DISTANCE or right_distance < SAFE_STOP_DISTANCE):
             small_turns('right', turn_angle)
 \end{lstlisting}
 
-    \subsection{Part 4}
+
+%%%%% NON ZEROS FUNKTION TIL DIG ASGER <3
+\begin{lstlisting}[style = my_python, caption = Non-zero function, basicstyle = \footnotesize, label = lst:non_zeros]
+# function converts list of tuples to list of lists and then converts zeros to 3.5:
+def non_zeros(l):
+    # convert tuples to list
+    for i in range(len(l)):
+        l[i] = list(l[i])
+
+    # if element zero, set to 3.5
+    for i in range(len(l)):
+        for j in range(len(l[i])):
+            if l[i][j] == 0:
+                l[i][j] = 3.5
+\end{lstlisting}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+    \subsection{Part 4}\label{subsec:partIV_4}
     In this part we are going to describe the changes we applied to the code setup from part 3 and the results we got. \\
     \subsubsection{Adding a \texttt{factor} to \texttt{SAFE\_STOP\_DISTANCE}}
     We experienced that when the robot encountered an obstacle on its front it did not manage to avoid it optimally. 
@@ -292,7 +310,7 @@ if (front_distance < SAFE_STOP_DISTANCE + 0.08):
     In addition to the three directions we had already implemented, we decided to focus on two more directions; the so-called blind angles.
     These were meant to make the robot able to avoid an obstacle if it was only slightly in front of it, but not so much that the average would get low enough to cause a turn event. 
     We calculated these by measuring the minimal distance between two obstacles that robot could drive through - that is, the width of the robot, which we measured to be \(20\)cm.
-    We wanted the robot to begin avoiding the obstacles at the blind angles from a distance of \(40\)cm. We got the result as depicted in figure \ref{fig:blind_angle}. 
+    We wanted the robot to begin avoiding the obstacles at the blind angles from a distance of \(40\)cm. We got the results using GeoGebra as depicted in figure \ref{fig:blind_angle}. 
     We also wanted these angles to be very narrow such that the robot would be able to detect even a small corner of some obstacle. For this reason we only looked at a span of \(8\) degrees. 
     \begin{figure}[H]
     \centering
@@ -404,7 +422,17 @@ Again, we have divided it into the four main parts of the project described earl
 
     \subsection{Part 1}
     \begin{enumerate}
+        \item \textbf{Computing the readings correctly} \\
+        We experienced some difficulties in computing the readings correctly since we were not able to find the right scaling factor. 
+        We found that many sensors were to be treated differently since they did not give consistent readings. However, since this was only a
+        preliminary exercise to the main project, we did not give it that much thought. 
         \item \textbf{Preparation to main project} \\
+        Working with the Arduino and the appurtenant sensors helped us understand the importance of the see-think-act cycle as shown in figure \ref{fig:See-think-act}.
+        Our code structure turned out to be predominantly alike in the way we worked with the \texttt{if/elif}-statements. 
+        This was of course only with respect to some very simple cases, but the underlying though processes were not very different. 
+        The body of the \texttt{if/elif}-statements was also way more complex in our robot's code. 
+        Moreover, we found that working with the sensors was not that easy and that it demanded a lot of effort and reading to actually understand the input from the sensors.
+        This was a valuable lesson that prompted us to work more structured in the main project.  
     \end{enumerate}
 
 
@@ -433,13 +461,14 @@ Again, we have divided it into the four main parts of the project described earl
         This converted potential zeros to the sensor's max range of \(3.5\)m. 
         This could however actually become a problem since both very close obstacles and very far obstacles could be represented by the same distance of 0.
         Thus our average value could become quite ambiguous. A better way to deal with this problem could be to \emph{remove} these faulty reading, making the average more precise and more reliable.
-        
+        \item \textbf{Finding the right span}
     \end{enumerate}
 
 
     \subsection{Part 4}
     \begin{enumerate}
         \item \textbf{Structuring the \texttt{else-if} statements} \\
+        \item \textbf{Finding the proper regression type} \\
     \end{enumerate}
 
 % \section{Personal contributions}

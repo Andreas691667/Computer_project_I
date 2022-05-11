@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2022.2.13)  11 MAY 2022 09:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2022.2.13)  11 MAY 2022 10:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -343,6 +343,11 @@ File: omsptm.fd
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <8> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 161.
+ (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+) (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+)
 LaTeX Font Info:    Trying to load font information for OML+ptm on input line 168.
  (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\omlptm.fd
 File: omlptm.fd 
@@ -355,67 +360,65 @@ File: img//arduino_final.jpeg Graphic file (type jpg)
 Package pdftex.def Info: img//arduino_final.jpeg  used on input line 206.
 (pdftex.def)             Requested size: 154.80157pt x 206.39558pt.
  [2 <./img//obstacle_cases.png> <./img//arduino_final.jpeg>]
-Underfull \hbox (badness 10000) in paragraph at lines 264--265
+Underfull \hbox (badness 10000) in paragraph at lines 282--283
 
  []
 
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <10> not available
-(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 266.
+(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 284.
 
-Underfull \hbox (badness 10000) in paragraph at lines 266--269
+Underfull \hbox (badness 10000) in paragraph at lines 284--287
 
  []
 
-<img//blind_angle.png, id=28, 425.79076pt x 420.3705pt>
+[3]
+<img//blind_angle.png, id=32, 425.79076pt x 420.3705pt>
 File: img//blind_angle.png Graphic file (type png)
 <use img//blind_angle.png>
-Package pdftex.def Info: img//blind_angle.png  used on input line 299.
+Package pdftex.def Info: img//blind_angle.png  used on input line 317.
 (pdftex.def)             Requested size: 206.39685pt x 203.7704pt.
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 310--312
+
+Underfull \hbox (badness 10000) in paragraph at lines 328--330
 
  []
 
 <img//lin_vel_graph.png, id=33, 379.4175pt x 293.72592pt>
 File: img//lin_vel_graph.png Graphic file (type png)
 <use img//lin_vel_graph.png>
-Package pdftex.def Info: img//lin_vel_graph.png  used on input line 337.
+Package pdftex.def Info: img//lin_vel_graph.png  used on input line 355.
 (pdftex.def)             Requested size: 154.80157pt x 119.84128pt.
 <img//ang_vel_graps.png, id=34, 488.565pt x 258.885pt>
 File: img//ang_vel_graps.png Graphic file (type png)
 <use img//ang_vel_graps.png>
-Package pdftex.def Info: img//ang_vel_graps.png  used on input line 345.
+Package pdftex.def Info: img//ang_vel_graps.png  used on input line 363.
 (pdftex.def)             Requested size: 206.39685pt x 109.36694pt.
-[4 <./img//blind_angle.png> <./img//lin_vel_graph.png> <./img//ang_vel_graps.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 355--356
+[4 <./img//blind_angle.png> <./img//lin_vel_graph.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 373--374
 
  []
 
 
-Underfull \hbox (badness 2005) in paragraph at lines 358--361
+Underfull \hbox (badness 2005) in paragraph at lines 376--379
 \OT1/ptm/m/n/10 ti-miza-tion was to avoid col-li-sions with ob-sta-cles com-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 407--408
+Underfull \hbox (badness 10000) in paragraph at lines 441--442
+
+ []
+
+[5 <./img//ang_vel_graps.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 470--471
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 413--414
+Underfull \hbox (badness 10000) in paragraph at lines 471--472
 
  []
 
 
-LaTeX Warning: Reference `lst:non_zeros' on page 5 undefined on input line 432.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 442--443
-
- []
-
-[5]
-Underfull \hbox (badness 1824) in paragraph at lines 451--452
+Underfull \hbox (badness 1824) in paragraph at lines 480--481
 []\OT1/ptm/m/n/10 Data sheet and spec-i-fi-ca-tions for Ul-tra-sonic Range
  []
 
@@ -432,21 +435,17 @@ Before submitting the final camera ready copy, remember to:
 
 [6
 
-] (Final_report.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+] (Final_report.aux) ) 
 Here is how much of TeX's memory you used:
- 6486 strings out of 478593
- 98969 string characters out of 2843660
- 900429 words of memory out of 3000000
- 24570 multiletter control sequences out of 15000+600000
+ 6612 strings out of 478593
+ 100908 string characters out of 2843660
+ 997969 words of memory out of 3000000
+ 24692 multiletter control sequences out of 15000+600000
  515915 words of font info for 127 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,11n,62p,439b,1587s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,12n,62p,439b,1615s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrro8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Final_report.pdf (6 pages, 1554478 bytes).
+Output written on Final_report.pdf (6 pages, 1556020 bytes).
 PDF statistics:
  106 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
