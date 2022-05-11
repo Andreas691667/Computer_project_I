@@ -267,11 +267,10 @@ elif(left_distance < SAFE_STOP_DISTANCE or right_distance < SAFE_STOP_DISTANCE):
     We thus added a factor of \(0.08\)cm to the \texttt{SAFE\_STOP\_DISTANCE} constant in this case. By doing this, the robot began avoiding the obstacle earlier, 
     and thus it was able to avoid it more optimally. \\
     
-    \subsubsection{Making sure to avoid the obstacle before next iteration}\label{subsec:avoid_obstacle}
-    We wanted to make sure that the robot actualy avoided the obstacle before the next control loop iteration.
-    We did this by adding a \texttt{while}-loop to each case:
+    \subsubsection{Making sure to avoid the obstacle before next control loop iteration}\label{subsec:avoid_obstacle}
+    We wanted to make sure that the robot actually avoided the obstacle before the next control loop iteration.
+    We did this by adding a \texttt{while}-loop to each case as shown in listing \ref{lst:while_loops}.
 \begin{lstlisting}[style = my_python, caption = \texttt{while}-loops for obstacle avoidance, basicstyle = \footnotesize, label=lst:while_loops]
-elif(front\_left\_distance < SAFE_STOP_DISTANCE+0.15 or front_right_distance < SAFE_STOP_DISTANCE+0.15):
 # case 1: obstacle in front
 if (front_distance < SAFE_STOP_DISTANCE + 0.08):
     print('obstacle in front')
@@ -284,21 +283,20 @@ if (front_distance < SAFE_STOP_DISTANCE + 0.08):
                 non_zeros(front_new)
                 emergency_check(front_new)
                 front_distance = np.mean(front_new[1] + front_new[2]) \end{lstlisting}
-    By doing this we ensured that the robot would not stop avoiding the obstacle before it had actually escaped it.
-    Note that the 2nd and 3rd argument in the \texttt{small\_turns} function are written in pseudo-code since we did further optimizations, which will be described in subsection \ref{subsec:optimize_linear_speed}. 
-    Same goes for the variable \texttt{factor}, which was described in the subsection before. The function \texttt{emergency\_check} will also be described in subsection \ref{subsec:emergency_check}.
+    By doing this we ensured that the robot would not stop avoiding the obstacle before it had actually escaped it\footnote{Note that the 2nd and 3rd argument in the \texttt{small\_turns} function are written in pseudo-code since we did further optimizations, which will be described in subsection \ref{subsec:optimize_linear_speed}. 
+    Same goes for the variable \texttt{factor}, which was described in the subsection before. The function \texttt{emergency\_check} will also be described in subsection \ref{subsec:emergency_check}.}.
     For each loop iteration we made a new laser scan and checked if the robot was within the \texttt{SAFE\_STOP\_DISTANCE+factor}. If it is, we called the \texttt{small\_turns} function,
     and turned the robot in the opposite direction of the closest obstacle as normally.     
 
     \subsubsection{Checking the blind angles}
     In addition to the three directions we had already implemented, we decided to focus on two more directions; the so-called blind angles.
-    These were meant to make the robot able to avoid an obstacle if it was only slightly in front of it, but not so much that the average would get low enough. 
+    These were meant to make the robot able to avoid an obstacle if it was only slightly in front of it, but not so much that the average would get low enough to cause a turn event. 
     We calculated these by measuring the minimal distance between two obstacles that robot could drive through - that is, the width of the robot, which we measured to be \(20\)cm.
     We wanted the robot to begin avoiding the obstacles at the blind angles from a distance of \(40\)cm. We got the result as depicted in figure \ref{fig:blind_angle}. 
     We also wanted these angles to be very narrow such that the robot would be able to detect even a small corner of some obstacle. For this reason we only looked at a span of \(8\) degrees. 
     \begin{figure}[H]
     \centering
-    \includegraphics[width=0.3\textwidth]{blind_angle.png}
+    \includegraphics[width=0.4\textwidth]{blind_angle.png}
     \caption{Blind angles}
     \label{fig:blind_angle}
     \end{figure}
@@ -310,15 +308,15 @@ front_right_lidar_samples = scan.ranges[338:346]
 scan_filter.append(front_left_lidar_samples)
 scan_filter.append(front_right_lidar_samples) \end{lstlisting}
     In addition to this, we added an extra case (named case 3) for checking these blind angles. This was implemented in the exact same way as desribed in subsection \ref{subsec:avoid_obstacle} using another \texttt{elif}-statement. 
-    The robot should detect these blind angles quite early, so we added a factor of \(0.15\)cm to the \texttt{SAFE\_STOP\_DISTANCE} constant.
+    The robot should detect these blind angles quite early, so we added a factor of \(0.15\)cm to the \texttt{SAFE\_STOP\_DISTANCE} constant. \\
 
     \subsubsection{Optimizing linear speed}\label{subsec:optimize_linear_speed}
-    For our initial implementation, our robot would turn with a constant speed of \(0.1 \frac{m}{s}\). Our goal was to achieve an overall higher linear speed.
+    For our initial implementation, our robot would \emph{turn} with a constant linear speed of \(0.1 \frac{m}{s}\). Our goal was to achieve an overall higher linear speed.
     We did this by considering the relationship between the linear speed and distance to object as well as the relationship between the angular speed and distance to object.
     We wanted the following:
     \begin{itemize}
-        \item The linear speed should be smaller, the closer the obstacle was.
-        \item The angular speed should be greater, the closer the obstacle was.
+        \item The linear speed should be \textbf{smaller}, the closer the obstacle was.
+        \item The angular speed should be \textbf{greater}, the closer the obstacle was.
     \end{itemize}
     To do this, we considered some distinct cases\footnote{These speeds were tested empirically until we found appropriate values.}:
     \begin{enumerate}
@@ -334,7 +332,7 @@ scan_filter.append(front_right_lidar_samples) \end{lstlisting}
         \end{itemize}
     \end{enumerate}
     With these values, we made power regression using GeoGebra. The result for linear velocity is depicted in figure \ref{fig:lin_vel_graph}. Here, \(p(x)\) is the linear velocity in \(\frac{m}{s}\), and \(x\) is the distance to the obstacle in m.
-        \begin{figure}
+        \begin{figure}[H]
             \centering
             \includegraphics[width=0.3\textwidth]{lin_vel_graph.png}
             \caption{Linear velocity graph}
@@ -342,9 +340,9 @@ scan_filter.append(front_right_lidar_samples) \end{lstlisting}
         \end{figure}
     The result for angular velocity is depicted in figure \ref{fig:ang_vel_graph}. Here, \(g(x)\) and \(h(x)\) are the angular velocities in \(\frac{rad}{s}\) for front obstacles and blind spot obstacles, respectively.
     \(x\) is the distance to the obstacle in m.        
-        \begin{figure}
+        \begin{figure}[H]
             \centering
-            \includegraphics[width=0.3\textwidth]{ang_vel_graps.png}
+            \includegraphics[width=0.4\textwidth]{ang_vel_graps.png}
             \caption{Angular velocity graphs}
             \label{fig:ang_vel_graph}
         \end{figure}
@@ -354,10 +352,11 @@ scan_filter.append(front_right_lidar_samples) \end{lstlisting}
 small_turns('right', 0.34*front_left_distance**
 (-0.93), 1.7*front_left_distance**2.23)
 \end{lstlisting}
-    After implementing these changes in the code, we significantly improved the performance of the robot's linear speed.
+    After implementing these changes in the code, we significantly improved the robot's linear speed. \\
 
     \subsubsection{Better collision avoidance}\label{subsec:emergency_check}
     Another goal of our optimization was to avoid collisions with obstacles completely. We did this by implementing a new function called \texttt{emergency\_check} that would check if the robot was crititacally close to an obstacle. 
+    We defined the robot to be critically close to an obstacle if it is within \(0.1\)m of an obstacle. With a \texttt{LIDAR\_ERROR} of \(0.05\)m, we introduced a new global variable \texttt{EMERGENCY\_STOP\_DISTANCE = 0.15}. 
     If it was, the robot's linear speed would be set to zero and the robot would turn with max angular speed. The function is depicted in listing \ref{lst:emergency_check}.
     \begin{lstlisting}[style = my_python, caption = Emergency check, basicstyle = \footnotesize, label = lst:emergency_check]
 def emergency_check(l):
