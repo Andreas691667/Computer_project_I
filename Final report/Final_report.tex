@@ -14,6 +14,35 @@
 \usepackage{caption}
 \usepackage{subcaption}
 
+%pakker til links og referencer
+\usepackage{hyperref}
+
+\makeatletter
+\def\@footnotecolor{red}
+\define@key{Hyp}{footnotecolor}{%
+ \HyColor@HyperrefColor{#1}\@footnotecolor%
+}
+\def\@footnotemark{%
+    \leavevmode
+    \ifhmode\edef\@x@sf{\the\spacefactor}\nobreak\fi
+    \stepcounter{Hfootnote}%
+    \global\let\Hy@saved@currentHref\@currentHref
+    \hyper@makecurrent{Hfootnote}%
+    \global\let\Hy@footnote@currentHref\@currentHref
+    \global\let\@currentHref\Hy@saved@currentHref
+    \hyper@linkstart{footnote}{\Hy@footnote@currentHref}%
+    \@makefnmark
+    \hyper@linkend
+    \ifhmode\spacefactor\@x@sf\fi
+    \relax
+  }%
+\makeatother
+
+
+
+\hypersetup{colorlinks = true, footnotecolor = black, citecolor = cyan, linkcolor =cyan}
+
+
 % pakker til c kode
 \usepackage{listings}
 \definecolor{mGreen}{rgb}{0,0.6,0}
@@ -94,7 +123,7 @@ We have used the following equipment throughout the course.
     \item Ultrasonic Range Finder (LV-MAXSONAR-EZ0)
     \item RGB Light Sensor ISL29125
     \item LED's, cables etc.
-    \item Turtlebot3 Burger Robot equipped with i.a. a Raspberry Pi 3 and a 360\textdegree LiDAR sensor.  
+    \item Turtlebot3 Burger Robot equipped with i.a. a Raspberry Pi 3 and a 360\textdegree LiDAR sensor (lds-01).  
 \end{itemize}
 For coding we have used the language C for programming the Arduino on the Arduino software. 
 For programming the Turtlebot we have been using Python and the command prompt with the built in nano-editor. 
@@ -266,7 +295,7 @@ elif(left_distance < SAFE_STOP_DISTANCE or right_distance < SAFE_STOP_DISTANCE):
             small_turns('right', turn_angle)
 \end{lstlisting}
 
-        \subsubsection*{Retrieving data from the LiDAR sensor}
+        \subsubsection{Retrieving data from the LiDAR sensor}
             We were given a function from the first navigation example to get inspiration from where we implemented our own function:
 \begin{lstlisting}[style = my_python, caption = Non-zero function, basicstyle = \footnotesize, label = lst:non_zeros]
 def get_scan(self):
@@ -309,6 +338,29 @@ def non_zeros(l):
                 l[i][j] = 3.5
 \end{lstlisting}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \subsubsection{Defining the macros}
+    Several of the code snippets above shows a bunch of global variables that we had initialized in the very beginning of our code. 
+    These initializations can be seen in listing \ref{lst:global_variables}.
+    \begin{lstlisting}[style = my_python, caption = Global variables, basicstyle = \footnotesize, label = lst:global_variables]
+LINEAR_VEL = 0.22
+STOP_DISTANCE = 0.2
+LIDAR_ERROR = 0.05
+SAFE_STOP_DISTANCE = STOP_DISTANCE + LIDAR_ERROR 
+MAX_ANGLE = 2.84
+DEFAULT_TURN_ANGLE = 3.14/2  \end{lstlisting}    
+Now, we are going to explain these choices. NOte that each item corresponds to each line in listing \ref{lst:global_variables}.
+\begin{enumerate}
+    \item Since we wanted the highest possible linear velocity, we set the default value of \texttt{LINEAR\_VEL} to \(0.22\), which is the maximum linear velocity of the turtlebot according to its documentation. 
+    This was the linear speed the robot would move at when driving forward. When turning, this would be adjusted with respect to this basis. 
+    \item We chose this by empirically testing which distance the robot could avoid an obstacle by smoothly turning. We found that with smaller distances, 
+    the robot had to stop completely, which we only wanted in critical cases. 
+    \item This error was the one defined in the initial code setup from GitHub\footnote{We later learned that this error was actually not correct according to the specifications of the LiDAR sensor. The accuracy for measurements in the range \(120 \text{mm} - 499 \text{mm}\) was \(\pm 15\)mm. However, we experienced good results with the chosen values.}\label{footnote:lidar_accuracy}.
+    \item This is the (default) distance we would actually stop at. 
+    \item This is the maximal angular velocity measured in \(\frac{rad}{s}\) according to the specifications of the turtlebot. 
+    \item This is the angular velocity the robot would turn at when turning in most cases.
+\end{enumerate}
+
 
 
     \subsection{Part 4: Optimizing the robot's performance }\label{subsec:partIV_4}
@@ -373,20 +425,21 @@ scan_filter.append(front_right_lidar_samples) \end{lstlisting}
     \begin{enumerate}
         \item Robot is at maximal \texttt{SAFE\_STOP\_DISTANCE} away from the obstacle, that is \(0.4\)m for blind angle obstacles and \(0.33\)m for front obstacles.
         \begin{itemize}
-            \item Linear speed should be \texttt{MAX\_LINEAR\_VEL}, that is \(0.22 \frac{m}{s}\).
+            \item Linear speed should be \texttt{MAX\_LINEAR\_VEL}, that is \(0.22 \frac{m}{s}\) for blind angle obstacles and \(0.18 \frac{m}{s}\) for front obstacles.
             \item Angular speed should be minimal, that is \(0.79 \frac{rad}{s}\) for blind angle obstacles and \(2.0 \frac{rad}{s}\) for front obstacles. 
         \end{itemize}
-        \item Robot is crititacally close to the obstacle, that is \(0.1\)m. 
+        \item Robot is critically close to the obstacle, that is \(0.1\)m. 
         \begin{itemize}
             \item Linear speed should essentially be zero, that is \(0.01 \frac{m}{s}\).
             \item Angular speed should be \texttt{MAX\_ANGLE}, that is \(2.84 \frac{rad}{s}\). 
         \end{itemize}
     \end{enumerate}
-    With these values, we made power regression using GeoGebra. The result for linear velocity is depicted in figure \ref{fig:lin_vel_graph}. Here, \(p(x)\) is the linear velocity in \(\frac{m}{s}\), and \(x\) is the distance to the obstacle in m.
+    With these values, we made power regression using GeoGebra. The result for linear velocity is depicted in figure \ref{fig:lin_vel_graph}. 
+    Here, \(h(x)\) and \(g(x)\) are the linear velocities in \(\frac{m}{s}\) for front obstacles and blind spots, respectively. \(x\) is the distance to the obstacle in m.
         \begin{figure}[H]
             \centering
-            \includegraphics[width=0.3\textwidth]{lin_vel_graph.png}
-            \caption{Linear velocity graph}
+            \includegraphics[width=0.4\textwidth]{lin_vel_graph.png}
+            \caption{Linear velocities graphs}
             \label{fig:lin_vel_graph}
         \end{figure}
     The result for angular velocity is depicted in figure \ref{fig:ang_vel_graph}. Here, \(g(x)\) and \(h(x)\) are the angular velocities in \(\frac{rad}{s}\) for front obstacles and blind spot obstacles, respectively.
@@ -394,7 +447,7 @@ scan_filter.append(front_right_lidar_samples) \end{lstlisting}
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.4\textwidth]{ang_vel_graps.png}
-            \caption{Angular velocity graphs}
+            \caption{Angular velocities graphs}
             \label{fig:ang_vel_graph}
         \end{figure}
     Afterwards, we implemented this in our code. We needed to include the power functions we had found each time we called the \texttt{small\_turns} function. 
@@ -408,7 +461,8 @@ small_turns('right', 0.34*front_left_distance**
     \subsubsection{Better collision avoidance}\label{subsec:emergency_check}
     Another goal of our optimization was to avoid collisions with obstacles completely. We did this by implementing a new function called \texttt{emergency\_check} that would check if the robot was crititacally close to an obstacle. 
     We defined the robot to be critically close to an obstacle if it is within \(0.1\)m of an obstacle. With a \texttt{LIDAR\_ERROR} of \(0.05\)m, we introduced a new global variable \texttt{EMERGENCY\_STOP\_DISTANCE = 0.15}. 
-    If it was, the robot's linear speed would be set to zero and the robot would turn with max angular speed. The function is depicted in listing \ref{lst:emergency_check}.
+    We chose this value since the minimum distance the LiDAR sensor can measure is \(0.12\)m. We did not want to get below this value since it could result in a faulty reading.\footnote{We would not actually get below this value with the true error of the sensor. See footnote \ref{footnote:lidar_accuracy}.}.
+    If it was within this distance, the robot's linear speed would be set to zero and the robot would turn with max angular speed. The function is depicted in listing \ref{lst:emergency_check}.
     \begin{lstlisting}[style = my_python, caption = Emergency check, basicstyle = \footnotesize, label = lst:emergency_check]
 def emergency_check(l):
     # calculate mean of our slices:
@@ -472,6 +526,7 @@ Again, we have divided it into the four main parts of the project described earl
     \subsection{Part 2: ROS Programming}
     \begin{enumerate}
         \item \textbf{Understanding the ROS structure} \\
+        
     \end{enumerate}
 
 
@@ -550,13 +605,13 @@ Again, we have divided it into the four main parts of the project described earl
             \centering
             \begin{subfigure}{.5\textwidth}
               \centering
-              \includegraphics[width=.5\linewidth]{regression_types_linear.png}
+              \includegraphics[width=.6\linewidth]{regression_types_linear.png}
               \caption{Linear velocity}
               \label{subfig:regression_types_linear}
             \end{subfigure}
             \begin{subfigure}{.5\textwidth}
               \centering
-              \includegraphics[width=.5\linewidth]{regression_types_angular.png}
+              \includegraphics[width=.6\linewidth]{regression_types_angular.png}
               \caption{Angular velocity}
               \label{subfig:regression_types_angular}
             \end{subfigure}
@@ -592,7 +647,8 @@ Again, we have divided it into the four main parts of the project described earl
         We did calculate these angles such that it would be able to drive through if there was nothing in both blind spots.
         But we experienced that this only worked when the robot was driving completely straight towards these blind angles.
         We discussed that the problem might could have been solved by widening the gap between the blind spots and thus having larger safety margin. 
-        However, this would compromise the original thought behind these angles. Perhaps a better solution would be to introduce a new case having its own parameters considering this situation. 
+        However, this would compromise the original thought behind these angles. Perhaps a better solution would be to introduce a new case having its own parameters considering this situation. \\
+        In item \ref{subsec:calc_robot_performance} we are going to show calculations on the robot's performance for a number of different obstacle tracks.  
         
         \item \textbf{Is it possible to avoid the emergency stop?} \\
         As mentioned in subsection \ref{subsec:avoid_obstacle} we implemented a function called \texttt{emergency\_check} which would check if the robot was in an emergency situation.
@@ -603,7 +659,9 @@ Again, we have divided it into the four main parts of the project described earl
         Ultimately we wanted a robot that could drive close to an obstacle and still be able to avoid it maintaining a high average linear speed.
         This caused the robot to sometimes be very close to an obstacle, which prompted that the linear speed had to be set to zero for a moment. 
         An implementation which should \emph{only} be optimized with respect to obstacle avoidance and linear speed could avoid this and just drive away from potential obstacles in good time with maximal linear speed.
-        This was not the goal of our implementation and so we chose to have the emergency-function.  
+        This was not the goal of our implementation and so we chose to have the emergency-function. 
+        
+        \item \textbf{Calculations on the robot's performance}\label{subsec:calc_robot_performance} \\
     \end{enumerate}
 
 % \section{Personal contributions}
@@ -611,11 +669,13 @@ Again, we have divided it into the four main parts of the project described earl
 \section{References}\label{sec:References}
     \begin{itemize}
         \item Course material from Brightspace.   
-        \item ROS beginner's tutorial: \emph{http://wiki.ros.org/ROS/Tutorials}
-        \item Data sheet and specifications for Ultrasonic Range Finder: \emph{shorturl.at/cBHN1}
-        \item Data sheet and specifications for RGB light sensor: \\ \emph{shorturl.at/htEP8}
-        \item First robot navigation example: \emph{shorturl.at/lpuM8}
-        \item Turtlebot3 specifications: \emph{shorturl.at/dxWZ8} 
+        \item \href{http://wiki.ros.org/ROS/Tutorials}{ROS beginner's tutorial.}
+        \item \href{https://let-elektronik.dk/shop/300-arduino-boards/12640-pro-micro---5v16mhz/}{Arduino PRO micro Specifications.}
+        \item \href{https://let-elektronik.dk/shop/1440-afstand--bevaegelse/8502-ultrasonic-range-finder---lv-maxsonar-ez0/}{Data sheet and specifications for Ultrasonic Range Finder.}
+        \item \href{https://let-elektronik.dk/shop/1450-lys--kamera/12829--rgb-light-sensor---isl29125/}{Data sheet and specifications for RGB light sensor.}
+        \item \href{https://github.com/ROBOTIS-GIT/turtlebot3/blob/master/turtlebot3\_example/nodes/turtlebot3\_obstacle}{First robot navigation example from GitHub.}
+        \item \href{https://emanual.robotis.com/docs/en/platform/turtlebot3/features/}{Turtlebot3 specifications.}
+        \item \href{https://www.robotis.us/360-laser-distance-sensor-lds-01-lidar/}{LiDAR sensor specifications. }
     \end{itemize}
 
 
