@@ -119,7 +119,7 @@ class Obstacle():
             twist.linear.x = 0.0
             twist.angular.z = MAX_ANGLE
             self._cmd_pub.publish(twist)
-            rospy.loginfo('Turnings 180 degrees')
+            rospy.loginfo('Turning 180 degrees')
             t.sleep(1.105634)
             turtlebot_moving = False
 

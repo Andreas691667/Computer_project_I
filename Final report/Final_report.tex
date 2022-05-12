@@ -122,7 +122,7 @@ For programming the Turtlebot we have been using Python and the command prompt w
     In this part of the course we worked on a Virtual Machine (VM) on which we had installed Ubuntu. 
     We went through the ROS beginner's tutorial and learned the structure of a ROS system. 
 
-    \subsection{Part 3: Programming the robot to avoid obstacles}
+    \subsection{Part 3: Programming the robot to avoid obstacles}\label{subsec: Programming the robot to avoid obstacles}
     As described, the Turtlebot is equipped with a LiDAR 360\textdegree laser sensor, which measures the distance.
     It continuosly returns an array: 
     \begin{displaymath}
@@ -230,6 +230,7 @@ one LED was turned on. With everything connected as described above, our final c
     \subsection{Part 3: Programming the robot to avoid obstacles}
     In this part we are going to describe our initial implementation. The optimization we did, will be described in part 4. \\
     We were given a robot navigation example from a GitHub repository from where we were to get inspiration and further implement our own robot navigation. The idea of the initial example was to: \emph{Drive forward until we get close to an obstacle, then stop}. \\
+    From there we were to implement our own navigation program such that the robot would avoid the obstacles by changing directions and driving by instead of just stopping. For this we initially drew the four basic cases as described in subsection \ref{subsec: Programming the robot to avoid obstacles}. \\
     For case \(1\) we initially programmed the robot to back out of the blind alley for  and then turn around:
 \begin{lstlisting}[style = my_python, caption = Case 1, basicstyle = \footnotesize]
 if (right_distance < SAFE_STOP_DISTANCE and left_distance < SAFE_STOP_DISTANCE and front_distance < SAFE_STOP_DISTANCE):
@@ -255,7 +256,7 @@ elif (front_distance < SAFE_STOP_DISTANCE + 0.05):
         elif(left_distance < right_distance):
             small_turns('right', turn_angle + 0.2)
 \end{lstlisting}
-    Lastly, for case \(3\) and \(4\): If an obstacle on the left is within the \texttt{SAFE\_STOP\_DISTANCE} turn right and vice versa.
+    Lastly, for case \(3\) and \(4\): If an obstacle to the left is within the \texttt{SAFE\_STOP\_DISTANCE} turn right and vice versa.
 \begin{lstlisting}[style = my_python, caption = Case 3 \& 4, basicstyle = \footnotesize]
 elif(left_distance < SAFE_STOP_DISTANCE or right_distance < SAFE_STOP_DISTANCE):
     if turtlebot_moving:
@@ -265,7 +266,34 @@ elif(left_distance < SAFE_STOP_DISTANCE or right_distance < SAFE_STOP_DISTANCE):
             small_turns('right', turn_angle)
 \end{lstlisting}
 
+        \subsubsection*{Retrieving data from the LiDAR sensor}
+            We were given a function from the first navigation example to get inspiration from where we implemented our own function:
+\begin{lstlisting}[style = my_python, caption = Non-zero function, basicstyle = \footnotesize, label = lst:non_zeros]
+def get_scan(self):
+    scan = rospy.wait_for_message('scan', LaserScan)
+    scan_filter = []
 
+    left_lidar_samples_ranges = 60
+    right_lidar_samples_ranges = 345
+    front_lidar_samples_ranges = 15
+
+    front_lidar_samples1 = scan.ranges[0:front_lidar_samples_ranges]
+    front_lidar_samples2 = scan.ranges[right_lidar_samples_ranges:360]
+    left_lidar_samples = scan.ranges[front_lidar_samples_ranges:left_lidar_samples_ranges]
+    right_lidar_samples = scan.ranges[300:right_lidar_samples_ranges]
+    front_left_lidar_samples = scan.ranges[14:22]
+    front_right_lidar_samples = scan.ranges[338:346]
+
+    scan_filter.append(left_lidar_samples)
+    scan_filter.append(front_lidar_samples1)
+    scan_filter.append(front_lidar_samples2)
+    scan_filter.append(right_lidar_samples)
+    scan_filter.append(front_left_lidar_samples)
+    scan_filter.append(front_right_lidar_samples)
+
+    return scan_filter
+\end{lstlisting}
+    We recieve the LiDAR data when calling \texttt{rospy.wait\_for\_message} and then create an empty list \texttt{scan\_filter} from which we would fill in the data that we would need, hence \textbf{filter} out the unecessary data, since we are only interested in distances in a span of \(120\) degrees as mentioned in subsection \ref{subsec: Programming the robot to avoid obstacles}.
 %%%%% NON ZEROS FUNKTION TIL DIG ASGER <3
 \begin{lstlisting}[style = my_python, caption = Non-zero function, basicstyle = \footnotesize, label = lst:non_zeros]
 # function converts list of tuples to list of lists and then converts zeros to 3.5:
@@ -455,8 +483,10 @@ Again, we have divided it into the four main parts of the project described earl
         However, we couldn't figure out how they were indexed and our robot thus behaved incorrectly and sometimes
         turned left when it should turn right.
         We solved the problem by manually printing out different test angles and then physically measure that angle also. 
-        For instance printing \texttt{scan\_ranges[45]} which gave some change in output distance for some specific angle, which we measured. 
-        In turned out that it our code should be reversed. 
+        For instance printing \texttt{scan\_ranges[45]} gave some change in output distance for some specific angle, which we measured. 
+        In turned out that we had used it incorretly and the indexing was actually opposite of what we thought. 
+        The indexing was counterclockwise, such that angle \(0-90\) degrees was the first 90 degrees to the left.  
+        
         \item \textbf{Using \texttt{mean} instead of \texttt{min} and resolving problems with faulty readings} \\
         Our initial code setup from GitHub used Python's \texttt{min} function to find the representative for each direction's minimum distance.
         However, we found that our readings from the LiDAR contained a lot of zeros, which caused this representative to be zero very often. 
@@ -466,6 +496,7 @@ Again, we have divided it into the four main parts of the project described earl
         This converted potential zeros to the sensor's max range of \(3.5\)m. 
         This could however actually become a problem since both very close obstacles and very far obstacles could be represented by the same distance of 0.
         Thus our average value could become quite ambiguous. A better way to deal with this problem could be to \emph{remove} these faulty reading, making the average more precise and more reliable.
+        
         \item \textbf{Finding the right span} \\
         In the beginning of the robot programming, we only looked at \emph{point readings} and not an entire span of readings. 
         Of course, this resulted in a lot of problems, since we could not see most obstacles. Thus, we had to find a proper span of angles to look at.
@@ -499,7 +530,16 @@ Again, we have divided it into the four main parts of the project described earl
 
     \subsection{Part 4: Optimizing the robot's performance }
     \begin{enumerate}
-        \item \textbf{Structuring the \texttt{else-if} statements} \\
+        \item \textbf{Structuring the \texttt{if/elif} statements} \\
+        During our implementation we found that the way we ordered our \texttt{if/elif}-statements was very important to pay attention to.
+        At first, we did not really pay attention to this, but we experienced that our robot was not working optimally and kept driving into obstacles.
+        We discussed that it was most important that the robot avoided obstacles that were directly in front of it.
+        If it did anything else at first, it would often not turn enough and thus drive into the front obstacle. 
+        Next we wanted in to avoid obstacles that were to the left or right, since this case was defined with a higher angular velocity than the blind angle cases. 
+        Finally we wanted the robot to slightly turn away from obstacles that were in the blind spots of the robot. 
+        In this way the robot would always make the \emph{most radical choice if it was necessary.} Next it would go to the second-most radical choice and so on.
+        If nothing was needed to be done, it would simply drive forward.
+
         \item \textbf{Finding the proper regression type} \\
         As mentioned, we used power regression to determine the relationship between the distance and the speed (angular and linear).
         But why did we choose this instead of a linear regression? Or exponential regression? Linear regression would indisputable result in a higher average linear speed (see figure \ref{fig:regression_types}).
@@ -553,6 +593,7 @@ Again, we have divided it into the four main parts of the project described earl
         But we experienced that this only worked when the robot was driving completely straight towards these blind angles.
         We discussed that the problem might could have been solved by widening the gap between the blind spots and thus having larger safety margin. 
         However, this would compromise the original thought behind these angles. Perhaps a better solution would be to introduce a new case having its own parameters considering this situation. 
+        
         \item \textbf{Is it possible to avoid the emergency stop?} \\
         As mentioned in subsection \ref{subsec:avoid_obstacle} we implemented a function called \texttt{emergency\_check} which would check if the robot was in an emergency situation.
         If so, it would set the linear velocity to zero and the angular velocity to the maximum possible. However, one could argue that an optimal implementation (with respect to linear speed) would not need this. 
