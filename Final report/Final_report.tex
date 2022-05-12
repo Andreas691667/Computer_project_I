@@ -293,7 +293,7 @@ def get_scan(self):
 
     return scan_filter
 \end{lstlisting}
-    We recieve the LiDAR data when calling \texttt{rospy.wait\_for\_message} and then create an empty list \texttt{scan\_filter} from which we would fill in the data that we would need, hence \textbf{filter} out the unecessary data, since we are only interested in distances in a span of \(120\) degrees as mentioned in subsection \ref{subsec: Programming the robot to avoid obstacles}.
+    We recieve the LiDAR data when calling \texttt{rospy.wait\_for\_message} and then create an empty list \texttt{scan\_filter} from which we would fill in the data that we would need, hence \textbf{filter} out the unecessary data, since we are only interested in distances in a span of \(120\) degrees as mentioned in subsection \ref{subsec: Programming the robot to avoid obstacles}. From there we append the sections we are interested in to the list \texttt{scan\_filter} with Python's \texttt{append} function. When doing so, \texttt{scan\_filter} consists of five elements which are each tuples of distances.
 %%%%% NON ZEROS FUNKTION TIL DIG ASGER <3
 \begin{lstlisting}[style = my_python, caption = Non-zero function, basicstyle = \footnotesize, label = lst:non_zeros]
 # function converts list of tuples to list of lists and then converts zeros to 3.5:
