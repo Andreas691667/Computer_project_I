@@ -103,7 +103,7 @@ AU-id: au691667}
 \maketitle
 
 \begin{abstract}
-    This is our abstract.
+    Search-and-rescue robots are important 
 \end{abstract}
 
 \section{Introduction}
@@ -254,7 +254,11 @@ one LED was turned on. With everything connected as described above, our final c
         \item \textbf{source}: When opening a new terminal your environment is reset and you are obliged to use the \texttt{source} command to re-source the .bashrc file. 
         \item \textbf{nano}: nano is a text editor that is used to edit files. We used it to edit our code files directly in the terminal.
     \end{enumerate}
-
+    In practice we only needed to run three commands when the robot should be tested.
+    Firstly we should run \texttt{source ~/.bashrc} in each new terminal to make sure the environment is set up correctly.
+    Afterwards we needed to run \texttt{roslaunch turtlebot\_bringup\ turtlebot\_bringup.launch} to start the ROS-master (\texttt{roscore}). 
+    Then, in a different terminal we should run the code, we had written ourselves by writing the command: \texttt{roslaunch turtlebot3\_example\ turtlebot3\_obstacle.launch}.
+    
  
     \subsection{Part 3: Programming the robot to avoid obstacles}
     In this part we are going to describe our initial implementation. The optimization we did, will be described in part 4. \\
@@ -310,19 +314,16 @@ def get_scan(self):
     front_lidar_samples2 = scan.ranges[right_lidar_samples_ranges:360]
     left_lidar_samples = scan.ranges[front_lidar_samples_ranges:left_lidar_samples_ranges]
     right_lidar_samples = scan.ranges[300:right_lidar_samples_ranges]
-    front_left_lidar_samples = scan.ranges[14:22]
-    front_right_lidar_samples = scan.ranges[338:346]
 
     scan_filter.append(left_lidar_samples)
     scan_filter.append(front_lidar_samples1)
     scan_filter.append(front_lidar_samples2)
     scan_filter.append(right_lidar_samples)
-    scan_filter.append(front_left_lidar_samples)
-    scan_filter.append(front_right_lidar_samples)
 
     return scan_filter
 \end{lstlisting}
-    We recieve the LiDAR data when calling \texttt{rospy.wait\_for\_message} and then create an empty list \texttt{scan\_filter} from which we would fill in the data that we would need, hence \textbf{filter} out the unecessary data, since we are only interested in distances in a span of \(120\) degrees as mentioned in subsection \ref{subsec: Programming the robot to avoid obstacles}. From there we append the sections we are interested in to the list \texttt{scan\_filter} with Python's \texttt{append} function. When doing so, \texttt{scan\_filter} consists of five elements which are each tuples of distances.
+    We recieve the LiDAR data when calling \texttt{rospy.wait\_for\_message} and then create an empty list \texttt{scan\_filter} from which we would fill in the data that we would need, hence \textbf{filter} out the unecessary data, since we are only interested in distances in a span of \(120\) degrees as mentioned in subsection \ref{subsec: Programming the robot to avoid obstacles}. From there we append the sections we are interested in to the list \texttt{scan\_filter} with Python's \texttt{append} function. When doing so, \texttt{scan\_filter} consists of five elements which are each tuples of distances. 
+    \subsubsection{Tuples in python} When testing the robot we encountered that the LiDAR would return a lot of zeros which would represent an obstacle too close to the robot such that the robot would and should react to. This is because the LiDAR sensor has a max range of \(3.5\) m, so if an obstacle was further away than this it would just set the distance data to \(0\) which was a problem. We solved this by converting the zeros to \(3.5\) (max distance) instead, but in Python you can not edit data in tuples, so we had to convert this list of tuples to a list of lists and from there convert the zeros to \(3.5\). We created the following function \texttt{non\_zeros} to do so.
 %%%%% NON ZEROS FUNKTION TIL DIG ASGER <3
 \begin{lstlisting}[style = my_python, caption = Non-zero function, basicstyle = \footnotesize, label = lst:non_zeros]
 # function converts list of tuples to list of lists and then converts zeros to 3.5:
@@ -337,7 +338,7 @@ def non_zeros(l):
             if l[i][j] == 0:
                 l[i][j] = 3.5
 \end{lstlisting}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    The first for-loop converted the tuples to lists and the next converted zeros to \(3.5\).
 
     \subsubsection{Defining the macros}
     Several of the code snippets above shows a bunch of global variables that we had initialized in the very beginning of our code. 
@@ -349,9 +350,9 @@ LIDAR_ERROR = 0.05
 SAFE_STOP_DISTANCE = STOP_DISTANCE + LIDAR_ERROR 
 MAX_ANGLE = 2.84
 DEFAULT_TURN_ANGLE = 3.14/2  \end{lstlisting}    
-Now, we are going to explain these choices. NOte that each item corresponds to each line in listing \ref{lst:global_variables}.
+Now, we are going to explain these choices. Note that each item corresponds to each line in listing \ref{lst:global_variables}.
 \begin{enumerate}
-    \item Since we wanted the highest possible linear velocity, we set the default value of \texttt{LINEAR\_VEL} to \(0.22\), which is the maximum linear velocity of the turtlebot according to its documentation. 
+    \item Since we wanted the highest possible linear velocity, we set the default value of \texttt{LINEAR\_VEL} to \(0.22 \frac{m}{s}\), which is the maximum linear velocity of the turtlebot according to its documentation. 
     This was the linear speed the robot would move at when driving forward. When turning, this would be adjusted with respect to this basis. 
     \item We chose this by empirically testing which distance the robot could avoid an obstacle by smoothly turning. We found that with smaller distances, 
     the robot had to stop completely, which we only wanted in critical cases. 
@@ -459,7 +460,7 @@ small_turns('right', 0.34*front_left_distance**
     After implementing these changes in the code, we significantly improved the robot's linear speed. \\
 
     \subsubsection{Better collision avoidance}\label{subsec:emergency_check}
-    Another goal of our optimization was to avoid collisions with obstacles completely. We did this by implementing a new function called \texttt{emergency\_check} that would check if the robot was crititacally close to an obstacle. 
+    Another goal of our optimization was to avoid collisions with obstacles completely. We did this by implementing a new function called \texttt{emergency\_check} that would check if the robot was critically close to an obstacle. 
     We defined the robot to be critically close to an obstacle if it is within \(0.1\)m of an obstacle. With a \texttt{LIDAR\_ERROR} of \(0.05\)m, we introduced a new global variable \texttt{EMERGENCY\_STOP\_DISTANCE = 0.15}. 
     We chose this value since the minimum distance the LiDAR sensor can measure is \(0.12\)m. We did not want to get below this value since it could result in a faulty reading.\footnote{We would not actually get below this value with the true error of the sensor. See footnote \ref{footnote:lidar_accuracy}.}.
     If it was within this distance, the robot's linear speed would be set to zero and the robot would turn with max angular speed. The function is depicted in listing \ref{lst:emergency_check}.
@@ -551,8 +552,9 @@ Again, we have divided it into the four main parts of the project described earl
         This converted potential zeros to the sensor's max range of \(3.5\)m. 
         This could however actually become a problem since both very close obstacles and very far obstacles could be represented by the same distance of 0.
         Thus our average value could become quite ambiguous. A better way to deal with this problem could be to \emph{remove} these faulty reading, making the average more precise and more reliable.
+        % SKRIV OM HVORFOR MEAN I STEDET FOR MIN.
         
-        \item \textbf{Finding the right span} \\
+        \item \textbf{Finding the right span}\label{subsec:Finding the right span} \\
         In the beginning of the robot programming, we only looked at \emph{point readings} and not an entire span of readings. 
         Of course, this resulted in a lot of problems, since we could not see most obstacles. Thus, we had to find a proper span of angles to look at.
         As mentioned, we ultimately decided to look at a span of \(120\) degrees, which is not coincidental. 
@@ -648,7 +650,6 @@ Again, we have divided it into the four main parts of the project described earl
         But we experienced that this only worked when the robot was driving completely straight towards these blind angles.
         We discussed that the problem might could have been solved by widening the gap between the blind spots and thus having larger safety margin. 
         However, this would compromise the original thought behind these angles. Perhaps a better solution would be to introduce a new case having its own parameters considering this situation. \\
-        In item \ref{subsec:calc_robot_performance} we are going to show calculations on the robot's performance for a number of different obstacle tracks.  
         
         \item \textbf{Is it possible to avoid the emergency stop?} \\
         As mentioned in subsection \ref{subsec:avoid_obstacle} we implemented a function called \texttt{emergency\_check} which would check if the robot was in an emergency situation.
@@ -660,23 +661,20 @@ Again, we have divided it into the four main parts of the project described earl
         This caused the robot to sometimes be very close to an obstacle, which prompted that the linear speed had to be set to zero for a moment. 
         An implementation which should \emph{only} be optimized with respect to obstacle avoidance and linear speed could avoid this and just drive away from potential obstacles in good time with maximal linear speed.
         This was not the goal of our implementation and so we chose to have the emergency-function. 
-        
-        \item \textbf{Calculations on the robot's performance}\label{subsec:calc_robot_performance} \\
     \end{enumerate}
 
 % \section{Personal contributions}
 
-\section{References}\label{sec:References}
-    \begin{itemize}
-        \item Course material from Brightspace.   
-        \item \href{http://wiki.ros.org/ROS/Tutorials}{ROS beginner's tutorial.}
-        \item \href{https://let-elektronik.dk/shop/300-arduino-boards/12640-pro-micro---5v16mhz/}{Arduino PRO micro Specifications.}
-        \item \href{https://let-elektronik.dk/shop/1440-afstand--bevaegelse/8502-ultrasonic-range-finder---lv-maxsonar-ez0/}{Data sheet and specifications for Ultrasonic Range Finder.}
-        \item \href{https://let-elektronik.dk/shop/1450-lys--kamera/12829--rgb-light-sensor---isl29125/}{Data sheet and specifications for RGB light sensor.}
-        \item \href{https://github.com/ROBOTIS-GIT/turtlebot3/blob/master/turtlebot3\_example/nodes/turtlebot3\_obstacle}{First robot navigation example from GitHub.}
-        \item \href{https://emanual.robotis.com/docs/en/platform/turtlebot3/features/}{Turtlebot3 specifications.}
-        \item \href{https://www.robotis.us/360-laser-distance-sensor-lds-01-lidar/}{LiDAR sensor specifications. }
-    \end{itemize}
+    \begin{thebibliography}{00}\label{sec:References}
+        \bibitem{b1} Course material from Brightspace.   
+        \bibitem{b2} \href{http://wiki.ros.org/ROS/Tutorials}{ROS beginner's tutorial.}
+        \bibitem{b3} \href{https://let-elektronik.dk/shop/300-arduino-boards/12640-pro-micro---5v16mhz/}{Arduino PRO micro Specifications.}
+        \bibitem{b4} \href{https://let-elektronik.dk/shop/1440-afstand--bevaegelse/8502-ultrasonic-range-finder---lv-maxsonar-ez0/}{Data sheet and specifications for Ultrasonic Range Finder.}
+        \bibitem{b5} \href{https://let-elektronik.dk/shop/1450-lys--kamera/12829--rgb-light-sensor---isl29125/}{Data sheet and specifications for RGB light sensor.}
+        \bibitem{b6} \href{https://github.com/ROBOTIS-GIT/turtlebot3/blob/master/turtlebot3\_example/nodes/turtlebot3\_obstacle}{First robot navigation example from GitHub.}
+        \bibitem{b7} \href{https://emanual.robotis.com/docs/en/platform/turtlebot3/features/}{Turtlebot3 specifications.}
+        \bibitem{b8} \href{https://www.robotis.us/360-laser-distance-sensor-lds-01-lidar/}{LiDAR sensor specifications. }
+    \end{thebibliography}
 
 
 
