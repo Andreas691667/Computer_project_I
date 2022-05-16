@@ -301,7 +301,7 @@ elif(left_distance < SAFE_STOP_DISTANCE or right_distance < SAFE_STOP_DISTANCE):
 
         \subsubsection{Retrieving data from the LiDAR sensor}
             We were given a function from the first navigation example to get inspiration from where we implemented our own function:
-\begin{minipage}{\linewidth} \begin{lstlisting}[style = my_python, caption = Non-zero function, basicstyle = \footnotesize, label = lst:non_zeros]
+\begin{minipage}{\linewidth} \begin{lstlisting}[style = my_python, caption = \texttt{get\_scan} function, basicstyle = \footnotesize, label = lst:non_zeros]
 def get_scan(self):
     scan = rospy.wait_for_message('scan', LaserScan)
     scan_filter = []
@@ -530,7 +530,8 @@ Again, we have divided it into the four main parts of the project described earl
         Working with the ROS beginner's tutorial gave us a deeper understanding of how the ROS works.
         We found that in order to get the robot to work we had to follow this structure that ROS provides. 
         Deviation from this would quickly cause the robot to stop working and a bit of troubleshooting would be needed. 
-
+        On a more abstract level we learned that robot programming is extremely complex and requires a lot of prior knowledge, which we do not have the foundation for yet. 
+        Given the amount of time of time allocated to this project, we decided to focus on the more important aspects, which would be the programming and optimizations of the robot. 
     \end{enumerate}
 
 
