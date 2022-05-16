@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2022.2.13)  16 MAY 2022 15:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2022.2.13)  16 MAY 2022 15:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -480,7 +480,7 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 12
  (C:\Users\Andreas\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-<img//see_think_act.png, id=114, 516.12825pt x 278.2395pt>
+<img//see_think_act.png, id=110, 516.12825pt x 278.2395pt>
 File: img//see_think_act.png Graphic file (type png)
 <use img//see_think_act.png>
 Package pdftex.def Info: img//see_think_act.png  used on input line 139.
@@ -492,7 +492,7 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 
 
  <./img//see_think_act.png>]
-<img//obstacle_cases.png, id=139, 386.44376pt x 416.55624pt>
+<img//obstacle_cases.png, id=135, 386.44376pt x 416.55624pt>
 File: img//obstacle_cases.png Graphic file (type png)
 <use img//obstacle_cases.png>
 Package pdftex.def Info: img//obstacle_cases.png  used on input line 173.
@@ -528,7 +528,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 190--224
 \OT1/ptm/m/n/10 the Ar-duino and in-tial-ized it as fol-lows:
  []
 
-<img//arduino_final.jpeg, id=143, 1541.76pt x 2055.68pt>
+<img//arduino_final.jpeg, id=139, 1541.76pt x 2055.68pt>
 File: img//arduino_final.jpeg Graphic file (type jpg)
 <use img//arduino_final.jpeg>
 Package pdftex.def Info: img//arduino_final.jpeg  used on input line 240.
@@ -673,7 +673,7 @@ Underfull \hbox (badness 3039) in paragraph at lines 375--394
 Underfull \vbox (badness 7981) has occurred while \output is active []
 
  [4]
-<img//blind_angle.png, id=289, 425.79076pt x 420.3705pt>
+<img//blind_angle.png, id=285, 425.79076pt x 420.3705pt>
 File: img//blind_angle.png Graphic file (type png)
 <use img//blind_angle.png>
 Package pdftex.def Info: img//blind_angle.png  used on input line 403.
@@ -697,12 +697,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 407--416
  []
 
 [5 <./img//blind_angle.png>]
-<img//lin_vel_graph.png, id=320, 446.26724pt x 286.06876pt>
+<img//lin_vel_graph.png, id=316, 446.26724pt x 286.06876pt>
 File: img//lin_vel_graph.png Graphic file (type png)
 <use img//lin_vel_graph.png>
 Package pdftex.def Info: img//lin_vel_graph.png  used on input line 442.
 (pdftex.def)             Requested size: 206.39685pt x 132.30472pt.
-<img//ang_vel_graps.png, id=322, 488.565pt x 258.885pt>
+<img//ang_vel_graps.png, id=318, 488.565pt x 258.885pt>
 File: img//ang_vel_graps.png Graphic file (type png)
 <use img//ang_vel_graps.png>
 Package pdftex.def Info: img//ang_vel_graps.png  used on input line 450.
@@ -745,7 +745,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 540--549
 
  []
 
-<img//120_degrees_argumentation.png, id=378, 1325.70282pt x 854.44218pt>
+<img//120_degrees_argumentation.png, id=374, 1325.70282pt x 854.44218pt>
 File: img//120_degrees_argumentation.png Graphic file (type png)
 <use img//120_degrees_argumentation.png>
 Package pdftex.def Info: img//120_degrees_argumentation.png  used on input line 568.
@@ -758,12 +758,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 594--603
 
  []
 
-<img//regression_types_linear.png, id=398, 448.67625pt x 328.22626pt>
+<img//regression_types_linear.png, id=394, 448.67625pt x 328.22626pt>
 File: img//regression_types_linear.png Graphic file (type png)
 <use img//regression_types_linear.png>
 Package pdftex.def Info: img//regression_types_linear.png  used on input line 614.
 (pdftex.def)             Requested size: 154.80157pt x 113.24318pt.
-<img//regression_types_angular.png, id=399, 464.937pt x 230.0595pt>
+<img//regression_types_angular.png, id=395, 464.937pt x 230.0595pt>
 File: img//regression_types_angular.png Graphic file (type png)
 <use img//regression_types_angular.png>
 Package pdftex.def Info: img//regression_types_angular.png  used on input line 620.
@@ -789,10 +789,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 650--657
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [9]
-
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
 
@@ -803,27 +799,25 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[10
-
-] (Final_report.aux)
+[9] (Final_report.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `Final_report.out' has not changed.
-(rerunfilecheck)             Checksum: E18ED81607988687B62869F0B72F7E37;5730.
+(rerunfilecheck)             Checksum: C7DC168D73FFFF9F4B25E5DF752B344F;5644.
  ) 
 Here is how much of TeX's memory you used:
- 15021 strings out of 478593
- 240122 string characters out of 2843660
- 973397 words of memory out of 3000000
- 32735 multiletter control sequences out of 15000+600000
+ 15017 strings out of 478593
+ 240072 string characters out of 2843660
+ 973395 words of memory out of 3000000
+ 32734 multiletter control sequences out of 15000+600000
  519236 words of font info for 130 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,11n,63p,807b,1574s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrro8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Final_report.pdf (10 pages, 1828894 bytes).
+Output written on Final_report.pdf (9 pages, 1827656 bytes).
 PDF statistics:
- 565 PDF objects out of 1000 (max. 8388607)
- 244 named destinations out of 1000 (max. 500000)
- 268 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 556 PDF objects out of 1000 (max. 8388607)
+ 241 named destinations out of 1000 (max. 500000)
+ 260 words of extra memory for PDF output out of 10000 (max. 10000000)
 
