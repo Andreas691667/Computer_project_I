@@ -635,7 +635,7 @@ Again, we have divided it into the four main parts of the project described earl
             \resizebox{0.4\textwidth}{!}{
             \begin{tabular}{|l|cll|}
             \hline
-                                & \multicolumn{3}{c|}{\textbf{Distance}}                    \\ \hline
+                                & \multicolumn{3}{c|}{\textbf{Distance (measured in meters)}} \\ \hline
             {\textbf{Regression type}} & \multicolumn{1}{c|}{\(x = 0.13\)} & \multicolumn{1}{l|}{\(x = 0.15\)} & \(x = 0.17\) \\ \hline
             Power regression       & \multicolumn{1}{c|}{\(-16.22\)}  & \multicolumn{1}{l|}{\(-12.3 \)} & \(-9.66\)\\ \hline
             Exponential regression & \multicolumn{1}{c|}{\(-10.71\)}  & \multicolumn{1}{l|}{\(-9.83 \)} & \(-9.02\)\\ \hline
@@ -653,7 +653,8 @@ Again, we have divided it into the four main parts of the project described earl
         We did calculate these angles such that it would be able to drive through if there was nothing in both blind spots.
         But we experienced that this only worked when the robot was driving completely straight towards these blind angles.
         We discussed that the problem might could have been solved by widening the gap between the blind spots and thus having larger safety margin. 
-        However, this would compromise the original thought behind these angles. Perhaps a better solution would be to introduce a new case having its own parameters considering this situation. \\
+        However, this would compromise the original thought behind these angles. Perhaps a better solution would be to introduce a new case having its own parameters considering this situation. 
+        The best approach would be to make the 'slices' of the blind spots dependent on the distance to to the obstacles, since we measured the angles as depicted in figure \ref{fig:blind_angle}. \\
         
         \item \textbf{Is it possible to avoid the emergency stop?} \\
         As mentioned in subsection \ref{subsec:avoid_obstacle} we implemented a function called \texttt{emergency\_check} which would check if the robot was in an emergency situation.
