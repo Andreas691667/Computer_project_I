@@ -206,16 +206,16 @@ class Obstacle():
                             emergency_check(front_left_new)
                             front_left_distance = np.mean(front_left_new[4])
 
-            # case 4: obstacle in both "blindspots"
-            elif (front_left_distance < SAFE_STOP_DISTANCE and front_right_distance < SAFE_STOP_DISTANCE):
-                print('special case')
-                if (right_distance < left_distance):
-                    small_turns('left', DEFAULT_TURN_ANGLE, LINEAR_VEL)
+            # # case 4: obstacle in both "blindspots"
+            # elif (front_left_distance < SAFE_STOP_DISTANCE and front_right_distance < SAFE_STOP_DISTANCE):
+            #     print('special case')
+            #     if (right_distance < left_distance):
+            #         small_turns('left', DEFAULT_TURN_ANGLE, LINEAR_VEL)
 
-                elif(left_distance < right_distance):
-                    small_turns('right', DEFAULT_TURN_ANGLE, LINEAR_VEL)
+            #     elif(left_distance < right_distance):
+            #         small_turns('right', DEFAULT_TURN_ANGLE, LINEAR_VEL)
 
-            # case 5: no obstacles => go forward
+            # case 4: no obstacles => go forward
             else:
                 twist.linear.x = LINEAR_VEL
                 twist.angular.z = 0.0
