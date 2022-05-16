@@ -111,7 +111,7 @@ AU-id: au691667}
     \begin{enumerate}
         \item Understanding the basic concepts of robotics programming by working with an Arduino - that is, the \emph{see-think-act cycle} (see figure \ref{fig:See-think-act}). 
         Reading and analyzing data from a range sensor and RGB sensor.
-        \item ROS Programming on virtual machine. Learning the structure that ROS provides and going through the beginner's tutorial. 
+        \item Working with the \emph{Robot Operating System} (ROS) on a virtual machine. Learning the structure that ROS provides and going through the beginner's tutorial. 
         \item ROS programming on Raspberry PI. Programming the robot to avoid obstacles in different scenarios. 
         \item Optimizing the robot's performance both with respect to linear speed and collision avoidance. Finalizing the code and testing the robot on an obstacle course. 
     \end{enumerate}
@@ -513,7 +513,7 @@ Again, we have divided it into the four main parts of the project described earl
         \item \textbf{Computing the readings correctly} \\
         We experienced some difficulties in computing the readings correctly since we were not able to find the right scaling factor. 
         We found that many sensors were to be treated differently since they did not give consistent readings. However, since this was only a
-        preliminary exercise to the main project, we did not give it that much thought. 
+        preliminary exercise to the main project, we did not give it that much thought. \\
         \item \textbf{Preparation to main project} \\
         Working with the Arduino and the appurtenant sensors helped us understand the importance of the see-think-act cycle as shown in figure \ref{fig:See-think-act}.
         Our code structure turned out to be predominantly alike in the way we worked with the \texttt{if/elif}-statements. 
@@ -527,7 +527,10 @@ Again, we have divided it into the four main parts of the project described earl
     \subsection{Part 2: ROS Programming}
     \begin{enumerate}
         \item \textbf{Understanding the ROS structure} \\
-        
+        Working with the ROS beginner's tutorial gave us a deeper understanding of how the ROS works.
+        We found that in order to get the robot to work we had to follow this structure that ROS provides. 
+        Deviation from this would quickly cause the robot to stop working and a bit of troubleshooting would be needed. 
+         
     \end{enumerate}
 
 
@@ -541,7 +544,7 @@ Again, we have divided it into the four main parts of the project described earl
         We solved the problem by manually printing out different test angles and then physically measure that angle also. 
         For instance printing \texttt{scan\_ranges[45]} gave some change in output distance for some specific angle, which we measured. 
         In turned out that we had used it incorretly and the indexing was actually opposite of what we thought. 
-        The indexing was counterclockwise, such that angle \(0-90\) degrees was the first 90 degrees to the left.  
+        The indexing was counterclockwise, such that angle \(0-90\) degrees was the first 90 degrees to the left.  \\
         
         \item \textbf{Using \texttt{mean} instead of \texttt{min} and resolving problems with faulty readings} \\
         Our initial code setup from GitHub used Python's \texttt{min} function to find the representative for each direction's minimum distance.
@@ -595,7 +598,7 @@ Again, we have divided it into the four main parts of the project described earl
         Next we wanted in to avoid obstacles that were to the left or right, since this case was defined with a higher angular velocity than the blind angle cases. 
         Finally we wanted the robot to slightly turn away from obstacles that were in the blind spots of the robot. 
         In this way the robot would always make the \emph{most radical choice if it was necessary.} Next it would go to the second-most radical choice and so on.
-        If nothing was needed to be done, it would simply drive forward.
+        If nothing was needed to be done, it would simply drive forward. \\
 
         \item \textbf{Finding the proper regression type} \\
         As mentioned, we used power regression to determine the relationship between the distance and the speed (angular and linear).
@@ -641,7 +644,7 @@ Again, we have divided it into the four main parts of the project described earl
             \label{tab:slope_calculations}
         \end{table}
         In this way the robot would only make a sharp turn when the obstacle was critically close to an obstacle. The acceleration would be the greatest at the critical distance, which we wanted. 
-        Thus we chose power regression for the angular velocity as well. 
+        Thus we chose power regression for the angular velocity as well. \\
 
         \item \textbf{Obstacle avoidance for some special cases} \\
         We have already argued that the robot would avoid an obstacle even if it was just facing a corner of it, though we emphasized the fact that it would be on \emph{either} of the sides. 
@@ -675,6 +678,15 @@ Again, we have divided it into the four main parts of the project described earl
         \bibitem{b7} \href{https://emanual.robotis.com/docs/en/platform/turtlebot3/features/}{Turtlebot3 specifications.}
         \bibitem{b8} \href{https://www.robotis.us/360-laser-distance-sensor-lds-01-lidar/}{LiDAR sensor specifications. }
     \end{thebibliography}
+
+    \pagebreak
+    \pagebreak
+    \appendix
+    This appendix contains the full code for our robot. 
+
+
+    
+
 
 
 
