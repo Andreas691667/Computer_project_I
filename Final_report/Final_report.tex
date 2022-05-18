@@ -555,8 +555,8 @@ Again, we have divided it into the four main parts of the project described earl
         Moreover, since our readings still contained a lot of zeros, we modified our code to use the \texttt{non\_zeros}-function as shown in listing \ref{lst:non_zeros}.
         This converted potential zeros to the sensor's max range of \(3.5\)m. 
         This could however actually become a problem since both very close obstacles and very far obstacles could be represented by the same distance of 0.
-        Thus our average value could become quite ambiguous. A better way to deal with this problem could be to \emph{remove} these faulty reading, making the average more precise and more reliable.
-        % SKRIV OM HVORFOR MEAN I STEDET FOR MIN.
+        Thus our average value could become quite ambiguous. A better way to deal with this problem could be to \emph{remove} these faulty reading, making the average more precise and more reliable. \\
+        When using \texttt{min} we also only concentrate on a single point in our 'slices', which when we tested the LiDAR sensor was not always 100\% accurate, so sometimes when there actually was a closer object to the left than to the right the robot would still too often turn left. Since \texttt{mean} considers all the points in the 'slices' we get a more representative view of the current situation the robot should react to.
         
         \item \textbf{Finding the right span}\label{subsec:Finding the right span} \\
         In the beginning of the robot programming, we only looked at \emph{point readings} and not an entire span of readings. 
