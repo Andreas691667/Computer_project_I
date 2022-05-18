@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2022.2.13)  16 MAY 2022 15:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2022.2.13)  18 MAY 2022 11:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -492,7 +492,7 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 
 
  <./img//see_think_act.png>]
-<img//obstacle_cases.png, id=135, 386.44376pt x 416.55624pt>
+<img//obstacle_cases.png, id=134, 386.44376pt x 416.55624pt>
 File: img//obstacle_cases.png Graphic file (type png)
 <use img//obstacle_cases.png>
 Package pdftex.def Info: img//obstacle_cases.png  used on input line 173.
@@ -528,7 +528,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 190--224
 \OT1/ptm/m/n/10 the Ar-duino and in-tial-ized it as fol-lows:
  []
 
-<img//arduino_final.jpeg, id=139, 1541.76pt x 2055.68pt>
+<img//arduino_final.jpeg, id=138, 1541.76pt x 2055.68pt>
 File: img//arduino_final.jpeg Graphic file (type jpg)
 <use img//arduino_final.jpeg>
 Package pdftex.def Info: img//arduino_final.jpeg  used on input line 240.
@@ -809,13 +809,13 @@ Package rerunfilecheck Info: File `Final_report.out' has not changed.
 Here is how much of TeX's memory you used:
  15017 strings out of 478593
  240072 string characters out of 2843660
- 973395 words of memory out of 3000000
+ 973617 words of memory out of 3000000
  32734 multiletter control sequences out of 15000+600000
  519236 words of font info for 130 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,11n,63p,807b,1574s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrro8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Final_report.pdf (9 pages, 1828248 bytes).
+Output written on Final_report.pdf (9 pages, 1830462 bytes).
 PDF statistics:
  557 PDF objects out of 1000 (max. 8388607)
  241 named destinations out of 1000 (max. 500000)
