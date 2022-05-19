@@ -311,7 +311,7 @@ if (right_distance < SAFE_STOP_DISTANCE and left_distance < SAFE_STOP_DISTANCE a
 
     For our remaining cases we used a function called \texttt{small\_turns} as shown in listing \ref{lst:small_turns} to control the robot. 
     The function's functionality corresponds exactly to the steps desribed above - it has only been generalized. 
-    The function takes three arguments; a direction, an angular velocity, and a linear velocity which are all used to control the robot\footnote{For our initial implementation we only used the two first inputs and the linear velocity was consistenly equal to \texttt{LINEAR\_VEL}.}. 
+    The function takes three arguments; a direction, an angular velocity, and a linear velocity which are all used to control the robot\footnote{For our initial implementation we only used the two first inputs and the linear velocity when turning was consistenly equal to \(0.1 \frac{m}{s}\).}. 
 \begin{minipage}{\linewidth} \begin{lstlisting}[style = my_python, caption = \texttt{small\_turns} function., basicstyle = \footnotesize, label = lst:small_turns]
 def obstacle(self):
 twist = Twist()
@@ -351,7 +351,7 @@ elif(left_distance < SAFE_STOP_DISTANCE or right_distance < SAFE_STOP_DISTANCE):
         else:
             small_turns('right', turn_angle)
 \end{lstlisting} \end{minipage} 
-    Lastly, by default, we drive forward if there are no obstacles to avoid.
+    Lastly, by default, we drive forward if there are no obstacles to avoid. Note that this is where we set \texttt{turtlebot\_moving} to \texttt{true}. 
 \begin{minipage}{\linewidth} \begin{lstlisting}[style = my_python, caption = Else: drive forward, basicstyle = \footnotesize, label = lst:drive_forward]
 else:
     twist.linear.x = LINEAR_VEL
@@ -362,7 +362,7 @@ else:
     Thus, ending an iteration of the control-loop \texttt{while not rospy.is\_shutdown():}.
 
         \subsubsection{Retrieving data from the LiDAR sensor}
-            We were given a function from the first navigation example to get inspiration from where we implemented our own function:
+            In the original GitHub repository, the LiDAR sensor only looked at one measurement. We altered the function \texttt{get\_scan} to fit our needs:
 \begin{minipage}{\linewidth} \begin{lstlisting}[style = my_python, caption = \texttt{get\_scan} function, basicstyle = \footnotesize, label = lst:non_zeros]
 def get_scan(self):
     scan = rospy.wait_for_message('scan', LaserScan)
@@ -387,7 +387,7 @@ def get_scan(self):
     We recieve the LiDAR data when calling \texttt{rospy.wait\_for\_message} and then create an empty list \texttt{scan\_filter} from which we would fill in the data that we would need, hence \textbf{filter} out the unecessary data, since we are only interested in distances in a span of \(120\) degrees as mentioned in subsection \ref{subsec: Programming the robot to avoid obstacles}. From there we append the sections we are interested in to the list \texttt{scan\_filter} with Python's \texttt{append} function. When doing so, \texttt{scan\_filter} consists of five elements which are each tuples of distances. 
     \subsubsection{Tuples in python} When testing the robot we encountered that the LiDAR would return a lot of zeros which would represent an obstacle too close to the robot such that the robot would and should react to. This is because the LiDAR sensor has a max range of \(3.5\) m, so if an obstacle was further away than this it would just set the distance data to \(0\) which was a problem. We solved this by converting the zeros to \(3.5\) (max distance) instead, but in Python you can not edit data in tuples, so we had to convert this list of tuples to a list of lists and from there convert the zeros to \(3.5\). We created the following function \texttt{non\_zeros} to do so.
 %%%%% NON ZEROS FUNKTION TIL DIG ASGER <3
-\begin{minipage}{\linewidth} \begin{lstlisting}[style = my_python, caption = Non-zero function, basicstyle = \footnotesize, label = lst:non_zeros]
+\begin{minipage}{\linewidth} \begin{lstlisting}[style = my_python, caption = \texttt{non\_zeros} function, basicstyle = \footnotesize, label = lst:non_zeros]
 # function converts list of tuples to list of lists and then converts zeros to 3.5:
 def non_zeros(l):
     # convert tuples to list
@@ -431,7 +431,7 @@ Now, we are going to explain these choices. Note that each item corresponds to e
     \subsubsection{Adding a \texttt{factor} to \texttt{SAFE\_STOP\_DISTANCE}}\label{subsec:factor}
     We experienced that when the robot encountered an obstacle on its front it did not manage to avoid it optimally. 
     We thus added a factor of \(0.08\)cm to the \texttt{SAFE\_STOP\_DISTANCE} constant in this case. By doing this, the robot began avoiding the obstacle earlier, 
-    and thus it was able to avoid it more optimally. \\
+    and thus it was able to avoid it more optimally. Same goes for many of our other cases.\\
     
     \subsubsection{Making sure to avoid the obstacle before next control loop iteration}\label{subsec:avoid_obstacle}
     We wanted to make sure that the robot actually avoided the obstacle before the next control loop iteration.
@@ -443,14 +443,14 @@ if (front_distance < SAFE_STOP_DISTANCE + 0.08):
     # look ahead:
     if turtlebot_moving:
         if (right_distance < left_distance):
-            while(front_distance < SAFE_STOP_DISTANCE + factor):
+            while(front_distance < SAFE_STOP_DISTANCE + 0.08):
                 small_turns('left', 'angular vel', 'linear vel.')
                 front_new = self.get_scan()
                 non_zeros(front_new)
                 emergency_check(front_new)
                 front_distance = np.mean(front_new[1] + front_new[2]) \end{lstlisting} \end{minipage} 
     By doing this we ensured that the robot would not stop avoiding the obstacle before it had actually escaped it\footnote{Note that the 2nd and 3rd argument in the \texttt{small\_turns} function are written in pseudo-code since we did further optimizations, which will be described in subsection \ref{subsec:optimize_linear_speed}. 
-    Same goes for the variable \texttt{factor}, which was described in the subsection before. The function \texttt{emergency\_check} will also be described in subsection \ref{subsec:emergency_check}.}.
+    The function \texttt{emergency\_check} will also be described in subsection \ref{subsec:emergency_check}.}.
     For each loop iteration we made a new laser scan and checked if the robot was within the \texttt{SAFE\_STOP\_DISTANCE+factor}. If it is, we called the \texttt{small\_turns} function,
     and turned the robot in the opposite direction of the closest obstacle as normally.     
 
@@ -575,14 +575,14 @@ Again, we have divided it into the four main parts of the project described earl
         \item \textbf{Computing the readings correctly} \\
         We experienced some difficulties in computing the readings correctly since we were not able to find the right scaling factor. 
         We found that many sensors were to be treated differently since they did not give consistent readings. However, since this was only a
-        preliminary exercise to the main project, we did not give it that much thought. \\
+        preliminary exercise to the main project, we decided not to spend much time on the problem, since we had to focus on our main goal. \\
         \item \textbf{Preparation to main project} \\
         Working with the Arduino and the appurtenant sensors helped us understand the importance of the see-think-act cycle as shown in figure \ref{fig:See-think-act}.
         Our code structure turned out to be predominantly alike in the way we worked with the \texttt{if/elif}-statements. 
         This was of course only with respect to some very simple cases, but the underlying though processes were not very different. 
         The body of the \texttt{if/elif}-statements was also way more complex in our robot's code. 
         Moreover, we found that working with the sensors was not that easy and that it demanded a lot of effort and reading to actually understand the input from the sensors.
-        This was a valuable lesson that prompted us to work more structured in the main project.  
+        This was a valuable lesson that prompted us to work more structured in the main project.  \\
     \end{enumerate}
 
 
@@ -593,7 +593,7 @@ Again, we have divided it into the four main parts of the project described earl
         We found that in order to get the robot to work we had to follow this structure that ROS provides. 
         Deviation from this would quickly cause the robot to stop working and a bit of troubleshooting would be needed. 
         On a more abstract level we learned that robot programming is extremely complex and requires a lot of prior knowledge, which we do not have the foundation for yet. 
-        Given the amount of time of time allocated to this project, we decided to focus on the more important aspects, which would be the programming and optimizations of the robot. 
+        Given the amount of time of time allocated to this project, we decided to focus on the more important aspects, which would be the programming and optimizations of the robot. \\
     \end{enumerate}
 
 
@@ -617,8 +617,8 @@ Again, we have divided it into the four main parts of the project described earl
         Moreover, since our readings still contained a lot of zeros, we modified our code to use the \texttt{non\_zeros}-function as shown in listing \ref{lst:non_zeros}.
         This converted potential zeros to the sensor's max range of \(3.5\)m. 
         This could however actually become a problem since both very close obstacles and very far obstacles could be represented by the same distance of 0.
-        Thus our average value could become quite ambiguous. A better way to deal with this problem could be to \emph{remove} these faulty reading, making the average more precise and more reliable. \\
-        When using \texttt{min} we also only concentrate on a single point in our 'slices', which when we tested the LiDAR sensor was not always 100\% accurate, so sometimes when there actually was a closer object to the left than to the right the robot would still too often turn left. Since \texttt{mean} considers all the points in the 'slices' we get a more representative view of the current situation the robot should react to.
+        Thus our average value could become quite ambiguous. A better way to deal with this problem could be to \emph{remove} these faulty reading, making the average more precise and more reliable. \par
+        When using \texttt{min} we also only concentrate on a single point in our 'slices', which when we tested the LiDAR sensor was not always 100\% accurate, so sometimes when there actually was a closer object to the left than to the right the robot would still too often turn left. Since \texttt{mean} considers all the points in the 'slices' we get a more representative view of the current situation the robot should react to.\\
         
         \item \textbf{Finding the right span}\label{subsec:Finding the right span} \\
         In the beginning of the robot programming, we only looked at \emph{point readings} and not an entire span of readings. 

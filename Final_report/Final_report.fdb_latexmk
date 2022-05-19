@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1652945852 "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final_report/Final_report.tex" "Final_report.pdf" "Final_report" 1652945855
+["pdflatex"] 1652948095 "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final_report/Final_report.tex" "Final_report.pdf" "Final_report" 1652948098
   "C:/Users/Andreas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1652271232 136886 13b03990c8332ac873f3265c1f537334 ""
   "C:/Users/Andreas/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1644768407 10244413 9950a3456d2583571166a5e6c15ad4e7 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -38,6 +38,7 @@
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy6.tfm" 1136765053 1116 933a60c408fc0a863a92debe84b2d294 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy8.tfm" 1136765053 1120 8b7d695260f3cff42e636090a8002094 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1247596667 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1247596666 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb" 1247596667 36281 c355509802a035cadc5f15869451dcee ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1247596666 35469 dcf3a5f2fc1862f5952e3ee5eb1d98c4 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1247596667 35752 024fb6c41858982481f6968b5fc26508 ""
@@ -134,10 +135,10 @@
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1575571282 9715 b051d5b493d9fe5f4bc251462d039e5f ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1636284872 56029 3f7889dab51d620aa43177c391b7b190 ""
-  "Final_report.aux" 1652945855 11504 4c5f956bb1b24258c6bedd648abe60cf "pdflatex"
-  "Final_report.out" 1652945855 5940 8d6b48b11bcd550d94aa958032ca9bbb "pdflatex"
-  "Final_report.tex" 1652945852 54004 f6961df8e493cd61944d777927e6d377 ""
-  "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final_report/Final_report.tex" 1652945852 54004 f6961df8e493cd61944d777927e6d377 ""
+  "Final_report.aux" 1652948097 11529 fcd0b4b2221a76629a893ee191f38c1a "pdflatex"
+  "Final_report.out" 1652948097 5940 8d6b48b11bcd550d94aa958032ca9bbb "pdflatex"
+  "Final_report.tex" 1652948093 54133 431634f7d2f601846a4bbbca54e64a76 ""
+  "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final_report/Final_report.tex" 1652948093 54133 431634f7d2f601846a4bbbca54e64a76 ""
   "img//120_degrees_argumentation.png" 1652268197 278680 b0d3d3e2edf422cbde69105f417fd826 ""
   "img//ang_vel_graps.png" 1652190303 52473 cf0a11a89d0ae6e20176ed0e32418da2 ""
   "img//arduino_final.jpeg" 1651995424 1024348 960ac7c53f8d76b6a9c741c6853a66a9 ""

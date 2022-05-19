@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2022.2.13)  19 MAY 2022 09:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2022.2.13)  19 MAY 2022 10:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -632,12 +632,17 @@ Underfull \hbox (badness 2302) in paragraph at lines 336--363
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 336--363
-\OT1/ptm/m/n/10 Lastly, by de-fault, we drive for-ward
+\OT1/ptm/m/n/10 Lastly, by de-fault, we drive for-ward if there
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 336--363
-\OT1/ptm/m/n/10 if there are no ob-sta-cles to avoid.
+\OT1/ptm/m/n/10 are no ob-sta-cles to avoid. Note that this is
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 336--363
+\OT1/ptm/m/n/10 where we set \OT1/pcr/m/n/10 turtlebot_moving \OT1/ptm/m/n/10 to \OT1/pcr/m/n/10 true\OT1/ptm/m/n/10 .
  []
 
 
@@ -669,6 +674,9 @@ Underfull \hbox (badness 3148) in paragraph at lines 406--417
 Underfull \hbox (badness 10000) in paragraph at lines 430--431
 
  []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <10> not available
 (Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 432.
@@ -702,15 +710,12 @@ Underfull \hbox (badness 3039) in paragraph at lines 437--456
 \OT1/ptm/m/n/10 a \OT1/pcr/m/n/10 while\OT1/ptm/m/n/10 -loop to each case as shown in list-ing [][]13[][].
  []
 
-<img//blind_angle.png, id=308, 425.79076pt x 420.3705pt>
+<img//blind_angle.png, id=310, 425.79076pt x 420.3705pt>
 File: img//blind_angle.png Graphic file (type png)
 <use img//blind_angle.png>
 Package pdftex.def Info: img//blind_angle.png  used on input line 465.
 (pdftex.def)             Requested size: 206.39685pt x 203.7704pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [5]
+[5]
 Underfull \hbox (badness 10000) in paragraph at lines 469--478
 []\OT1/ptm/m/n/10 We thus in-cluded the fol-low-ing
  []
@@ -725,12 +730,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 469--478
 
  []
 
-<img//lin_vel_graph.png, id=359, 446.26724pt x 286.06876pt>
+<img//lin_vel_graph.png, id=360, 446.26724pt x 286.06876pt>
 File: img//lin_vel_graph.png Graphic file (type png)
 <use img//lin_vel_graph.png>
 Package pdftex.def Info: img//lin_vel_graph.png  used on input line 504.
 (pdftex.def)             Requested size: 206.39685pt x 132.30472pt.
-<img//ang_vel_graps.png, id=361, 488.565pt x 258.885pt>
+<img//ang_vel_graps.png, id=362, 488.565pt x 258.885pt>
 File: img//ang_vel_graps.png Graphic file (type png)
 <use img//ang_vel_graps.png>
 Package pdftex.def Info: img//ang_vel_graps.png  used on input line 512.
@@ -769,12 +774,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 575--579
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 579--586
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 591--597
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 602--611
 
  []
 
 [7]
-<img//120_degrees_argumentation.png, id=435, 1325.70282pt x 854.44218pt>
+Underfull \hbox (badness 10000) in paragraph at lines 621--622
+
+ []
+
+<img//120_degrees_argumentation.png, id=436, 1325.70282pt x 854.44218pt>
 File: img//120_degrees_argumentation.png Graphic file (type png)
 <use img//120_degrees_argumentation.png>
 Package pdftex.def Info: img//120_degrees_argumentation.png  used on input line 630.
@@ -788,12 +807,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 656--665
  []
 
 [8 <./img//120_degrees_argumentation.png>]
-<img//regression_types_linear.png, id=451, 448.67625pt x 328.22626pt>
+<img//regression_types_linear.png, id=452, 448.67625pt x 328.22626pt>
 File: img//regression_types_linear.png Graphic file (type png)
 <use img//regression_types_linear.png>
 Package pdftex.def Info: img//regression_types_linear.png  used on input line 676.
 (pdftex.def)             Requested size: 154.80157pt x 113.24318pt.
-<img//regression_types_angular.png, id=452, 464.937pt x 230.0595pt>
+<img//regression_types_angular.png, id=453, 464.937pt x 230.0595pt>
 File: img//regression_types_angular.png Graphic file (type png)
 <use img//regression_types_angular.png>
 Package pdftex.def Info: img//regression_types_angular.png  used on input line 682.
@@ -840,17 +859,17 @@ Package rerunfilecheck Info: File `Final_report.out' has not changed.
 (rerunfilecheck)             Checksum: 8D6B48B11BCD550D94AA958032CA9BBB;5940.
  ) 
 Here is how much of TeX's memory you used:
- 15077 strings out of 478593
- 240810 string characters out of 2843660
- 1084242 words of memory out of 3000000
- 32750 multiletter control sequences out of 15000+600000
+ 15075 strings out of 478593
+ 240788 string characters out of 2843660
+ 1084246 words of memory out of 3000000
+ 32748 multiletter control sequences out of 15000+600000
  519236 words of font info for 130 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,12n,63p,798b,1510s stack positions out of 5000i,500n,10000p,200000b,80000s
-{C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrro8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Final_report.pdf (10 pages, 1844606 bytes).
+{C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrro8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Final_report.pdf (10 pages, 1853458 bytes).
 PDF statistics:
- 621 PDF objects out of 1000 (max. 8388607)
+ 626 PDF objects out of 1000 (max. 8388607)
  285 named destinations out of 1000 (max. 500000)
  268 words of extra memory for PDF output out of 10000 (max. 10000000)
 
