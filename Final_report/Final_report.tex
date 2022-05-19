@@ -103,7 +103,7 @@ AU-id: au691667}
 \maketitle
 
 \begin{abstract}
-    With the continuos improvement of autonomous robots they could sooner than later provide a competetive advantage to more complex tasks such as driving a car or performing a search and rescue operation by reducing error rate, decreasing long-term costs and provide access to dangerous locations. In this paper, we report on our first hands-on experience with embedded programming, working with ROS on a virtual machine and design of real time control software for Aarhus University's computer engineering students. We briefly look into basic Arduino programming and use this knowledge to further implement a program on the Turtlebot3 Burger Robot to drive and avoid obstacles autonomously. We conclude ...
+    With the continuos improvement of autonomous robots they could sooner than later provide a competetive advantage to more complex tasks such as driving a car or performing a search and rescue operation by reducing error rate, decreasing long-term costs and provide access to dangerous locations. In this paper, we report on our first hands-on experience with embedded programming, working with ROS on a virtual machine and design of real time control software for Aarhus University's computer engineering students. We briefly look into basic Arduino programming and use this knowledge to further implement a program on the Turtlebot3 Burger Robot to drive and avoid obstacles autonomously. We conclude that the implementation of the see-think-act cycle is imperative for the development of autonomous robots. Furthermore, the course/project has given us as 1st year computer engineering students foundational tools to see, think and act towards developing more complex robots in the future.
 \end{abstract}
 
 \section{Introduction}
@@ -401,6 +401,10 @@ def non_zeros(l):
                 l[i][j] = 3.5
 \end{lstlisting} \end{minipage} 
     The first for-loop converted the tuples to lists and the next converted zeros to \(3.5\).
+
+    \subsubsection{A short note on the \emph{see-think-act cycle}}
+    Considering our code above on a more abstract level, we can see that this actually corresponds 1:1 with the see-think-act cycle as seen in figure \ref{fig:See-think-act}. 
+    Our \texttt{get\_scan}-function thus acts as the \textbf{see}-step in which we 'sense' our environment, so to speak. 
 
     \subsubsection{Defining the macros}
     Several of the code snippets above shows a bunch of global variables that we had initialized in the very beginning of our code. 
@@ -730,7 +734,22 @@ Again, we have divided it into the four main parts of the project described earl
         This was not the goal of our implementation and so we chose to have the emergency-function. 
     \end{enumerate}
 
-% \section{Personal contributions}
+    \section{Conclusion}
+    The see-think-act cycle is a powerful tool in understanding basic robot behaviour. 
+    Though working with quite simple programming and robots, it is also a powerful tool in understanding complex robot behaviour, which we have now learned the foundation for. 
+    We have also learned that in order to program a robot, it is crucial to be structured and work systematically with the different aspects this ecompasses. The \emph{Robot operating system} provides this structure, which
+    again gives the foundation for later working with more complex robots.
+    Finally we have also found that mathematical analysis is a powerful tool in optimizing the robot behaviour. 
+    This is especially important in the case of obstacle avoidance, which is the main reason for the existence of this project.
+    
+
+
+    \section{Personal contributions}
+    For programming and SSH'ing into the Turtlebot we have exclusively used Andreas' PC. We chose this since we encountered some difficulties in working on Asger's MacBook. 
+    We did however collaborate closely throughout the entire project. We did also lose a classmate in the middle of the project, which meant we were only 2 left.
+    For this reason it did not make much sense to divide the different parts of the project between us. 
+    As a result we have both been focusing on getting a deep understanding of all aspects of the project and associated learning outcomes of the course. 
+
 
     \begin{thebibliography}{00}\label{sec:References}
         \bibitem{b1} Course material from Brightspace.   
