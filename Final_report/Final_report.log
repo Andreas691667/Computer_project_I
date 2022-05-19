@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2022.2.13)  19 MAY 2022 12:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2022.2.13)  19 MAY 2022 12:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -651,152 +651,155 @@ Underfull \hbox (badness 10000) in paragraph at lines 365--388
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 410--421
+Underfull \hbox (badness 10000) in paragraph at lines 412--423
  \OT1/ptm/m/it/10 5) Defin-ing the macros: [][][] \OT1/ptm/m/n/10 Sev-eral of the code
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 410--421
+Underfull \hbox (badness 10000) in paragraph at lines 412--423
 \OT1/ptm/m/n/10 snip-pets above shows a bunch of global vari-ables
  []
 
 
-Underfull \hbox (badness 2653) in paragraph at lines 410--421
+Underfull \hbox (badness 2653) in paragraph at lines 412--423
 \OT1/ptm/m/n/10 that we had ini-tial-ized in the very be-gin-ning of our
  []
 
 
-Underfull \hbox (badness 3148) in paragraph at lines 410--421
+Underfull \hbox (badness 3148) in paragraph at lines 412--423
 \OT1/ptm/m/n/10 code. These ini-tial-iza-tions can be seen in list-ing [][]12[][].
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 434--435
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 436--437
 
  []
 
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <10> not available
-(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 436.
+(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 438.
 
-Underfull \hbox (badness 10000) in paragraph at lines 436--439
+Underfull \hbox (badness 10000) in paragraph at lines 438--441
 
  []
 
 
-Underfull \hbox (badness 5345) in paragraph at lines 441--460
+Underfull \hbox (badness 5345) in paragraph at lines 443--462
  \OT1/ptm/m/it/10 2) Mak-ing sure to avoid the ob-sta-cle be-fore next
  []
 
 
-Underfull \hbox (badness 2608) in paragraph at lines 441--460
+Underfull \hbox (badness 2608) in paragraph at lines 443--462
 \OT1/ptm/m/it/10 con-trol loop it-er-a-tion: [][][] \OT1/ptm/m/n/10 We wanted to make sure that
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 441--460
+Underfull \hbox (badness 10000) in paragraph at lines 443--462
 \OT1/ptm/m/n/10 the robot ac-tu-ally avoided the ob-sta-cle be-fore the
  []
 
 
-Underfull \hbox (badness 6173) in paragraph at lines 441--460
+Underfull \hbox (badness 6173) in paragraph at lines 443--462
 \OT1/ptm/m/n/10 next con-trol loop it-er-a-tion. We did this by adding
  []
 
 
-Underfull \hbox (badness 3039) in paragraph at lines 441--460
+Underfull \hbox (badness 3039) in paragraph at lines 443--462
 \OT1/ptm/m/n/10 a \OT1/pcr/m/n/10 while\OT1/ptm/m/n/10 -loop to each case as shown in list-ing [][]13[][].
  []
 
 <img//blind_angle.png, id=323, 425.79076pt x 420.3705pt>
 File: img//blind_angle.png Graphic file (type png)
 <use img//blind_angle.png>
-Package pdftex.def Info: img//blind_angle.png  used on input line 469.
+Package pdftex.def Info: img//blind_angle.png  used on input line 471.
 (pdftex.def)             Requested size: 206.39685pt x 203.7704pt.
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 473--482
+Underfull \hbox (badness 10000) in paragraph at lines 475--484
 []\OT1/ptm/m/n/10 We thus in-cluded the fol-low-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 473--482
+Underfull \hbox (badness 10000) in paragraph at lines 475--484
 \OT1/ptm/m/n/10 code in our func-tion \OT1/pcr/m/n/10 get_scan()\OT1/ptm/m/n/10 :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 473--482
+Underfull \hbox (badness 10000) in paragraph at lines 475--484
 
  []
 
 <img//lin_vel_graph.png, id=372, 446.26724pt x 286.06876pt>
 File: img//lin_vel_graph.png Graphic file (type png)
 <use img//lin_vel_graph.png>
-Package pdftex.def Info: img//lin_vel_graph.png  used on input line 508.
+Package pdftex.def Info: img//lin_vel_graph.png  used on input line 510.
 (pdftex.def)             Requested size: 206.39685pt x 132.30472pt.
 <img//ang_vel_graps.png, id=374, 488.565pt x 258.885pt>
 File: img//ang_vel_graps.png Graphic file (type png)
 <use img//ang_vel_graps.png>
-Package pdftex.def Info: img//ang_vel_graps.png  used on input line 516.
+Package pdftex.def Info: img//ang_vel_graps.png  used on input line 518.
 (pdftex.def)             Requested size: 206.39685pt x 109.36694pt.
 
-Underfull \hbox (badness 4096) in paragraph at lines 520--527
+Underfull \hbox (badness 4096) in paragraph at lines 522--529
 []\OT1/ptm/m/n/10 Afterwards, we im-ple-mented this in our code. We
  []
 
 
-Underfull \hbox (badness 2443) in paragraph at lines 520--527
+Underfull \hbox (badness 2443) in paragraph at lines 522--529
 \OT1/ptm/m/n/10 needed to in-clude the power func-tions we had found
  []
 
 
-Underfull \hbox (badness 2237) in paragraph at lines 520--527
+Underfull \hbox (badness 2237) in paragraph at lines 522--529
 \OT1/ptm/m/n/10 each time we called the \OT1/pcr/m/n/10 small_turns \OT1/ptm/m/n/10 func-tion. An
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 520--527
+Underfull \hbox (badness 10000) in paragraph at lines 522--529
 
  []
 
 [6 <./img//blind_angle.png> <./img//lin_vel_graph.png> <./img//ang_vel_graps.png>]
-Underfull \hbox (badness 2005) in paragraph at lines 529--566
+Underfull \hbox (badness 2005) in paragraph at lines 531--568
 \OT1/ptm/m/n/10 ti-miza-tion was to avoid col-li-sions with ob-sta-cles com-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 579--583
+Underfull \hbox (badness 10000) in paragraph at lines 581--585
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 583--590
+Underfull \hbox (badness 10000) in paragraph at lines 585--592
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 595--601
+Underfull \hbox (badness 10000) in paragraph at lines 597--603
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 606--615
+Underfull \hbox (badness 10000) in paragraph at lines 608--617
 
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 625--626
+Underfull \hbox (badness 10000) in paragraph at lines 627--628
 
  []
 
-<img//120_degrees_argumentation.png, id=449, 1325.70282pt x 854.44218pt>
+<img//120_degrees_argumentation.png, id=448, 1325.70282pt x 854.44218pt>
 File: img//120_degrees_argumentation.png Graphic file (type png)
 <use img//120_degrees_argumentation.png>
-Package pdftex.def Info: img//120_degrees_argumentation.png  used on input line 634.
+Package pdftex.def Info: img//120_degrees_argumentation.png  used on input line 636.
 (pdftex.def)             Requested size: 232.19843pt x 149.64696pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 6078) has occurred while \output is active []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 660--669
+Underfull \hbox (badness 10000) in paragraph at lines 662--671
 
  []
 
@@ -804,30 +807,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 660--669
 <img//regression_types_linear.png, id=465, 448.67625pt x 328.22626pt>
 File: img//regression_types_linear.png Graphic file (type png)
 <use img//regression_types_linear.png>
-Package pdftex.def Info: img//regression_types_linear.png  used on input line 680.
+Package pdftex.def Info: img//regression_types_linear.png  used on input line 682.
 (pdftex.def)             Requested size: 154.80157pt x 113.24318pt.
 <img//regression_types_angular.png, id=466, 464.937pt x 230.0595pt>
 File: img//regression_types_angular.png Graphic file (type png)
 <use img//regression_types_angular.png>
-Package pdftex.def Info: img//regression_types_angular.png  used on input line 686.
+Package pdftex.def Info: img//regression_types_angular.png  used on input line 688.
 (pdftex.def)             Requested size: 154.80157pt x 76.60088pt.
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 678--690
+Overfull \hbox (6.0pt too wide) in paragraph at lines 680--692
  []$[]$ 
  []
 
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 678--690
+Overfull \hbox (6.0pt too wide) in paragraph at lines 680--692
  []$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 713--715
+Underfull \hbox (badness 10000) in paragraph at lines 715--717
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 716--724
+Underfull \hbox (badness 10000) in paragraph at lines 718--726
 
  []
 
@@ -861,7 +864,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  60i,11n,63p,1078b,1510s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrro8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Final_report.pdf (10 pages, 1856874 bytes).
+Output written on Final_report.pdf (10 pages, 1857063 bytes).
 PDF statistics:
  639 PDF objects out of 1000 (max. 8388607)
  288 named destinations out of 1000 (max. 500000)
