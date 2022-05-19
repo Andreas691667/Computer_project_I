@@ -386,7 +386,7 @@ def get_scan(self):
 \end{lstlisting} \end{minipage} 
     We recieve the LiDAR data when calling \texttt{rospy.wait\_for\_message} and then create an empty list \texttt{scan\_filter} from which we would fill in the data that we would need, hence \textbf{filter} out the unecessary data, since we are only interested in distances in a span of \(120\) degrees as mentioned in subsection \ref{subsec: Programming the robot to avoid obstacles}. From there we append the sections we are interested in to the list \texttt{scan\_filter} with Python's \texttt{append} function. When doing so, \texttt{scan\_filter} consists of five elements which are each tuples of distances. 
     \subsubsection{Tuples in python} When testing the robot we encountered that the LiDAR would return a lot of zeros which would represent an obstacle too close to the robot such that the robot would and should react to. This is because the LiDAR sensor has a max range of \(3.5\) m, so if an obstacle was further away than this it would just set the distance data to \(0\) which was a problem. We solved this by converting the zeros to \(3.5\) (max distance) instead, but in Python you can not edit data in tuples, so we had to convert this list of tuples to a list of lists and from there convert the zeros to \(3.5\). We created the following function \texttt{non\_zeros} to do so.
-%%%%% NON ZEROS FUNKTION TIL DIG ASGER <3
+
 \begin{minipage}{\linewidth} \begin{lstlisting}[style = my_python, caption = \texttt{non\_zeros} function, basicstyle = \footnotesize, label = lst:non_zeros]
 # function converts list of tuples to list of lists and then converts zeros to 3.5:
 def non_zeros(l):
@@ -405,7 +405,7 @@ def non_zeros(l):
     \subsubsection{A short note on the \emph{see-think-act cycle}}
     Considering our code above on a more abstract level, we can see that this actually corresponds 1:1 with the see-think-act cycle as seen in figure \ref{fig:See-think-act}. 
     Our \texttt{get\_scan}-function thus acts as the \textbf{see}-step in which we 'sense' our environment, so to speak. 
-    Afterwards we have the \textbf{think}-step in which we determine the best action to take. 
+    Afterwards we have the \textbf{think}-step in which we determine the best action to take. That is, the different \texttt{if/elif}-statements. 
     Finally, we have the \textbf{act}-step in which we execute the action we have decided upon. This is when we publish our \texttt{twist}-command to the Turtlebot. 
 
     \subsubsection{Defining the macros}
@@ -733,7 +733,10 @@ Again, we have divided it into the four main parts of the project described earl
         Ultimately we wanted a robot that could drive close to an obstacle and still be able to avoid it maintaining a high average linear speed.
         This caused the robot to sometimes be very close to an obstacle, which prompted that the linear speed had to be set to zero for a moment. 
         An implementation which should \emph{only} be optimized with respect to obstacle avoidance and linear speed could avoid this and just drive away from potential obstacles in good time with maximal linear speed.
-        This was not the goal of our implementation and so we chose to have the emergency-function. 
+        This was not the goal of our implementation and so we chose to have the emergency-function. \\
+
+        \item \textbf{Final tests of the robot} \\
+        We tested the robot with a few different scenarios.
     \end{enumerate}
 
     \section{Conclusion}

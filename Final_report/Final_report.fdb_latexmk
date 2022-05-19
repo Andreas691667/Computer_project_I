@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1652955029 "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final_report/Final_report.tex" "Final_report.pdf" "Final_report" 1652955031
+["pdflatex"] 1652955586 "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final_report/Final_report.tex" "Final_report.pdf" "Final_report" 1652955589
   "C:/Users/Andreas/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1652271232 136886 13b03990c8332ac873f3265c1f537334 ""
   "C:/Users/Andreas/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1644768407 10244413 9950a3456d2583571166a5e6c15ad4e7 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -135,10 +135,10 @@
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1575571282 9715 b051d5b493d9fe5f4bc251462d039e5f ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/Andreas/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1636284872 56029 3f7889dab51d620aa43177c391b7b190 ""
-  "Final_report.aux" 1652955031 11925 b29b457852777ad831cff38bca8d9095 "pdflatex"
-  "Final_report.out" 1652955031 6472 d9354e81bc2e0a480aa58f83276acaa9 "pdflatex"
-  "Final_report.tex" 1652955026 56500 7ba1319874751250efa23beb574fa5ce ""
-  "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final_report/Final_report.tex" 1652955026 56500 7ba1319874751250efa23beb574fa5ce ""
+  "Final_report.aux" 1652955588 11925 b29b457852777ad831cff38bca8d9095 "pdflatex"
+  "Final_report.out" 1652955588 6472 d9354e81bc2e0a480aa58f83276acaa9 "pdflatex"
+  "Final_report.tex" 1652955580 56630 40f62fb58d031fc2699f6dd7f50d1da2 ""
+  "c:/Users/Andreas/Documents/GitHub/Computer_project_I/Final_report/Final_report.tex" 1652955580 56630 40f62fb58d031fc2699f6dd7f50d1da2 ""
   "img//120_degrees_argumentation.png" 1652268197 278680 b0d3d3e2edf422cbde69105f417fd826 ""
   "img//ang_vel_graps.png" 1652190303 52473 cf0a11a89d0ae6e20176ed0e32418da2 ""
   "img//arduino_final.jpeg" 1651995424 1024348 960ac7c53f8d76b6a9c741c6853a66a9 ""

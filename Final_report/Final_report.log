@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2022.2.13)  19 MAY 2022 12:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.1) (preloaded format=pdflatex 2022.2.13)  19 MAY 2022 12:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -651,6 +651,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 365--388
  []
 
 [4]
+Overfull \hbox (10.0pt too wide) in paragraph at lines 390--404
+[]$[]$
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 412--423
  \OT1/ptm/m/it/10 5) Defin-ing the macros: [][][] \OT1/ptm/m/n/10 Sev-eral of the code
  []
@@ -834,6 +839,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 718--726
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 727--737
+
+ []
+
 [9 <./img//regression_types_linear.png> <./img//regression_types_angular.png>]
 
 ** Conference Paper **
@@ -856,17 +866,17 @@ Package rerunfilecheck Info: File `Final_report.out' has not changed.
 (rerunfilecheck)             Checksum: D9354E81BC2E0A480AA58F83276ACAA9;6472.
  ) 
 Here is how much of TeX's memory you used:
- 15081 strings out of 478593
- 240868 string characters out of 2843660
- 1084243 words of memory out of 3000000
+ 15082 strings out of 478593
+ 240875 string characters out of 2843660
+ 1033243 words of memory out of 3000000
  32751 multiletter control sequences out of 15000+600000
  519236 words of font info for 130 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,11n,63p,1078b,1510s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,11n,63p,1080b,1510s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrro8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Andreas/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Final_report.pdf (10 pages, 1857063 bytes).
+Output written on Final_report.pdf (10 pages, 1857542 bytes).
 PDF statistics:
- 639 PDF objects out of 1000 (max. 8388607)
- 288 named destinations out of 1000 (max. 500000)
+ 642 PDF objects out of 1000 (max. 8388607)
+ 289 named destinations out of 1000 (max. 500000)
  292 words of extra memory for PDF output out of 10000 (max. 10000000)
 
