@@ -125,7 +125,7 @@ We have used the following equipment throughout the course.
     \item LED's, cables etc.
     \item Turtlebot3 Burger Robot equipped with i.a. a Raspberry Pi 3 and a 360\textdegree LiDAR sensor (lds-01).  
 \end{itemize}
-For coding we have used the language C for programming the Arduino on the Arduino software. 
+For coding we have used the language C++ for programming the Arduino on the Arduino software. 
 For programming the Turtlebot we have been using Python and the command prompt with the built in nano-editor. 
 
 \section{Design and implementation}
@@ -153,7 +153,7 @@ For programming the Turtlebot we have been using Python and the command prompt w
 
     \subsection{Part 3: Programming the robot to avoid obstacles}\label{subsec: Programming the robot to avoid obstacles}
     As described, the Turtlebot is equipped with a LiDAR 360\textdegree laser sensor, which measures the distance.
-    It continuosly returns an array: 
+    It continuosly returns a set of data: 
     \begin{displaymath}
         \texttt{dist} = [d_0, d_1, \dots, d_{359}]
     \end{displaymath}
@@ -174,6 +174,7 @@ For programming the Turtlebot we have been using Python and the command prompt w
         \caption{Obstacle cases}
         \label{fig:obstacle_cases}
     \end{figure}
+    We thus only considered four distinct cases for our intitial setup. However, we later found that this was not sufficient. Our solution to this will be elaborated in the next subsection. 
 
     \subsection{Part 4: Optimizing the robot's performance }
     In the last part of the course we should test the robot on an arbitrary course of obstacles.
@@ -188,7 +189,7 @@ include several code snippets and figures.
 
     \subsection{Part 1: Arduino Programming}
     We connected the Range sensor to the Arduino and intialized it as follows:
-    \begin{minipage}{\linewidth} \begin{lstlisting}[style = my_python, caption = Initialization of variables]        
+    \begin{minipage}{\linewidth} \begin{lstlisting}[style = my_python, caption = Initialization of variables, language = C]        
 int SENSOR = A0; //range sensor connected to port A0
 double range_input = 0; //variable for storing input values
 void setup()
@@ -221,7 +222,7 @@ else if(range_input+margin < 25 && range_input+margin >20) {
 }
 TXLED1; //LED turned off by default  
 \end{lstlisting} \end{minipage} 
-
+We were thus able to see the robot \textbf{act} in different ways depending on what it \textbf{saw}, which substantiated the \emph{see-think-act} cycle. \\
 Afterwards we extended the circuit to include three range sensors in the same way as above. 
 We discovered that our measurements at first were wrong since we did not convert the input values to distances. 
 Looking at the equipment specifications we found out that the sensor uses a scaling factor of \(6.4 \frac{mV}{inch}\). 
@@ -241,6 +242,8 @@ one LED was turned on. With everything connected as described above, our final c
     \caption{Final Arduino circuit}
     \label{fig:arduino_final}
 \end{figure}
+We now had a circuit that would serve as the building blocks for our final implemenatation of the Turtlebot with each range finder sensor acting as a representative of each slice desribed in subsection \ref{subsec: Programming the robot to avoid obstacles}.
+We will elaborate this further in subsection \ref{subsec:arduino_as_blocks}. 
 
     \subsection{Part 2: ROS Programming}
     As mentioned we followed the ROS beginner's tutorial in which we installed ROS using several commands. 
@@ -261,10 +264,18 @@ one LED was turned on. With everything connected as described above, our final c
     
  
     \subsection{Part 3: Programming the robot to avoid obstacles}
+
+    \subsubsection{Using the Arduino setup as building blocks}\label{subsec:arduino_as_blocks}
+    
+    
+
     In this part we are going to describe our initial implementation. The optimization we did, will be described in part 4. \\
-    We were given a robot navigation example from a GitHub repository from where we were to get inspiration and further implement our own robot navigation. The idea of the initial example was to: \emph{Drive forward until we get close to an obstacle, then stop}. \\
-    From there we were to implement our own navigation program such that the robot would avoid the obstacles by changing directions and driving by instead of just stopping. For this we initially drew the four basic cases as described in subsection \ref{subsec: Programming the robot to avoid obstacles}. \\
-    For case \(1\) we initially programmed the robot to back out of the blind alley for  and then turn around:
+    We were given a robot navigation example from a GitHub repository\footnote{The Github Repository of the first navigation example is linked in the references} from where we were to get inspiration and further implement our own robot navigation. The idea of the initial example was to: \emph{Drive forward until we get close to an obstacle, then stop}. The robot kept driving by initiating the following \texttt{while}-loop
+\begin{minipage}{\linewidth} \begin{lstlisting}[style = my_python, caption = control loop, basicstyle = \footnotesize]
+while not rospy.is_shutdown():
+\end{lstlisting} \end{minipage}
+    So \texttt{while} we keep publishing the topic, we iterate through the following \texttt{else-if} statements that should make the robot react if the cases from figure \ref{fig:obstacle_cases} were to be encountered. \\
+    For case \(1\) we initially programmed the robot to back out of the blind alley and then turn around:
 \begin{minipage}{\linewidth} \begin{lstlisting}[style = my_python, caption = Case 1, basicstyle = \footnotesize]
 if (right_distance < SAFE_STOP_DISTANCE and left_distance < SAFE_STOP_DISTANCE and front_distance < SAFE_STOP_DISTANCE):
     if turtlebot_moving:
@@ -280,7 +291,49 @@ if (right_distance < SAFE_STOP_DISTANCE and left_distance < SAFE_STOP_DISTANCE a
         t.sleep(1.0)
         turtlebot_moving = False
 \end{lstlisting} \end{minipage} 
-    For case \(2\) the robot was programmed to look to the left and right respectively and then turn in the opposite direction of the closest obstacle:
+    Below here we will explain this code line for line. Note that each item corresponds to each line number. 
+    \begin{enumerate}
+        \item Requirements for the specific case. 
+        \item This variable was set to \texttt{true} each time the robot was driving forward. The robot would thus only \textbf{act} if it was not already turning away from some other obstacle. 
+        \item In order to alter the robot's movement we had to update the \texttt{twist}-command. In this line we updated the linear velocity, which should be negative for the robot to move backwards.
+        \item Here, we update the twist command with respect to the angular velocity which in this case should be zero since the robot should \emph{only} turn backwards. 
+        \item In this line we \emph{publish} the newly updated \texttt{twist}-command to the turtlebot. When we do this, the robot will act accordingly. 
+        \item We write to log what we are doing. 
+        \item We wanted the robo to turn backwards for some time, in this case 1 second. 
+        \item Now the robot should only turn and we thus set the linear speed to zero.
+        \item The robot should turn in place, so we set the angular speed to \(\pi /2\).
+        \item Publishing the new twist command.
+        \item Writing to the log. 
+        \item Wait for 1 second. 
+        \item Now we set the beforementioned variable \texttt{turtlebot\_moving} to \texttt{false}. It will \emph{only} be set to \texttt{true} again when the robot should drive forward (shown in listing \ref{lst:drive_forward}). 
+    \end{enumerate}
+    These explanations also hold for all other cases which will only be described shortly below. 
+
+    For our remaining cases we used a function called \texttt{small\_turns} as shown in listing \ref{lst:small_turns} to control the robot. 
+    The function's functionality corresponds exactly to the steps desribed above - it has only been generalized. 
+    The function takes three arguments; a direction, an angular velocity, and a linear velocity which are all used to control the robot\footnote{For our initial implementation we only used the two first inputs and the linear velocity was consistenly equal to \texttt{LINEAR\_VEL}.}. 
+\begin{minipage}{\linewidth} \begin{lstlisting}[style = my_python, caption = \texttt{small\_turns} function., basicstyle = \footnotesize, label = lst:small_turns]
+def obstacle(self):
+twist = Twist()
+turtlebot_moving = True
+
+def small_turns(dir, angle, vel):
+    if(dir == 'left'):
+        twist.linear.x = vel
+        twist.angular.z = angle
+        self._cmd_pub.publish(twist)
+        rospy.loginfo('Turning left')
+        turtlebot_moving = False
+
+    elif (dir == 'right'):
+        twist.linear.x = vel
+        twist.angular.z = -angle
+        self._cmd_pub.publish(twist)
+        rospy.loginfo('Turning right')
+        turtlebot_moving = False
+\end{lstlisting} \end{minipage}
+
+    For case \(2\): If the robot found an obstacle to the front it was programmed to look to the left and right respectively, look for next potential obstacle and then turn in the opposite direction of the next potential closest obstacle:
 \begin{minipage}{\linewidth} \begin{lstlisting}[style = my_python, caption = Case 2, basicstyle = \footnotesize]
 elif (front_distance < SAFE_STOP_DISTANCE + 0.05):
     if turtlebot_moving:
@@ -289,7 +342,7 @@ elif (front_distance < SAFE_STOP_DISTANCE + 0.05):
         elif(left_distance < right_distance):
             small_turns('right', turn_angle + 0.2)
 \end{lstlisting} \end{minipage} 
-    Lastly, for case \(3\) and \(4\): If an obstacle to the left is within the \texttt{SAFE\_STOP\_DISTANCE} turn right and vice versa.
+    For case \(3\) and \(4\): If an obstacle to the left is within the \texttt{SAFE\_STOP\_DISTANCE} turn right and vice versa.
 \begin{minipage}{\linewidth} \begin{lstlisting}[style = my_python, caption = Case 3 \& 4, basicstyle = \footnotesize]
 elif(left_distance < SAFE_STOP_DISTANCE or right_distance < SAFE_STOP_DISTANCE):
     if turtlebot_moving:
@@ -298,6 +351,15 @@ elif(left_distance < SAFE_STOP_DISTANCE or right_distance < SAFE_STOP_DISTANCE):
         else:
             small_turns('right', turn_angle)
 \end{lstlisting} \end{minipage} 
+    Lastly, by default, we drive forward if there are no obstacles to avoid.
+\begin{minipage}{\linewidth} \begin{lstlisting}[style = my_python, caption = Else: drive forward, basicstyle = \footnotesize, label = lst:drive_forward]
+else:
+    twist.linear.x = LINEAR_VEL
+    twist.angular.z = 0.0
+    turtlebot_moving = True
+    self._cmd_pub.publish(twist)
+\end{lstlisting} \end{minipage} 
+    Thus, ending an iteration of the control-loop \texttt{while not rospy.is\_shutdown():}.
 
         \subsubsection{Retrieving data from the LiDAR sensor}
             We were given a function from the first navigation example to get inspiration from where we implemented our own function:
