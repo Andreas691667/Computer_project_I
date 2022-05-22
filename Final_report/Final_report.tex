@@ -276,7 +276,7 @@ while not rospy.is_shutdown():
 \end{lstlisting} \end{minipage}
     So \texttt{while} we keep publishing the topic, we iterate through the following \texttt{else-if} statements that should make the robot react if the cases from figure \ref{fig:obstacle_cases} were to be encountered. \\
     For case \(1\) we initially programmed the robot to back out of the blind alley and then turn around:
-\begin{minipage}{\linewidth} \begin{lstlisting}[style = my_python, caption = Case 1, basicstyle = \footnotesize]
+\begin{minipage}{\linewidth} \begin{lstlisting}[style = my_python, caption = Case 1, basicstyle = \footnotesize, label=lst:initial_case_1]
 if (right_distance < SAFE_STOP_DISTANCE and left_distance < SAFE_STOP_DISTANCE and front_distance < SAFE_STOP_DISTANCE):
     if turtlebot_moving:
         twist.linear.x = -LINEAR_VEL
@@ -290,7 +290,7 @@ if (right_distance < SAFE_STOP_DISTANCE and left_distance < SAFE_STOP_DISTANCE a
         rospy.loginfo('Turning around')
         t.sleep(1.0)
         turtlebot_moving = False
-\end{lstlisting} \end{minipage} 
+\end{lstlisting} \end{minipage}
     Below here we will explain this code line for line. Note that each item corresponds to each line number. 
     \begin{enumerate}
         \item Requirements for the specific case. 
@@ -569,8 +569,20 @@ def emergency_check(l):
     The function takes an input \texttt{l} which is a list of tuples containing the latest readings. 
     We called this function for each loop iteration, both in the overall control loop as well as in the loops described in subsection \ref{subsec:avoid_obstacle} and depicted in listing \ref{lst:while_loops}.
     By doing this we constantly checked if the robot was so close to an obstacle that it could not avoid it by turning conventionally. 
-    Instead, the robot should turn \emph{in place} with maximal angular speed.     
-
+    Instead, the robot should turn \emph{in place} with maximal angular speed. Note that we initially wanted the turtlebot to drive backwards and then turn, but while testing the implementation from listing \ref{lst:initial_case_1} we noticed that backing out was not an option unless we furthered our vision span to also look behind, since we could risk backing into an obstacle as illustrated below.
+    \begin{figure}[H]
+        \centering
+            \includegraphics*[scale = 0.4]{Test_fail_example_1.png}   
+        \caption{Initial implementation flaw}
+        \label{fig:Test_fail_example_1}
+    \end{figure}
+    So by turning in place until the coast is clear turned out to be an optimal solution for this.
+    \begin{figure}[H]
+        \centering
+            \includegraphics*[scale = 0.4]{test_fail_example_1_solution.png}   
+        \caption{Illustration of line 25-26 in listing 16}
+        \label{fig:test_fail_example_1_solution}
+    \end{figure}
 \section{Discussion}\label{sec:discussion}
 In this section of the report we will discuss some of the difficulties we encountered during the project.
 We are also going to discuss whether or not we reached our goal.
