@@ -82,7 +82,7 @@ class Obstacle():
                 turtlebot_moving = False
 
         def emergency_check(l):
-	    # calculate mean of our slices:
+            # calculate mean of our slices:
             left_distance = np.mean((l[0]))
             front_distance = np.mean(l[1] + l[2])
             right_distance = np.mean(l[3])
@@ -205,15 +205,6 @@ class Obstacle():
                             non_zeros(front_left_new)
                             emergency_check(front_left_new)
                             front_left_distance = np.mean(front_left_new[4])
-
-            # # case 4: obstacle in both "blindspots"
-            # elif (front_left_distance < SAFE_STOP_DISTANCE and front_right_distance < SAFE_STOP_DISTANCE):
-            #     print('special case')
-            #     if (right_distance < left_distance):
-            #         small_turns('left', DEFAULT_TURN_ANGLE, LINEAR_VEL)
-
-            #     elif(left_distance < right_distance):
-            #         small_turns('right', DEFAULT_TURN_ANGLE, LINEAR_VEL)
 
             # case 4: no obstacles => go forward
             else:
