@@ -152,13 +152,13 @@ For programming the Turtlebot we have been using Python and the command prompt w
     We went through the ROS beginner's tutorial and learned the structure of a ROS system. 
 
     \subsection{Part 3: Programming the robot to avoid obstacles}\label{subsec: Programming the robot to avoid obstacles}
-    As described, the Turtlebot is equipped with a LiDAR 360\textdegree laser sensor, which measures the distance.
+    As described, the Turtlebot is equipped with a LiDAR 360\textdegree \ laser sensor, which measures the distance.
     It continuosly returns a set of data: 
     \begin{displaymath}
         \texttt{dist} = [d_0, d_1, \dots, d_{359}]
     \end{displaymath}
     where \(d_i\) is the distance to the nearest object at angle \(i\). 
-    We decided to look at a span of 120 degrees, which we divided into three distinct parts:
+    We decided to look at a span of 120 degrees, which we initially divided into three distinct parts:
     \begin{align*}
         \texttt{left}  &= [d_{15}, d_{16},\dots,d_{60}], \texttt{N=45} \\
         \texttt{front} &= [d_{0},d_{1},\dots,d_{14}, d_{345}, d_{346},\dots, d_{359}], \texttt{N=30} \\
@@ -384,7 +384,7 @@ def get_scan(self):
 
     return scan_filter
 \end{lstlisting} \end{minipage} 
-    We recieve the LiDAR data when calling \texttt{rospy.wait\_for\_message} and then create an empty list \texttt{scan\_filter} from which we would fill in the data that we would need, hence \textbf{filter} out the unecessary data, since we are only interested in distances in a span of \(120\) degrees as mentioned in subsection \ref{subsec: Programming the robot to avoid obstacles}. From there we append the sections we are interested in to the list \texttt{scan\_filter} with Python's \texttt{append} function. When doing so, \texttt{scan\_filter} consists of five elements which are each tuples of distances. 
+    We recieve the LiDAR data when calling \texttt{rospy.wait\_for\_message} and then create an empty list \texttt{scan\_filter} from which we would fill in the data that we would need, hence \textbf{filter} out the unecessary data, since we are only interested in distances in a span of \(120\) degrees as mentioned in subsection \ref{subsec: Programming the robot to avoid obstacles}. From there we append the sections we are interested in to the list \texttt{scan\_filter} with Python's \texttt{append} function. When doing so, \texttt{scan\_filter} consists of four elements which are each tuples of distances. 
     \subsubsection{Tuples in python} When testing the robot we encountered that the LiDAR would return a lot of zeros which would represent an obstacle too close to the robot such that the robot would and should react to. This is because the LiDAR sensor has a max range of \(3.5\) m, so if an obstacle was further away than this it would just set the distance data to \(0\) which was a problem. We solved this by converting the zeros to \(3.5\) (max distance) instead, but in Python you can not edit data in tuples, so we had to convert this list of tuples to a list of lists and from there convert the zeros to \(3.5\). We created the following function \texttt{non\_zeros} to do so.
 
 \begin{minipage}{\linewidth} \begin{lstlisting}[style = my_python, caption = \texttt{non\_zeros} function, basicstyle = \footnotesize, label = lst:non_zeros]
@@ -436,7 +436,7 @@ Now, we are going to explain these choices. Note that each item corresponds to e
     In this part we are going to describe the changes we applied to the code setup from part 3 and the results we got. \\
     \subsubsection{Adding a \texttt{factor} to \texttt{SAFE\_STOP\_DISTANCE}}\label{subsec:factor}
     We experienced that when the robot encountered an obstacle on its front it did not manage to avoid it optimally. 
-    We thus added a factor of \(0.08\)cm to the \texttt{SAFE\_STOP\_DISTANCE} constant in this case. By doing this, the robot began avoiding the obstacle earlier, 
+    We thus empirically added a factor of \(0.08\)cm to the \texttt{SAFE\_STOP\_DISTANCE} constant in this case. By doing this, the robot began avoiding the obstacle earlier, 
     and thus it was able to avoid it more optimally. Same goes for many of our other cases.\\
     
     \subsubsection{Making sure to avoid the obstacle before next control loop iteration}\label{subsec:avoid_obstacle}
@@ -479,7 +479,7 @@ front_right_lidar_samples = scan.ranges[338:346]
 
 scan_filter.append(front_left_lidar_samples)
 scan_filter.append(front_right_lidar_samples) \end{lstlisting} \end{minipage} 
-    In addition to this, we added an extra case (named case 3) for checking these blind angles. This was implemented in the exact same way as desribed in subsection \ref{subsec:avoid_obstacle} using another \texttt{elif}-statement. 
+    In addition to this, we added an extra case (named case 3) for checking these blind angles. This was implemented in the exact same way as desribed in subsection \ref{subsec:avoid_obstacle} using another \texttt{elif}-statement. Note that the \texttt{scan\_filter} list now consists of \(6\) tuples. 
     The robot should detect these blind angles quite early, so we added a factor of \(0.15\)cm to the \texttt{SAFE\_STOP\_DISTANCE} constant. \\
 
     \subsubsection{Optimizing linear speed}\label{subsec:optimize_linear_speed}
@@ -566,7 +566,7 @@ def emergency_check(l):
     elif(front_right_distance < SAFE_STOP_DISTANCE):
         small_turns('left', MAX_ANGLE, 0.0) \end{lstlisting} \end{minipage} 
 
-    The function takes an input \texttt{l} which is a list of tuples containing the latest readings. 
+    The function takes an input \texttt{l} which is, as mentioned, a list of tuples containing the latest readings. 
     We called this function for each loop iteration, both in the overall control loop as well as in the loops described in subsection \ref{subsec:avoid_obstacle} and depicted in listing \ref{lst:while_loops}.
     By doing this we constantly checked if the robot was so close to an obstacle that it could not avoid it by turning conventionally. 
     Instead, the robot should turn \emph{in place} with maximal angular speed. Note that we initially wanted the turtlebot to drive backwards and then turn, but while testing the implementation from listing \ref{lst:initial_case_1} we noticed that backing out was not an option unless we furthered our vision span to also look behind, since we could risk backing into an obstacle as illustrated below.
