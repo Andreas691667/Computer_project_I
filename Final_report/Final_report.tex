@@ -748,8 +748,23 @@ Again, we have divided it into the four main parts of the project described earl
         This was not the goal of our implementation and so we chose to have the emergency-function. \\
 
         \item \textbf{Final tests of the robot} \\
-        We tested the robot with a few different scenarios.
+        We tested the robot with a varíous of different scenarios. Illustrated below are some of the many test-courses on which we tested the final implementation on.
     \end{enumerate}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=.7\linewidth]{IMG_3307.jpg}
+        \caption{Navigating through tight spaces}
+        \label{subfig:tight_spaces}
+    \end{figure}
+    We encountered that the turtlebot would mostly navigate easily through tight spaces. There were some few occasions where the wheels would graze an obstacle. Since there are obstacles in almost every direction these were the type of test-courses we found to be the most difficult with the most obstacle collisions. We also made the most break throughs in optimizing the navigation when testing through tight spaces. It was here we implemented the \texttt{emergency\_check} function which reduced the amounts of collisions dramatically.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=.7\linewidth]{IMG_3308.jpg}
+        \caption{Placing obstacles in random places}
+        \label{subfig:random_placed_obstacles}
+    \end{figure}
+    The final implementation navigated through this type of test-course smoothly and without any collisions. It was through these types of test-courses where the optimization of keeping the linear speed as high as possible with regressional input to the \texttt{small\_turns} function was implemented.
+   
 
     \section{Conclusion}
     The see-think-act cycle is a powerful tool in understanding basic robot behaviour. 
