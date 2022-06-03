@@ -130,7 +130,7 @@ For coding we have used the language C++ for programming the Arduino on the Ardu
 For programming the Turtlebot we have been using Python and the command prompt with the built in nano-editor. 
 
 \section{Design and implementation}
-    In this section we are going to describe our thoughts on design and implementation of the project.
+    In this section we will describe our thoughts on design and implementation of the project.
     We are only going to desribe the underlying abstract thoughts. The concrete implementation will be elaborated in section \ref{sec:experiment_setup_and_result}.
 
     \subsection{Part 1: Arduino Programming}
@@ -146,7 +146,7 @@ For programming the Turtlebot we have been using Python and the command prompt w
     This data was computed - that is the \textbf{think} step of the cycle. Then the \textbf{act} step was performed, which
     in this case was the LED blinking. \\
     Afterwards we extended the circuit to include three range finder sensors plus the RGB light sensor and four LED's. 
-    This thus acted as a simulation of the real Turtlebot, which we should work with in part 3. 
+    Thus, this acted as a simulation of the real Turtlebot, which we should work with in part 3. 
 
     \subsection{Part 2: ROS Programming}
     In this part of the course we worked on a Virtual Machine (VM) on which we had installed Ubuntu. 
@@ -178,7 +178,7 @@ For programming the Turtlebot we have been using Python and the command prompt w
     We thus only considered four distinct cases for our intitial setup. However, we later found that this was not sufficient. Our solution to this will be elaborated in the next section. 
 
     \subsection{Part 4: Optimizing the robot's performance }
-    In the last part of the course we should test the robot on an arbitrary course of obstacles.
+    In the last part of the course we were meant to test the robot on an arbitrary course of obstacles.
     We did, however, test the robot continuosly in part 3, so we focused this part on optimizing the existing code. 
     The goal for the optimization part was to maintain the linear speed as high as possible and the number of collisions as low as possible.
     This will be elaborated in subsection \ref{subsec:partIV_4}.   
@@ -189,7 +189,7 @@ In this section we will describe the concrete implementation of the project and 
 include several code snippets and figures. 
 
     \subsection{Part 1: Arduino Programming}
-    We connected the Range sensor to the Arduino and intialized it as follows:
+    We connected the Range finder sensor to the Arduino and intialized it as shown in the code snippet below:
     \begin{minipage}{\linewidth} \begin{lstlisting}[style = my_python, caption = Initialization of variables, language = C]        
 int SENSOR = A0; //range sensor connected to port A0
 double range_input = 0; //variable for storing input values
@@ -262,7 +262,7 @@ We will elaborate this further in subsection \ref{subsec:arduino_as_blocks}.
     In practice we only needed to run three commands after compiling the program using \texttt{catkin\_make} when the robot should be tested.
     Firstly we should run \texttt{source ~/.bashrc} in each new terminal to make sure the environment is set up correctly.
     Afterwards we needed to run \texttt{roslaunch turtlebot\_bringup\ turtlebot\_bringup.launch} to start the ROS-master (\texttt{roscore}). 
-    Then, in a different terminal we should run the code (node), we had written ourselves by writing the command: \texttt{roslaunch turtlebot3\_example\ turtlebot3\_obstacle.launch}.
+    Then, in a different terminal we should execute the code (node), we had written ourselves by writing the command: \texttt{roslaunch turtlebot3\_example\ turtlebot3\_obstacle.launch}.
     
  
     \subsection{Part 3: Programming the robot to avoid obstacles}
@@ -302,14 +302,14 @@ if (right_distance < SAFE_STOP_DISTANCE and left_distance < SAFE_STOP_DISTANCE a
         \item In this line we \emph{publish} the newly updated \texttt{twist}-command to the turtlebot. When we do this, the robot will act accordingly. 
         \item We write to the log what we are doing. 
         \item We wanted the robot to turn backwards for some time, in this case 1 second. 
-        \item Now the robot should only turn and we thus set the linear speed to zero.
+        \item Now the robot should only turn and we therefore set the linear speed to zero.
         \item The robot should turn in place, so we set the angular speed to \(\pi /2\).
         \item Publishing the new twist command.
         \item Writing to the log. 
         \item Wait for 1 second. 
         \item Now we set the beforementioned variable \texttt{turtlebot\_moving} to \texttt{false}. It will \emph{only} be set to \texttt{true} again when the robot should drive forward (shown in listing \ref{lst:drive_forward}). 
     \end{enumerate}
-    These explanations also hold for all other cases which will thus only be described shortly below. 
+    These explanations also hold for all other cases which for this reason will only be described briefly below. 
 
     For our remaining cases we used a function called \texttt{small\_turns} as shown in listing \ref{lst:small_turns} to control the robot. 
     The function's functionality corresponds exactly to the steps desribed above - it has only been generalized. 
@@ -438,7 +438,7 @@ Now, we are going to explain these choices. Note that each item corresponds to e
     In this section we are going to describe the changes we applied to the code setup from part 3 and the results we got. \\
     \subsubsection{Adding a \texttt{factor} to \texttt{SAFE\_STOP\_DISTANCE}}\label{subsec:factor}
     We experienced that when the robot encountered an obstacle on its front it did not manage to avoid it optimally. 
-    We thus empirically added a factor of \(0.08\)cm to the \texttt{SAFE\_STOP\_DISTANCE} constant in this case. By doing this, the robot began avoiding the obstacle earlier, 
+    To solve this problem we added a factor of \(0.08\)cm to the \texttt{SAFE\_STOP\_DISTANCE} constant in this case. By doing this, the robot began avoiding the obstacle earlier, 
     and thus it was able to avoid it more optimally. Same goes for many of our other cases.\\
     
     \subsubsection{Making sure to avoid the obstacle before next control loop iteration}\label{subsec:avoid_obstacle}
@@ -474,7 +474,7 @@ if (front_distance < SAFE_STOP_DISTANCE + 0.08):
     \caption{Blind angles}
     \label{fig:blind_angle}
     \end{figure}
-    We thus included the following code in our function \texttt{get\_scan()}:
+    Thus, we implemented the following code in our function \texttt{get\_scan()}, which took these new angles into account:
     \begin{minipage}{\linewidth} \begin{lstlisting}[style = my_python, caption = Blind angles in \texttt{get\_scan()}, basicstyle = \footnotesize]
 front_left_lidar_samples = scan.ranges[14:22]
 front_right_lidar_samples = scan.ranges[338:346]
@@ -599,7 +599,7 @@ Again, we have divided it into the four main parts of the project described earl
         \item \textbf{Preparation to main project} \\
         Working with the Arduino and the appurtenant sensors helped us understand the importance of the see-think-act cycle as shown in figure \ref{fig:See-think-act}.
         Our code structure turned out to be predominantly alike in the way we worked with the \texttt{if/elif}-statements. 
-        This was of course only with respect to some very simple cases, but the underlying though processes were not very different. 
+        This was of course only with respect to some very simple cases, but the underlying thought processes were not very different. 
         The body of the \texttt{if/elif}-statements was also way more complex in our robot's code. 
         Moreover, we found that working with the sensors was not that easy and that it demanded a lot of effort and reading to actually understand the input from the sensors.
         This was a valuable lesson that prompted us to work more structured in the main project.  \\
@@ -613,7 +613,7 @@ Again, we have divided it into the four main parts of the project described earl
         We found that in order to get the robot to work we had to follow this structure that ROS provides. 
         Deviation from this would quickly cause the robot to stop working and a bit of troubleshooting would be needed. 
         On a more abstract level we learned that robot programming is extremely complex and requires a lot of prior knowledge, which we do not have the foundation for yet. 
-        Given the amount of time of time allocated to this project, we decided to focus on the more important aspects, which would be the programming and optimizations of the robot. 
+        Given the amount of time allocated to this project, we decided to focus on the more important aspects, which would be the programming and optimizations of the robot. 
         We did manage to learn many essential aspects of ROS and used these skills in our work with the Turtlebot.\\
     \end{enumerate}
 
@@ -627,7 +627,7 @@ Again, we have divided it into the four main parts of the project described earl
         turned left when it should turn right.
         We solved the problem by manually printing out different test angles and then physically measure that angle also. 
         For instance printing \texttt{scan\_ranges[45]} gave some change in output distance for some specific angle, which we measured. 
-        In turned out that we had used it incorretly and the indexing was actually opposite of what we had thought. 
+        It turned out that we had used it incorretly and the indexing was actually opposite of what we had thought. 
         The indexing was counterclockwise, such that angle \(0-90\) degrees was the first 90 degrees to the left.  \\
         
         \item \textbf{Using \texttt{mean} instead of \texttt{min} and resolving problems with faulty readings} \\
@@ -686,7 +686,7 @@ Again, we have divided it into the four main parts of the project described earl
         But why did we choose this instead of a linear regression? Or exponential regression? Linear regression would indisputable result in a higher average linear speed (see figure \ref{fig:regression_types}).
         We found that if the robot was driving too fast while avoiding an obstacle it would eventually drive into the obstacle.
         We thus wanted a regression type, which would slow down the robot quite early, avoid the obstacle and then quickly accelerate again.
-        It should, however, not slow down the robot too much (as the exponential fit does) since we still wanted a high average linear speed. Thus we chose power regression for linear velocity (the green curve in figure \ref{subfig:regression_types_linear}).  
+        It should, however, not slow down the robot too much (as the exponential fit does) since we still wanted a high average linear speed. For these reasons we chose power regression for linear velocity (the green curve in figure \ref{subfig:regression_types_linear}).  
         \begin{figure}[H]
             \centering
             \begin{subfigure}{.5\textwidth}
@@ -725,7 +725,7 @@ Again, we have divided it into the four main parts of the project described earl
             \label{tab:slope_calculations}
         \end{table}
         In this way the robot would only make a sharp turn when the obstacle was critically close to an obstacle. The acceleration would be the greatest at the critical distance, which we wanted. 
-        Thus we chose power regression for the angular velocity as well. \\
+        Consequently we chose power regression for the angular velocity as well. \\
 
         \item \textbf{Obstacle avoidance for some special cases} \\
         We have already argued that the robot would avoid an obstacle even if it was just facing a corner of it, though we emphasized the fact that it would be on \emph{either} of the sides. 
@@ -812,7 +812,7 @@ Again, we have divided it into the four main parts of the project described earl
         \item Part V-D (subsection 1, 2, 3, 4)
     \end{itemize}    
     
-    We did also lose a classmate in the middle of the project, which meant we were only 2 left.
+    We did also lose a member of our group in the middle of the project, which meant we were only 2 left.
     For this reason it did not make much sense to divide the different parts of the project between us. 
     As a result we have both been focusing on getting a deep understanding of all aspects of the project and associated learning outcomes of the course. 
 
